@@ -8,10 +8,17 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "client/dist"),
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 3000,
+  },
   module: {
     rules: [
       {
-        test: /\.?js$/,
+        test: /\.?(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
