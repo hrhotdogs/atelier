@@ -1,3 +1,3 @@
 - $ npm install at root directory
-- $ npm run build
+- $ npm run dev
 - copy paste http://localhost:3000 in your browser
