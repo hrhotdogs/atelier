@@ -1,26 +1,3 @@
-hello
-
-
-Ryan's change
-Sean's change
-Joe was here
-
-
-
-
-
-
-
-
-
-GIT GOD
-
-
-
-
-
-
-
-Roshan's 2nd change
-Roshan's change
->>>>>>> main
+- $ npm install at root directory
+- $ npm run build
+- copy paste http://localhost:3000 in your browser
