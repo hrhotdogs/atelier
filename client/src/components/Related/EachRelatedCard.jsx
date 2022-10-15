@@ -11,11 +11,9 @@ const EachRelatedCard = (props) => {
     props.setCurrentProductID(props.relatedProduct.id);
   }
 
-  console.log(props.relatedProduct);
-
   return (
     <div>
-      <article class="card" onClick={(event) => { handleRelatedClick() }}>
+      <article onClick={(event) => { handleRelatedClick() }}>
         name: {props.relatedProduct.name}, id:{props.relatedProduct.id}
       </article>
     </div>
