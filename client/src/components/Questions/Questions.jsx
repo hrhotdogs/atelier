@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { TOKEN } from '../../../../config.js';
 import CurrentInfo from '../Context.jsx';
+import QuestionsList from './QuestionsList.jsx'
 
 const {useEffect, useState} = React;
 
@@ -21,12 +22,14 @@ const Questions = () => {
 
 
   return (
-    <div>Questions & Answers
-      {/* <QuestionsList /> */}
-      {questions.map((q) => <div>{q.question_body}</div>)}
-      {/* {console.log(questions[0].question_body)} */}
+    <div>Questions & Answers <br/>
+      SearchBar{/* <SearchBar/> */}
+      <QuestionsList questions={questions}/>
+      {/* <MoreAnsweredQuestions/> */}
+      {/* <AddQuestions/> */}
     </div>
   )
 }
+
 
 export default Questions;
