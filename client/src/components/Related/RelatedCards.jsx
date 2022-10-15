@@ -17,8 +17,9 @@ const RelatedCards = ( props ) => {
 
   const [relatedProducts, setRelatedProducts] = React.useState([]);
 
+
   React.useEffect(()=> {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?product_id=${props.setCurrentProductID}`, { headers: { "Authorization": `${TOKEN}` } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${props.currentProductID}/related`, { headers: { "Authorization": `${TOKEN}` } })
     .then( (res) => {
       setRelatedProducts(res.data);
     })
