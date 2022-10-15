@@ -15,10 +15,26 @@ const RelatedCards = ( props ) => {
   //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
   //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
+  const [relatedProducts, setRelatedProducts] = React.useState([]);
+
+  React.useEffect(()=> {
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?product_id=${props.setCurrentProductID}`, { headers: { "Authorization": `${TOKEN}` } })
+    .then( (res) => {
+      setRelatedProducts(res.data);
+    })
+    .catch( (err) => {
+      console.log(err);
+    });
+  }, []);
+
+
+    // props for eachRelatedCard = setCurrentProductID={props.setCurrentProductID} relatedProduct={eachRelatedProduct}
   return (
-    <div>RelatedCards
-      {props.relatedProductsList.map((eachRelatedProduct) =>
-        <EachRelatedCard setCurrentProductID={props.setCurrentProductID} relatedProduct={eachRelatedProduct} />
+    <div>
+      <p></p>
+      Click Any name/id below to change the Global currentProductID context/useState
+      {relatedProducts.map((eachRelatedProduct) =>
+        <EachRelatedCard setCurrentProductID={props.setCurrentProductID} relatedProduct={eachRelatedProduct}/>
       )}
     </div>
   );

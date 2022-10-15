@@ -11,9 +11,13 @@ const OutfitCards = (props) => {
   //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
   //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
+  //somehow access Window.localStorage to get all outfits, put them in...
+  let outfitsList = [1];
+
   return (
-    <div>Outfit CardS
-      {props.outfitsList.map((eachOutfit) =>
+    <div>
+      <p></p>
+      {outfitsList.map((eachOutfit) =>
         <EachOutfitCard outfit={eachOutfit} />
       )}
     </div>

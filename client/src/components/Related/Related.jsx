@@ -12,15 +12,10 @@ const Related = () => {
   let [currentProductID, setCurrentProductID] = currentState.currentProductID;
   let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
-  //get request for all related, put them in...
-  let relatedProductsList = [];
-  //somehow access Window.localStorage to get all outfits, put them in...
-  let outfitsList = [];
-
   return (
-    <div className="related">Related...{currentProductID}
-      <RelatedCards relatedProductsList={relatedProductsList} setCurrentProductID={setCurrentProductID} />
-      <OutfitCards outfitsList={outfitsList} currentStyleID={currentStyleID} />
+    <div className="related">Related Products Section <p></p> Current Product ID (Global State) : {currentProductID}
+      <RelatedCards currentProductID={currentProductID} setCurrentProductID={setCurrentProductID} />
+      <OutfitCards currentStyleID={currentStyleID} />
     </div>
   );
 };
