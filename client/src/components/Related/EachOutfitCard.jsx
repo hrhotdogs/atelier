@@ -7,7 +7,7 @@ import {TOKEN} from '../../../../config.js';
 const EachOutfitCard = (props) => {
 
   return (
-    <div>Each Outfit Card
+    <div>*place holder for EachOutfitCard*
 
     </div>
   );
