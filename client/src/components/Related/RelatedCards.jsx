@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import CurrentInfo from '../Context.jsx';
+import {ProductIDContext} from '../Context.jsx';
 import EachRelatedCard from './EachRelatedCard.jsx';
 import {TOKEN} from '../../../../config.js';
 
@@ -10,7 +10,7 @@ const RelatedCards = ( props ) => {
   // props.setCurrentProductID = a function with a number input to change global current product_ID
       // **** CALLING THIS F(x) RE-RENDERS APP.JSX
 
-  const currentState = React.useContext(CurrentInfo);
+  const { globalProductID, setGlobalProductID } = React.useContext(ProductIDContext);
 
   //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
   //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
@@ -19,23 +19,23 @@ const RelatedCards = ( props ) => {
 
 
   React.useEffect(()=> {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${props.currentProductID}/related`, { headers: { "Authorization": `${TOKEN}` } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${globalProductID}/related`, { headers: { "Authorization": `${TOKEN}` } })
     .then( (res) => {
       setRelatedProducts(res.data);
     })
     .catch( (err) => {
       console.log(err);
     });
-  }, []);
+  }, [globalProductID]);
 
 
     // props for eachRelatedCard = setCurrentProductID={props.setCurrentProductID} relatedProduct={eachRelatedProduct}
   return (
     <div>
       <p></p>
-      Click Any name/id below to change the Global currentProductID context/useState
+      Click Any name/id below to change the ProductIDContext
       {relatedProducts.map((eachRelatedProduct) =>
-        <EachRelatedCard setCurrentProductID={props.setCurrentProductID} relatedProduct={eachRelatedProduct}/>
+        <EachRelatedCard relatedProduct={eachRelatedProduct}/>
       )}
     </div>
   );

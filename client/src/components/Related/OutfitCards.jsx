@@ -1,12 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
-import CurrentInfo from '../Context.jsx';
+import {ProductIDContext} from '../Context.jsx';
 import EachOutfitCard from './EachOutfitCard.jsx';
 import {TOKEN} from '../../../../config.js';
 
 
 const OutfitCards = (props) => {
-  const currentState = React.useContext(CurrentInfo);
+  const { productID, setProductID } = React.useContext(ProductIDContext);
 
   //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
   //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;

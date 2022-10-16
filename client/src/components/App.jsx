@@ -1,30 +1,32 @@
 import React from 'react';
 import Axios from 'axios';
 import {TOKEN} from '../../../config.js'
+import {ProductIDContext} from './Context.jsx';
+import ProductIDProvider from './Context.jsx';
 import Overview from './Overview/Overview.jsx';
 import Related from './Related/Related.jsx';
 import Questions from './Questions/Questions.jsx';
 import Ratings from './Ratings/Ratings.jsx';
-import CurrentInfo from './Context.jsx'
-const {useState, useEffect} = React;
+//const {useState, useEffect} = React;
 
 const App = () => {
 
   // Global state setup
-  let [currentProductID, setCurrentProductID] = useState(40348);
-  let [currentStyleID, setCurrentStyleID] = useState(240525);
-  let currentState = {};
-  currentState.currentProductID = [currentProductID, setCurrentProductID];
-  currentState.currentStyleID = [currentStyleID, setCurrentStyleID];
+  // const [currentProductID, setCurrentProductID] = React.useState(40348);
+  // const [currentStyleID, setCurrentStyleID] = React.useState(240525);
+  // const currentState = {
+  //   currentProductID: [currentProductID, setCurrentProductID],
+  //   currentStyleID: [currentStyleID, setCurrentStyleID]
+  // };
 
   // Render components with context (global state)
   return (
-    <CurrentInfo.Provider value={currentState}>
+    <ProductIDProvider>
       <Overview />
       <Related />
       <Questions />
       <Ratings />
-    </CurrentInfo.Provider>
+    </ProductIDProvider>
   )
 }
 
