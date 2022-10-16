@@ -11,8 +11,21 @@ import {TOKEN} from '../../../../config.js';
 
 const Related = () => {
 
+  const [relatedProducts, setRelatedProducts] = React.useState([]);
+
+  React.useEffect(()=> {
+  Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/41244/related`, { headers: { "Authorization": `${TOKEN}` } })
+  .then( (res) => {
+    setRelatedProducts(res.data);
+  })
+  .catch( (err) => {
+    console.log(err);
+  });
+}, []);
+
   return (
-    <div className="related">Related Products Section <p></p>
+    <div className="related">Related Products Section<p></p>
+    {relatedProducts.map((each) => <div>{each}</div>)}
       <RelatedCards />
       <OutfitCards />
     </div>

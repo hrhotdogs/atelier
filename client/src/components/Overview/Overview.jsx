@@ -7,19 +7,20 @@ const {useState, useEffect} = React;
 
 
 const Overview = () => {
-  const {globalProductID, globalSetProductID} = React.useContext(ProductIDContext);
-
+  const { globalProductID, setGlobalProductID } = React.useContext(ProductIDContext);
   // let [currentProductID, setCurrentProductID] = currentState.currentProductID;
-  // let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
+  let [currentStyle, setCurrentStyle] = React.useState({photos:[{thumbnail_url: ""}]});
 
-  // useEffect(() => {
-  //   Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/styles`, {headers: {Authorization: TOKEN}})
-  //     .then(response => {setCurrentStyleID(response.data.results[0].style_id)})
-  //     .catch(err => console.log(err));
-  // }, [currentProductID])
+  useEffect(() => {
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${globalProductID}/styles`, {headers: {Authorization: TOKEN}})
+      .then(response => {setCurrentStyle(response.data.results[0])})
+      .catch(err => console.log(err));
+  }, [])
 
   return (
-    <div>Overview...</div>
+    <div>Overview...{console.log(currentStyle.photos[0])}
+    <img src={currentStyle.photos[0].thumbnail_url} />
+    </div>
   )
 }
 
