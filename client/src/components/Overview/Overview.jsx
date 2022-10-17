@@ -32,6 +32,7 @@ const Overview = () => {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/styles`, {headers: {Authorization: TOKEN}})
       .then(response => {
         setCurrentStyleID(response.data.results[0].style_id);
+        console.log(response.data.results[0]);
         setCurrentStyle(response.data.results[0]);
         setStyles(response.data.results.slice());
       })
@@ -44,7 +45,7 @@ const Overview = () => {
 
   // Render
   return (
-    <div class="">
+    <div>
       Overview
       <ImageGallery currentStyle={currentStyle} />
       <ProductInfoSidebar />
