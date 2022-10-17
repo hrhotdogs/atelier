@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import {TOKEN} from '../../../../config.js';
+import { TOKEN } from '../../../../config.js';
 import CurrentInfo from '../Context.jsx';
 
 const {useState, useEffect} = React;
