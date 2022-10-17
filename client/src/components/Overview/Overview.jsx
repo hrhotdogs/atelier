@@ -19,28 +19,31 @@ const Overview = () => {
   let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
   // Create local state and global vars
+  let [productInfo, setProductInfo] = useState({});
   let [styles, setStyles] = useState([]);
   let [currentStyle, setCurrentStyle] = useState('');
+  let [ratings, setRatings] = useState({});
 
-  // Get info from API when currentProductID updates
+  // Get info from API when current product ID is updated
   useEffect(() => {
     // Get product info
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}`, {headers: {Authorization: TOKEN}})
-      .then(() => {})
+      .then((response) => {setProductInfo(response.data)})
+      .catch((err) => {console.log(err)});
 
     // Get styles info
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/styles`, {headers: {Authorization: TOKEN}})
       .then(response => {
         setCurrentStyleID(response.data.results[0].style_id);
-        console.log(response.data.results[0]);
         setCurrentStyle(response.data.results[0]);
         setStyles(response.data.results.slice());
       })
       .catch(err => console.log(err));
 
     // Get review metadata
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta`, {headers: {Authorization: TOKEN}, product_id: currentProductID})
-      .then(() => {})
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${currentProductID}`, {headers: {Authorization: TOKEN}})
+      .then((response) => {setRatings(response.data.ratings)})
+      .catch((err) => console.log(err));
   }, [currentProductID]);
 
   // Render
