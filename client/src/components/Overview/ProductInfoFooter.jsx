@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ProductInfo = () => {
+const ProductInfoFooter = () => {
   return (
     <div>Product info</div>
   )
 }
 
-export default ProductInfo;
+export default ProductInfoFooter;
