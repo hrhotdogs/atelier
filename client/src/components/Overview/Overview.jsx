@@ -51,10 +51,10 @@ const Overview = () => {
     <div>
       Overview
       <ImageGallery currentStyle={currentStyle} />
-      <ProductInfoSidebar />
-      <StyleSelector styles={styles} />
-      <AddToCart />
-      <ProductInfoFooter />
+      <ProductInfoSidebar ratings={ratings} productInfo={productInfo} currentStyle={currentStyle} />
+      <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} />
+      <AddToCart currentStyle={currentStyle} />
+      <ProductInfoFooter productInfo={productInfo} />
     </div>
 
   )
