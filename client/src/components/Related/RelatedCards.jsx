@@ -12,8 +12,8 @@ const RelatedCards = ( props ) => {
 
   const currentState = React.useContext(CurrentInfo);
 
-  //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
-  //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
+  let [currentProductID, setCurrentProductID] = currentState.currentProductID;
+  let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
   const [relatedProducts, setRelatedProducts] = React.useState([]);
 
@@ -25,7 +25,7 @@ const RelatedCards = ( props ) => {
     .catch( (err) => {
       console.log(err);
     });
-  }, []);
+  }, [currentState.currentProductID[0]]);
 
 
     // props for eachRelatedCard = setCurrentProductID={props.setCurrentProductID} relatedProduct={eachRelatedProduct}
