@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import {TOKEN} from '../../../../config.js';
+import { TOKEN } from '../../../../config.js';
 import CurrentInfo from '../Context.jsx';
 import ImageGallery from './ImageGallery.jsx'
 import ProductInfoSidebar from './ProductInfoSidebar.jsx';
