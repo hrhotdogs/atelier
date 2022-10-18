@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import verifiedLogo from '../../../../images/checkmark.png';
 import { format, parseISO } from 'date-fns';
 
 const ReviewTile = ({ review }) => {
+  const [showResponse, setShowResponse] = useState(false);
+
+  const handleClick = () => {
+    setShowResponse(!showResponse);
+  };
+
   return (
-    <div className="review">
+    <div className='review'>
       <div>Star Rating: {review.rating}</div>
 
       <div>
@@ -18,7 +24,20 @@ const ReviewTile = ({ review }) => {
         <b>{review.summary}</b>
       </h3>
 
-      <p>{review.body}</p>
+      {!showResponse ? (
+        <p>{review.body}</p>
+      ) : (
+        <>
+          <p>{review.body}</p>
+          <p>{review.response}</p>
+        </>
+      )}
+
+      {review.response !== null ? (
+        <a onClick={handleClick} className='seller-response'>
+          {!showResponse ? 'See response from seller' : 'Hide response'}
+        </a>
+      ) : null}
     </div>
   );
 };

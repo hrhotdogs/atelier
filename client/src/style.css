@@ -7,6 +7,15 @@ body {
   color: brown;
 }
 
+
+
+
+/*============ Ratings and Reviews ============= */
 .review {
 border: 2px solid black;
 }
+.seller-response {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/*============ Ratings and Reviews ============= */
