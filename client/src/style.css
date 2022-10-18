@@ -26,30 +26,160 @@ border: 2px solid black;
 /*============ Ratings and Reviews ============= */
 
 /* +++++++++++ Related Section Styles Below +++++++++++ */
-.related {
-  text-align: end;
-  color: brown;
+:root {
+  --red: #ef233c;
+  --darkred: #c00424;
+  --platinum: #e5e5e5;
+  --black: #2b2d42;
+  --white: #fff;
+  --thumb: #edf2f4;
 }
 
-.scrolling-wrapper-flexbox {
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+} */
+
+body {
+  font: 14px / 24px "Rubik", sans-serif;
+  color: white;
+  background: var(--platinum);
+  margin: 50px 0;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 10px 25px;
+  margin: 0 auto;
+  background:rgba(0 , 140 , 186, .5)
+}
+
+h2 {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-bottom: 5em;
+}
+
+.cards {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  padding: 20px 25px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  padding: 0px 20px;
+  background: rgb(4, 3, 99);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  scroll-snap-align: start;
+  transition: all .5s;
 }
 
-/* On mouse-over, add a deeper shadow */
+.card:not(:last-child) {
+  margin-right: 10px;
+}
+
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  color: rgb(0, 21, 156);
+  background: aqua;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
 }
 
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
+.card .card-title {
+  font-size: 15px;
+}
+
+.card .card-content {
+  margin: 10px 0px;
+  max-width: 85%;
+}
+
+.card .card-link-wrapper {
+  margin-top: auto;
+}
+
+/* .card .card-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: aqua;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 10s;
+} */
+
+/* .card:hover .card-link {
+  background: aqua;
+} */
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: var(--thumb);
+}
+
+@media (min-width: 500px) {
+  .card {
+    flex-basis: calc(50% - 10px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 700px) {
+  .card {
+    flex-basis: calc(calc(100% / 3) - 20px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .card {
+    flex-basis: calc(25% - 30px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 1;
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
 }
 /* +++++++++++ Related Section Styles Above +++++++++++ */
