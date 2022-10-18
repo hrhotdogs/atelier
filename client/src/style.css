@@ -14,8 +14,21 @@ body {
 .review {
 border: 2px solid black;
 }
+
 .seller-response {
   text-decoration: underline;
   cursor: pointer;
+}
+.review-thumbnail {
+  width:90px;
+  border: solid gainsboro;
+  border-radius: 4px;
+  padding: 5px;
+}
+.review-thumbnail:hover{
+  box-shadow: 0 0 2px 1px rgba(0 , 140 , 186, .5);
+}
+.helpfulness {
+  cursor:pointer;
 }
 /*============ Ratings and Reviews ============= */
