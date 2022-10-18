@@ -18,7 +18,7 @@ const EachRelatedCard = (props) => {
     .catch( (err) => {
       console.log(err);
     });
-  }, [product]);
+  }, [currentProductID]);
 
   const handleRelatedClick = () => {
     setCurrentProductID(product.id);

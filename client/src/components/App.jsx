@@ -16,7 +16,7 @@ const App = () => {
         <Overview />
         <Related />
       </StyleIDProvider>
-      {/* <Questions /> */}
+      <Questions />
       <Ratings />
     </ProductIDProvider>
   );
