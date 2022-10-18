@@ -31,8 +31,8 @@ const RelatedCards = () => {
     <div>
       <p></p>
       Click Any name/id below to change the Global currentProductID context/useState
-      {relatedProducts.map((eachRelatedProduct) =>
-        <EachRelatedCard relatedProduct={eachRelatedProduct}/>
+      {relatedProducts.map((eachRelatedProduct, index) =>
+        <EachRelatedCard relatedProduct={eachRelatedProduct} key={index}/>
       )}
     </div>
   );

@@ -4,7 +4,7 @@ import EachOutfitCard from './EachOutfitCard.jsx';
 import {TOKEN} from '../../../../config.js';
 
 
-const OutfitCards = (props) => {
+const OutfitCards = () => {
 
   //somehow access Window.localStorage to get all outfits, put them in...
   let outfitsList = [1];
