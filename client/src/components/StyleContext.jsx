@@ -2,7 +2,7 @@ import React from 'react';
 
 export const StyleIDContext = React.createContext({
   globalStyleID: 40493,
-  globalSetStyleID: () => {},
+  globalSetStyleID: () => {}
 });
 
 export default function StyleIDProvider({ children }) {
