@@ -18,11 +18,7 @@ const RelatedCards = () => {
   const [relatedProducts, setRelatedProducts] = React.useState([]);
 
   React.useEffect(()=> {
-    console.log("productID", currentProductID);
-  }, [currentProductID]);
-
-  React.useEffect(()=> {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?product_id=${currentProductID}`, { headers: { "Authorization": `${TOKEN}` } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/related`, { headers: { "Authorization": `${TOKEN}` } })
     .then( (res) => {
       setRelatedProducts(res.data);
     })
