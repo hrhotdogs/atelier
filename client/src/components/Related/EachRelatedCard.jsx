@@ -5,11 +5,8 @@ import {TOKEN} from '../../../../config.js';
 
 
 const EachRelatedCard = (props) => {
-  // props.setCurrentProductID = a function with a number input to change global current product_ID
-      // **** CALLING THIS F(x) RE-RENDERS APP.JSX
-  const { globalProductID, setGlobalProductID } = React.useContext(ProductIDContext);
 
-
+  const { productID, setProductID } = React.useContext(ProductIDContext);
 
   const [product, setProduct] = React.useState(props.relatedProduct);
 
@@ -21,10 +18,10 @@ const EachRelatedCard = (props) => {
     .catch( (err) => {
       console.log(err);
     });
-  }, [globalProductID]);
+  }, [productID]);
 
   const handleRelatedClick = () => {
-    setGlobalProductID(product.id);
+    setProductID(product.id);
   }
 
   return (
