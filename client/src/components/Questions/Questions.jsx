@@ -22,14 +22,14 @@ const Questions = () => {
 
 
   return (
-    <div>Questions & Answers <br/>
+    <div>
+      Questions & Answers <br />
       SearchBar{/* <SearchBar/> */}
-      <QuestionsList questions={questions}/>
+      <QuestionsList questions={questions} />
       {/* <MoreAnsweredQuestions/> */}
       {/* <AddQuestions/> */}
     </div>
-  )
-}
-
+  );
+};
 
 export default Questions;
