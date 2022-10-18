@@ -25,9 +25,11 @@ const EachRelatedCard = (props) => {
   }
 
   return (
-    <div class="card" onClick={(event) => { handleRelatedClick() }}>
-      <h4><b>{product.name}</b></h4>
-      <p>id:{product.id}</p>
+    <div>
+      <div className="card" onClick={(event) => { handleRelatedClick() }}>
+        <h4><b>{product.name}</b></h4>
+        <p>id:{product.id}</p>
+      </div>
     </div>
   );
 };
