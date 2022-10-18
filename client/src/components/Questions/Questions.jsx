@@ -5,7 +5,7 @@ import {ProductIDContext} from '../Context.jsx';
 import QuestionsList from './QuestionsList.jsx'
 import SearchBar from './SearchBar.jsx'
 
-const {useEffect, useState, useContext} = React;
+const { useEffect, useState, useContext } = React;
 
 const Questions = () => {
   const {currentProductID, setCurrentProductID} = useContext(ProductIDContext);
