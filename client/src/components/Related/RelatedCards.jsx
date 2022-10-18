@@ -13,19 +13,23 @@ const RelatedCards = () => {
     const { productID, setProductID } = React.useContext(ProductIDContext);
 //********************************************* */
 
-  const { productID, setProductID } = React.useContext(ProductIDContext);
+  const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
 
   const [relatedProducts, setRelatedProducts] = React.useState([]);
 
   React.useEffect(()=> {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?product_id=${productID}`, { headers: { "Authorization": `${TOKEN}` } })
+    console.log("productID", currentProductID);
+  }, [currentProductID]);
+
+  React.useEffect(()=> {
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?product_id=${currentProductID}`, { headers: { "Authorization": `${TOKEN}` } })
     .then( (res) => {
       setRelatedProducts(res.data);
     })
     .catch( (err) => {
       console.log(err);
     });
-  }, [productID]);
+  }, [currentProductID]);
 
   return (
     <div>
