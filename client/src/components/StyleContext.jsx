@@ -1,12 +1,12 @@
 import React from 'react';
 
 const StyleIDContext = React.createContext({
-  globalStyleID: 240525,
+  globalStyleID: 240500,
   globalSetStyleID: () => {}
 });
 
 function StyleIDProvider({ children }) {
-  const [styleID, setStyleID] = React.useState(240525);
+  const [styleID, setStyleID] = React.useState(240500);
 
   var context = {
     currentStyleID: styleID,
