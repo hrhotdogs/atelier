@@ -13,26 +13,26 @@ const RelatedCards = () => {
     const { productID, setProductID } = React.useContext(ProductIDContext);
 //********************************************* */
 
-  const { productID, setProductID } = React.useContext(ProductIDContext);
+  const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
 
   const [relatedProducts, setRelatedProducts] = React.useState([]);
 
   React.useEffect(()=> {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?product_id=${productID}`, { headers: { "Authorization": `${TOKEN}` } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/related`, { headers: { "Authorization": `${TOKEN}` } })
     .then( (res) => {
       setRelatedProducts(res.data);
     })
     .catch( (err) => {
       console.log(err);
     });
-  }, [productID]);
+  }, [currentProductID]);
 
   return (
     <div>
       <p></p>
       Click Any name/id below to change the Global currentProductID context/useState
-      {relatedProducts.map((eachRelatedProduct) =>
-        <EachRelatedCard relatedProduct={eachRelatedProduct}/>
+      {relatedProducts.map((eachRelatedProduct, index) =>
+        <EachRelatedCard relatedProduct={eachRelatedProduct} key={index}/>
       )}
     </div>
   );

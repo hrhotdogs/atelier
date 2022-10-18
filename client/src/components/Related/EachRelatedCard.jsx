@@ -6,7 +6,7 @@ import {TOKEN} from '../../../../config.js';
 
 const EachRelatedCard = (props) => {
 
-  const { productID, setProductID } = React.useContext(ProductIDContext);
+  const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
 
   const [product, setProduct] = React.useState(props.relatedProduct);
 
@@ -18,10 +18,10 @@ const EachRelatedCard = (props) => {
     .catch( (err) => {
       console.log(err);
     });
-  }, [productID]);
+  }, [currentProductID]);
 
   const handleRelatedClick = () => {
-    setProductID(product.id);
+    setCurrentProductID(product.id);
   }
 
   return (

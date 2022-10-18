@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductIDContext = React.createContext({
   globalProductID: 40493,
-  globalSetProductID: () => {},
+  globalSetProductID: () => {}
 });
 
 function ProductIDProvider({ children }) {
@@ -13,11 +13,8 @@ function ProductIDProvider({ children }) {
     setCurrentProductID: setProductID,
   };
 
-  return (
-    <ProductIDContext.Provider value={context}>
-      {children}
-    </ProductIDContext.Provider>
-  );
+  return <ProductIDContext.Provider value={context}>{children}</ProductIDContext.Provider>
+
 }
 
 export { ProductIDContext, ProductIDProvider };
