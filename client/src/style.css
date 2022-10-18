@@ -10,3 +10,8 @@ body {
 .review {
 border: 2px solid black;
 }
+
+.answerImage {
+  height: 90px;
+  margin: 10px;
+}

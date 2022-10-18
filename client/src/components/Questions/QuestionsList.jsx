@@ -5,7 +5,7 @@ import IndividualQuestion from './IndividualQuestion.jsx';
 const QuestionsList = ({ questions }) => {
   return (
     <div>
-      {questions.map((question) => (
+      {questions.slice(0,2).map((question) => (
         <IndividualQuestion question={question} key={question.question_id}/>
       ))}
     </div>
