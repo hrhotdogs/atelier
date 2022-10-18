@@ -1,16 +1,16 @@
 import React from 'react';
 
-export const StyleIDContext = React.createContext({
-  globalStyleID: 40493,
+const StyleIDContext = React.createContext({
+  globalStyleID: 240525,
   globalSetStyleID: () => {}
 });
 
-export default function StyleIDProvider({ children }) {
+function StyleIDProvider({ children }) {
   const [styleID, setStyleID] = React.useState(240525);
 
   var context = {
-    globalStyleID: styleID,
-    setGlobalStyleID: setStyleID,
+    currentStyleID: styleID,
+    setCurrentStyleID: setStyleID,
   };
 
   return (
@@ -19,3 +19,5 @@ export default function StyleIDProvider({ children }) {
     </StyleIDContext.Provider>
   );
 }
+
+export { StyleIDContext, StyleIDProvider };
