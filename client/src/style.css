@@ -2,6 +2,7 @@ body {
   background-color: aqua;
 }
 
+/* V V V---Related Section Styles Below---V V V */
 .related {
   text-align: end;
   color: brown;
@@ -10,3 +11,26 @@ body {
 .review {
 border: 2px solid black;
 }
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  flex: 0 0 auto;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+/* ^ ^ ^---Related Section Styles Above---^ ^ ^ */
