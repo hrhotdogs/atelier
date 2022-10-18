@@ -2,11 +2,12 @@ import React from 'react';
 import Axios from 'axios';
 import { TOKEN } from '../../../../config.js';
 import {ProductIDContext} from '../Context.jsx';
-import ImageGallery from './ImageGallery.jsx'
+import {StyleIDContext} from '../StyleContext.jsx';
+import ImageGallery from './ImageGallery.jsx';
 import ProductInfoSidebar from './ProductInfoSidebar.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
-import ProductInfoFooter from './ProductInfoFooter.jsx'
+import ProductInfoFooter from './ProductInfoFooter.jsx';
 
 const {useState, useEffect, useContext} = React;
 
@@ -15,8 +16,9 @@ const Overview = () => {
 
   // Get global state
   const { currentProductID, setCurrentProductID } = useContext(ProductIDContext);
-  let [currentProductID, setCurrentProductID] = currentState.currentProductID;
-  let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
+  const { currentStyleID, setCurrentStyleID } = useContext(StyleIDContext);
+  //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
+  //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
   // Create local state and global vars
   let [productInfo, setProductInfo] = useState({});
