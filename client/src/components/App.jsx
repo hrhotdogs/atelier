@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { TOKEN } from '../../../config.js';
 import { ProductIDProvider } from './Context.jsx';
-import StyleIDProvider from './StyleContext.jsx';
+import { StyleIDProvider } from './StyleContext.jsx';
 import Overview from './Overview/Overview.jsx';
 import Related from './Related/Related.jsx';
 import Questions from './Questions/Questions.jsx';
