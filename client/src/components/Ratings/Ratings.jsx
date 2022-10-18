@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { TOKEN } from '../../../../config.js';
-import CurrentInfo from '../Context.jsx';
+import { ProductIDContext } from '../Context.jsx';
 import ReviewTile from './ReviewTile.jsx';
 const Ratings = () => {
-  const currentState = useContext(CurrentInfo);
-  const [currentProductID, setCurrentProductID] = currentState.currentProductID;
+  const { currentProductID, setCurrentProductID } =
+    useContext(ProductIDContext);
+
   const [listOfReviews, setListOfReviews] = useState([]);
 
   useEffect(() => {
