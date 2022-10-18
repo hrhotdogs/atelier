@@ -8,7 +8,7 @@ const QuestionsList = ({ questions }) => {
   return (
     <div>
       {questions.map((question) => (
-        <IndividualQuestion question={question} />
+        <IndividualQuestion question={question} key={question.question_id}/>
       ))}
     </div>
   );
