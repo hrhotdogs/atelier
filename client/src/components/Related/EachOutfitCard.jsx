@@ -4,7 +4,7 @@ import CurrentInfo from '../Context.jsx';
 import {TOKEN} from '../../../../config.js';
 
 
-const EachOutfitCard = (props) => {
+const EachOutfitCard = () => {
 
   return (
     <div>*place holder for EachOutfitCard*
