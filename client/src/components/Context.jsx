@@ -1,12 +1,12 @@
 import React from 'react';
 
 const ProductIDContext = React.createContext({
-  globalProductID: 40344,
+  globalProductID: 40493,
   globalSetProductID: () => {},
 });
 
 function ProductIDProvider({ children }) {
-  const [productID, setProductID] = React.useState(40344);
+  const [productID, setProductID] = React.useState(40493);
 
   var context = {
     currentProductID: productID,
