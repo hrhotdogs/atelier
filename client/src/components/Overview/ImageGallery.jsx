@@ -10,13 +10,16 @@ const ImageGallery = ({currentStyle}) => {
   console.log(mainImageUrl);
 
   useEffect(() => {
-    setMainImageUrl(currentStyle.photos[0].url)
+      setMainImageUrl(currentStyle.photos[0].url);
   }, [currentStyle])
 
   return (
-    <div style={{backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '550px', height: '550px', backgroundPosition: 'center'}}>
-     <ThumbnailCarousel mainImageUrl={mainImageUrl} setMainImageUrl={setMainImageUrl} />
+    <div style={{display: 'flex', flexDirection: 'row'}}>
+      <div style={{overflow: 'hidden', maxHeight: '550px'}}><ThumbnailCarousel currentStyle={currentStyle} setMainImageUrl={setMainImageUrl} /></div>
+      <div style={{backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '550px', height: '550px', backgroundPosition: 'center', marginTop: '10px'}}>
+      </div>
     </div>
+
   )
 }
 
