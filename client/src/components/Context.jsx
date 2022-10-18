@@ -1,13 +1,8 @@
 import React from 'react';
 
 const ProductIDContext = React.createContext({
-<<<<<<< HEAD
-  globalProductID: 40493,
-  globalSetProductID: () => {},
-=======
   globalProductID: 40344,
-  globalSetProductID: () => {}
->>>>>>> main
+  globalSetProductID: () => {},
 });
 
 function ProductIDProvider({ children }) {
