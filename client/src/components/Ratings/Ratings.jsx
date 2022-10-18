@@ -3,6 +3,7 @@ import axios from 'axios';
 import { TOKEN } from '../../../../config.js';
 import { ProductIDContext } from '../Context.jsx';
 import ReviewTile from './ReviewTile.jsx';
+
 const Ratings = () => {
   const { currentProductID, setCurrentProductID } =
     useContext(ProductIDContext);
