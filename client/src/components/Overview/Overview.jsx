@@ -1,20 +1,20 @@
 import React from 'react';
 import Axios from 'axios';
 import { TOKEN } from '../../../../config.js';
-import CurrentInfo from '../Context.jsx';
+import {ProductIDContext} from '../Context.jsx';
 import ImageGallery from './ImageGallery.jsx'
 import ProductInfoSidebar from './ProductInfoSidebar.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import ProductInfoFooter from './ProductInfoFooter.jsx'
 
-const {useState, useEffect} = React;
+const {useState, useEffect, useContext} = React;
 
 
 const Overview = () => {
 
   // Get global state
-  const currentState = React.useContext(CurrentInfo);
+  const { currentProductID, setCurrentProductID } = useContext(ProductIDContext);
   let [currentProductID, setCurrentProductID] = currentState.currentProductID;
   let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
