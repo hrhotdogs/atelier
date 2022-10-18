@@ -6,3 +6,7 @@ body {
   text-align: end;
   color: brown;
 }
+
+.review {
+border: 2px solid black;
+}
