@@ -9,8 +9,7 @@ const IndividualQuestion = ({ question }) => {
       Q: {question.question_body}
 
       {answersArray.slice(0, 2).map((answer) => {
-        console.log(answer)
-        return <IndividualAnswers answer={answer}/>
+        return <IndividualAnswers answer={answer} key={answer.id}/>
       })}
       add answer{/* <AddAnAnswer/> */}
     </div>
