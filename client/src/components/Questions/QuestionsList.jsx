@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { TOKEN } from '../../../../config.js';
-import CurrentInfo from '../Context.jsx';
 import IndividualQuestion from './IndividualQuestion.jsx';
 
 const QuestionsList = ({ questions }) => {
