@@ -3,6 +3,7 @@ import Axios from 'axios';
 import CurrentInfo from '../Context.jsx';
 import EachRelatedCard from './EachRelatedCard.jsx';
 import {TOKEN} from '../../../../config.js';
+import {ProductIDContext} from '../Context.jsx';
 
 
 const RelatedCards = ( props ) => {
@@ -10,12 +11,14 @@ const RelatedCards = ( props ) => {
   // props.setCurrentProductID = a function with a number input to change global current product_ID
       // **** CALLING THIS F(x) RE-RENDERS APP.JSX
 
-  const currentState = React.useContext(CurrentInfo);
+  /* *************************************
+    - access to the global state variable, use productID
+    - set the Global state variable, use setProductID()
+--- Put the line below in consumers with the Context import from line 6 ----
+    const { productID, setProductID } = React.useContext(ProductIDContext);
+//********************************************* */
 
-  let [currentProductID, setCurrentProductID] = currentState.currentProductID;
-  let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
-
-  const [relatedProducts, setRelatedProducts] = React.useState([]);
+  const { productID, setProductID } = React.useContext(ProductIDContext);
 
   React.useEffect(()=> {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/?product_id=${props.setCurrentProductID}`, { headers: { "Authorization": `${TOKEN}` } })
@@ -26,7 +29,6 @@ const RelatedCards = ( props ) => {
       console.log(err);
     });
   }, [currentState.currentProductID[0]]);
-
 
     // props for eachRelatedCard = setCurrentProductID={props.setCurrentProductID} relatedProduct={eachRelatedProduct}
   return (
