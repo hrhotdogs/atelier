@@ -1,8 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
 import {TOKEN} from '../../../config.js'
-import {ProductIDContext} from './Context.jsx';
 import ProductIDProvider from './Context.jsx';
+import StyleIDProvider from './StyleContext.jsx'
 import Overview from './Overview/Overview.jsx';
 import Related from './Related/Related.jsx';
 import Questions from './Questions/Questions.jsx';
@@ -22,8 +22,10 @@ const App = () => {
   // Render components with context (global state)
   return (
     <ProductIDProvider>
-      <Overview />
-      <Related />
+      <StyleIDProvider>
+        <Overview />
+        <Related />
+      </StyleIDProvider>
       <Questions />
       <Ratings />
     </ProductIDProvider>

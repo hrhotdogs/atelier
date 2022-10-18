@@ -1,22 +1,24 @@
 import React from 'react';
 import Axios from 'axios';
 import { TOKEN } from '../../../../config.js';
-import CurrentInfo from '../Context.jsx';
-import ImageGallery from './ImageGallery.jsx'
+import {ProductIDContext} from '../Context.jsx';
+import {StyleIDContext} from '../StyleContext.jsx';
+import ImageGallery from './ImageGallery.jsx';
 import ProductInfoSidebar from './ProductInfoSidebar.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
-import ProductInfoFooter from './ProductInfoFooter.jsx'
+import ProductInfoFooter from './ProductInfoFooter.jsx';
 
-const {useState, useEffect} = React;
+const {useState, useEffect, useContext} = React;
 
 
 const Overview = () => {
 
   // Get global state
-  const currentState = React.useContext(CurrentInfo);
-  let [currentProductID, setCurrentProductID] = currentState.currentProductID;
-  let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
+  const { currentProductID, setCurrentProductID } = useContext(ProductIDContext);
+  const { currentStyleID, setCurrentStyleID } = useContext(StyleIDContext);
+  //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
+  //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
   // Create local state and global vars
   let [productInfo, setProductInfo] = useState({});
@@ -34,7 +36,7 @@ const Overview = () => {
     // Get styles info
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/styles`, {headers: {Authorization: TOKEN}})
       .then(response => {
-        setCurrentStyleID(response.data.results[0].style_id);
+        setCurrentStyleID(parseInt(response.data.results[0].style_id));
         console.log(response.data.results[0]);
         setCurrentStyle(response.data.results[0]);
         setStyles(response.data.results.slice());
