@@ -11,11 +11,11 @@ const IndividualAnswers = ({ answer }) => {
     <div>
       A: {answer.body}
       <br/>
-      {answer.photos.map((photo) => {
-        return <img className="answerImage" src={photo} key={answer.id}/>
+      {answer.photos.map((photo, index) => {
+        return <img className="answerImage" src={photo} key={index}/>
       })}
       <br/>
-      by {answer.answerer_name}, {answerDate} | Helpful? <span onClick={(e) => onClickHandler()}>Yes</span>
+      by {answer.answerer_name}, {answerDate} | Helpful? <span onClick={(e) => onClickHandler()}>Yes({answer.helpfulness})</span>
     </div>
   );
 };
