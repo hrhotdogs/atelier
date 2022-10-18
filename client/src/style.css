@@ -2,14 +2,6 @@ body {
   background-color: aqua;
 }
 
-.related {
-  text-align: end;
-  color: brown;
-}
-
-
-
-
 /*============ Ratings and Reviews ============= */
 .review {
 border: 2px solid black;
@@ -32,3 +24,32 @@ border: 2px solid black;
   cursor:pointer;
 }
 /*============ Ratings and Reviews ============= */
+
+/* +++++++++++ Related Section Styles Below +++++++++++ */
+.related {
+  text-align: end;
+  color: brown;
+}
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  flex: 0 0 auto;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+/* +++++++++++ Related Section Styles Above +++++++++++ */
