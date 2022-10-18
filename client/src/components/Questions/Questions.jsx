@@ -23,7 +23,7 @@ const Questions = () => {
       )
       .then((res) => setQuestions(res.data.results))
       .catch((err) => console.log('ERROR in get request for questions', err));
-  }, []);
+  }, [currentProductID]);
 
   return (
     <div>
