@@ -1,5 +1,21 @@
- import React from 'react';
+import React from 'react';
 
- const CurrentInfo = React.createContext(null);
+export const ProductIDContext = React.createContext({
+  globalProductID: 40493,
+  globalSetProductID: () => {},
+});
 
- export default CurrentInfo;
+export default function ProductIDProvider({ children }) {
+  const [productID, setProductID] = React.useState(40493);
+
+  var context = {
+    globalProductID: productID,
+    setGlobalProductID: setProductID,
+  };
+
+  return (
+    <ProductIDContext.Provider value={context}>
+      {children}
+    </ProductIDContext.Provider>
+  );
+}
