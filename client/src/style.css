@@ -35,41 +35,11 @@ border: 2px solid black;
   --thumb: #edf2f4;
 }
 
-<<<<<<< HEAD
 .review {
 border: 2px solid black;
 }
 
 .scrolling-wrapper-flexbox {
-=======
-/* * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-} */
-
-body {
-  font: 14px / 24px "Rubik", sans-serif;
-  color: white;
-  background: var(--platinum);
-  margin: 50px 0;
-}
-
-.container {
-  max-width: 1400px;
-  padding: 10px 25px;
-  margin: 0 auto;
-  background:rgba(0 , 140 , 186, .5)
-}
-
-h2 {
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  margin-bottom: 5em;
-}
-
-.cards {
->>>>>>> main
   display: flex;
   padding: 20px 25px;
   list-style: none;
