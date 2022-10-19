@@ -28,12 +28,13 @@ const RelatedCards = () => {
   }, [currentProductID]);
 
   return (
-    <div className="scrolling-wrapper-flexbox">
+    <div className="cards">
       <p></p>
-      Click Any name/id below to change the Global currentProductID context/useState
-      {relatedProducts.map((eachRelatedProduct, index) =>
-          <EachRelatedCard relatedProduct={eachRelatedProduct} key={index} />
-      )}
+      <ul className="cards">
+        {relatedProducts.map((eachRelatedProduct, index) =>
+            <EachRelatedCard relatedProduct={eachRelatedProduct} key={index} />
+        )}
+      </ul>
     </div>
   );
 };
