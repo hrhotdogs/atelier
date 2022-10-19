@@ -31,7 +31,7 @@ const ImageGallery = ({currentStyle}) => {
     <div style={{display: 'flex', flexDirection: 'row'}}>
       <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
         <div style={{textAlign: 'center'}}>{showTopArrow()}</div>
-        <div style={{overflow: 'scroll', maxHeight: '475px'}}>
+        <div style={{overflow: 'hidden', maxHeight: '475px'}}>
           <ThumbnailCarousel currentStyle={currentStyle} setMainImageUrl={setMainImageUrl} />
         </div>
         <div style={{textAlign: 'center', marginTop: '10px'}}>{showBottomArrow()}</div>
