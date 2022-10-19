@@ -4,23 +4,37 @@ import { ProductIDContext } from '../Context.jsx';
 import { TOKEN } from '../../../../config.js';
 
 const EachRelatedCard = (props) => {
-  const { currentProductID, setCurrentProductID } =
-    React.useContext(ProductIDContext);
+  const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
 
-  const [product, setProduct] = React.useState(props.relatedProduct);
+  const [product, setProduct] = React.useState({name: "loading", id: "loading"});
 
-  React.useEffect(() => {
+
+  const delayGetProdInfo = (prodID, ms) => new Promise(resolve => setTimeout(() => {
     Axios.get(
-      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${props.relatedProduct}`,
+      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`,
       { headers: { Authorization: `${TOKEN}` } }
     )
       .then((res) => {
-        setProduct(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
+        resolve(res.data);
       });
-  }, [currentProductID]);
+  }, ms));
+
+  const setProdInfo = async (relatedID) => {
+    await delayGetProdInfo(relatedID, props.index*1000)
+      .then(
+        (productObj) => {
+          console.log('productObj', productObj);
+          console.log('index: ', props.index);
+          setProduct(productObj);
+        }
+      )
+  }
+
+  React.useEffect(() => {
+    console.log("mounting!");
+    setProdInfo(props.relatedProduct);
+    return () => console.log('unmounting...');
+  }, [props.currentProductID]);
 
   const handleRelatedClick = (e) => {
     e.preventDefault();
@@ -28,26 +42,12 @@ const EachRelatedCard = (props) => {
   };
 
   return (
-<<<<<<< HEAD
-    <div>
-      <div
-        className='card'
-        onClick={(event) => {
-          handleRelatedClick();
-        }}
-      >
-        <h4>
-          <b>{product.name}</b>
-        </h4>
-        <p>id:{product.id}</p>
-=======
     <li className="card">
       <div onClick={(event) => { handleRelatedClick(event) }}>
         <h3 className="card-title">{product.name}</h3>
         <div className="card-content">
           id:{product.id}
         </div>
->>>>>>> main
       </div>
     </li>
   );

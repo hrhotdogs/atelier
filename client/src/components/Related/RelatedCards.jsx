@@ -27,14 +27,32 @@ const RelatedCards = () => {
     });
   }, [currentProductID]);
 
+// **** "working mapping" - prints out 2/3 of the same get requests??
+  // const mapping = async (relatedArr) => {
+  //   if (relatedArr === []) {
+  //     return null;
+  //   } else {
+  //     for (let i = 0; i < relatedProducts.length; i++) {
+  //       await delayGetProdInfo(relatedProducts[i], 3000).then(
+  //         (res) => {
+  //           console.log('res data:', res);
+  //         }
+  //       )
+  //     }
+  //   }
+  // }
+
   return (
     <div className="cards">
       <p></p>
-      <ul className="cards">
-        {relatedProducts.map((eachRelatedProduct, index) =>
-            <EachRelatedCard relatedProduct={eachRelatedProduct} key={index} />
+      {/* <ul className="cards"> */}
+        {relatedProducts.map((eachRelatedID, index) => {
+          return(
+            <EachRelatedCard relatedProduct={eachRelatedID} index={index} currentProductID={currentProductID}/>
+          );
+          }
         )}
-      </ul>
+      {/* </ul> */}
     </div>
   );
 };
