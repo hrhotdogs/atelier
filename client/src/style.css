@@ -35,6 +35,13 @@ border: 2px solid black;
   --thumb: #edf2f4;
 }
 
+<<<<<<< HEAD
+.review {
+border: 2px solid black;
+}
+
+.scrolling-wrapper-flexbox {
+=======
 /* * {
   box-sizing: border-box;
   padding: 0;
@@ -62,6 +69,7 @@ h2 {
 }
 
 .cards {
+>>>>>>> main
   display: flex;
   padding: 20px 25px;
   list-style: none;
@@ -183,3 +191,16 @@ h2 {
   margin-left: 4px;
 }
 /* +++++++++++ Related Section Styles Above +++++++++++ */
+
+/**********************************************
+QUESTIONS AND ANSWERS
+***********************************************/
+
+.answerImage {
+  height: 90px;
+  margin: 10px;
+}
+
+.noMatch {
+  font-size: 20pt;
+}
