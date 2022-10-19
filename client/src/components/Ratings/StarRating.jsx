@@ -1,7 +1,16 @@
 import React from 'react';
-import { FaStar, FaStarO } from 'react-icons/fa';
 
-const StarRating = ({ review }) => {
-  return <></>;
+const StarRatingPerReview = ({ review }) => {
+  const stars = [];
+  for (let i = 0; i < 5; i++) {
+    if (i < review.rating) {
+      stars.push(
+        <i key={i} className='star fa fa-star' style={{ color: '#f80' }}></i>
+      );
+    } else {
+      stars.push(<i key={i} className='star fa-regular fa-star'></i>);
+    }
+  }
+  return stars;
 };
-export default StarRating;
+export default StarRatingPerReview;
