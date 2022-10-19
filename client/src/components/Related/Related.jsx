@@ -8,7 +8,8 @@ import {TOKEN} from '../../../../config.js';
 const Related = () => {
 
   return (
-    <div className="related">Related Products Section<p></p>
+    <div className="container"><p></p>
+      <h2>Related Products Section</h2>
       <RelatedCards />
       <OutfitCards />
     </div>
