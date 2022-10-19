@@ -20,17 +20,20 @@ const EachRelatedCard = (props) => {
     });
   }, [currentProductID]);
 
-  const handleRelatedClick = () => {
+  const handleRelatedClick = (e) => {
+    e.preventDefault();
     setCurrentProductID(product.id);
   }
 
   return (
-    <div>
-      <div className="card" onClick={(event) => { handleRelatedClick() }}>
-        <h4><b>{product.name}</b></h4>
-        <p>id:{product.id}</p>
+    <li className="card">
+      <div onClick={(event) => { handleRelatedClick(event) }}>
+        <h3 className="card-title">{product.name}</h3>
+        <div className="card-content">
+          id:{product.id}
+        </div>
       </div>
-    </div>
+    </li>
   );
 };
 
