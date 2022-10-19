@@ -1,6 +1,7 @@
 import React from 'react';
+import { FaStar, FaStarO } from 'react-icons/fa';
 
 const StarRating = ({ review }) => {
-  return <div>Star Rating: {review.rating}</div>;
+  return <></>;
 };
 export default StarRating;

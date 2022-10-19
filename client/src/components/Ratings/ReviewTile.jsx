@@ -11,7 +11,10 @@ import { format, parseISO } from 'date-fns';
 const ReviewTile = ({ review }) => {
   return (
     <div className='review'>
-      <StarRating review={review} />
+      <div>
+        <StarRating review={review} />
+      </div>
+
       <div>
         <em>{review.reviewer_name}</em>
         {review.reviewer_email !== undefined ? <i>verifiedLogo</i> : null}
