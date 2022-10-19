@@ -35,14 +35,6 @@ border: 2px solid black;
 border: 2px solid black;
 }
 
-.answerImage {
-  height: 90px;
-  margin: 10px;
-}
-
-.noMatch {
-  font-size: 20pt;
-}
 .scrolling-wrapper-flexbox {
   display: flex;
   flex-wrap: nowrap;
@@ -65,3 +57,16 @@ border: 2px solid black;
   padding: 2px 16px;
 }
 /* +++++++++++ Related Section Styles Above +++++++++++ */
+
+/**********************************************
+QUESTIONS AND ANSWERS
+***********************************************/
+
+.answerImage {
+  height: 90px;
+  margin: 10px;
+}
+
+.noMatch {
+  font-size: 20pt;
+}
