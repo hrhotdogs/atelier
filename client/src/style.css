@@ -1,5 +1,5 @@
 body {
-  background-color: aqua;
+
 }
 
 /*============ Ratings and Reviews ============= */
@@ -23,6 +23,7 @@ border: 2px solid black;
 .helpfulness {
   cursor:pointer;
 }
+
 /*============ Ratings and Reviews ============= */
 
 /* +++++++++++ Related Section Styles Below +++++++++++ */
