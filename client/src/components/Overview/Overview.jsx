@@ -23,8 +23,10 @@ const Overview = () => {
   // Create local state and global vars
   let [productInfo, setProductInfo] = useState({});
   let [styles, setStyles] = useState([]);
-  let [currentStyle, setCurrentStyle] = useState({photos: [{}]});
   let [ratings, setRatings] = useState({});
+
+  // Image gallery state
+  let [currentStyle, setCurrentStyle] = useState({photos: [{}]});
 
   // Get info from API when current product ID is updated
   useEffect(() => {

@@ -1,5 +1,5 @@
 body {
-  background-color: aqua;
+
 }
 
 /*============ Ratings and Reviews ============= */
@@ -23,6 +23,7 @@ border: 2px solid black;
 .helpfulness {
   cursor:pointer;
 }
+
 /*============ Ratings and Reviews ============= */
 
 /* +++++++++++ Related Section Styles Below +++++++++++ */
@@ -40,8 +41,32 @@ border: 2px solid black;
 }
 
 .scrolling-wrapper-flexbox {
+/* .scrolling-wrapper-flexbox {
   display: flex;
   padding: 20px 25px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+} */
+
+.container {
+  max-width: 500px;
+  padding: 10px 25px;
+  margin: 0 auto;
+  background:rgba(0 , 140 , 186, .5)
+}
+
+h2 {
+  color: rgb(0, 8, 164);
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 15px 15px;
   list-style: none;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
@@ -51,10 +76,11 @@ border: 2px solid black;
   display: flex;
   flex-direction: column;
   flex: 0 0 100%;
-  padding: 0px 20px;
+  padding: 40px 20px;
+  color: aqua;
   background: rgb(4, 3, 99);
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  box-shadow: 5px 5px 5px rgb(0, 76, 255);
   scroll-snap-align: start;
   transition: all .5s;
 }
@@ -66,7 +92,7 @@ border: 2px solid black;
 .card:hover {
   color: rgb(0, 21, 156);
   background: aqua;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 10px 10px 10px 0px rgba(0, 25, 248, 0.7);
 }
 
 .card .card-title {
