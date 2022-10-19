@@ -28,7 +28,7 @@ const ImageGallery = ({currentStyle}) => {
   }, [currentStyle])
 
   return (
-    <div style={{display: 'flex', flexDirection: 'row'}}>
+    <div style={{display: 'flex', flexDirection: 'row'}} data-testid="imageGallery-1">
       <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
         <div style={{textAlign: 'center'}}>{showTopArrow()}</div>
         <div style={{overflow: 'hidden', maxHeight: '475px'}}>
