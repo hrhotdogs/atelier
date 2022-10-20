@@ -3,7 +3,13 @@ import axios from 'axios';
 import ReactDOM from 'react-dom';
 import css from '../../style.css';
 
+const { useRef } = React;
+
 const AddQuestionModal = ({ closeModal }) => {
+
+  const questionRef = useRef();
+  const usernameRef = useRef();
+  const emailRef = useRef();
 
   const modalBackground = {
     top: 0,
@@ -32,17 +38,23 @@ const AddQuestionModal = ({ closeModal }) => {
     zIndex: 1000
   }
 
+  function submitHandler(e) {
+    e.preventDefault()
+    console.log(questionRef.current.value, usernameRef.current.value, emailRef.current.value)
+  }
+
   return ReactDOM.createPortal(
-    <div style={modalBackground} onClick={(e) => closeModal(e)}>
+    <div style={modalBackground}>
       <div style={modalContainer}>
         <div>
           <h1>Ask Your Question</h1>
           <h2>About the [Product Name Here]</h2>
         </div>
-        <form>
-          <input></input><br/>
-          <input></input><br/>
-          <input></input><br/>
+        <form onSubmit={(e) => submitHandler(e)}>
+          Question:<input type='text' placeholder='your question' ref={questionRef}/><br/>
+          Username:<input type='text' placeholder='jackson11'ref={usernameRef}/><br/>
+          Email:<input type='text' placeholder='jackson11@email.com' ref={emailRef}/><br/>
+          <button type='submit'>Submit Question</button>
         </form>
         <footer>
           <button onClick={(e) => closeModal(e)}>CANCEL</button>
