@@ -12,6 +12,8 @@ const Questions = () => {
   const {currentProductID, setCurrentProductID} = useContext(ProductIDContext);
   const [questions, setQuestions] = useState([]);
   const [openQuestionModal, setOpenQuestionModal] = useState(false);
+  const [productInfo, setProductInfo] = useState({})
+  const productName = productInfo.name;
 
 
   function getQuestions() {
@@ -24,8 +26,31 @@ const Questions = () => {
     .catch((err) => console.log('ERROR in get request for questions', err))
   }
 
+  function postQuestions(question, name, email) {
+    axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions`,
+    {
+      body: question,
+      name: name,
+      email: email,
+      product_id: Number(currentProductID)
+    },
+    {
+      headers: {
+        'Authorization': `${TOKEN}`,
+      }
+    })
+    .then(() => console.log('POSTED!'))
+    .catch((err) => console.log('ERROR in post request for questions', err))
+  }
+  console.log(typeof(currentProductID))
+
   useEffect(() => {
     getQuestions();
+
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}`, {headers: {Authorization: TOKEN}})
+      .then((response) => {setProductInfo(response.data)})
+      .catch((err) => {console.log(err)});
+
   }, [currentProductID])
 
   function searchQuestions(filteredQuestions) {
@@ -51,7 +76,7 @@ const Questions = () => {
       <SearchBar questions={questions} searchQuestions={searchQuestions} getQuestions={getQuestions}/>
       <QuestionsList questions={questions} />
       <button onClick={(e) => onClickHandler(e)}>Add Question</button>
-      { openQuestionModal ? <AddQuestionModal closeModal={closeModal}/> : null}
+      { openQuestionModal ? <AddQuestionModal closeModal={closeModal} productName={productName} postQuestions={postQuestions}/> : null}
     </div>
   );
 };
