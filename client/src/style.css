@@ -131,10 +131,6 @@ h2 {
   max-width: 85%;
 }
 
-/* .card .card-link-wrapper {
-  margin-top: auto;
-} */
-
 .cards::-webkit-scrollbar {
   height: 12px;
 }
@@ -185,7 +181,7 @@ h2 {
 
 /* FOOTER STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.page-footer {
+/* .page-footer {
   position: fixed;
   right: 0;
   bottom: 50px;
@@ -198,7 +194,7 @@ h2 {
 .page-footer a {
   display: flex;
   margin-left: 4px;
-}
+} */
 /* +++++++++++ Related Section Styles Above +++++++++++ */
 
 /**********************************************
