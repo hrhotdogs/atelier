@@ -43,6 +43,7 @@ const ReviewTile = ({ review }) => {
       ) : null}
 
       <Helpfulness review={review} />
+      <ReportReview review={review} />
     </div>
   );
 };

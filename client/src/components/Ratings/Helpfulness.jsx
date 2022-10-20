@@ -49,7 +49,7 @@ const Helpfulness = ({ review }) => {
   };
 
   if (isReviewed) {
-    return <div>Thank you for the response!</div>;
+    return <div>Thank you for your feedback!</div>;
   } else {
     return (
       <div className='helpfulness'>
