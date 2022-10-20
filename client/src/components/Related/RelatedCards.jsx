@@ -6,34 +6,32 @@ import {ProductIDContext} from '../Context.jsx';
 
 
 const RelatedCards = () => {
-  /* *************************************
-    - access to the global state variable, use productID
-    - set the Global state variable, use setProductID()
---- Put the line below in consumers with the Context import from line 6 ----
-    const { productID, setProductID } = React.useContext(ProductIDContext);
-//********************************************* */
-
+  // Global product id context, use the set fx to set this global context within child components
   const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
 
+  // rerender on change to the related products array derived from the API
   const [relatedProducts, setRelatedProducts] = React.useState([]);
 
+  // GET req to API for the related products array on change of the global context
+  // Pass this array for rendering by setting the component's state
   React.useEffect(()=> {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/related`, { headers: { "Authorization": `${TOKEN}` } })
-    .then( (res) => {
-      setRelatedProducts(res.data);
-    })
-    .catch( (err) => {
-      console.log(err);
-    });
+      .then( (res) => {
+        setRelatedProducts(res.data);
+      })
+      .catch((err) => {});
   }, [currentProductID]);
 
+  // create multiple cards from the related prod array, and pass each array value and its index to the child component
   return (
     <div className="cards">
       <p></p>
       <ul className="cards">
-        {relatedProducts.map((eachRelatedProduct, index) =>
-            <EachRelatedCard relatedProduct={eachRelatedProduct} key={index} />
-        )}
+        {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
+          return(
+            <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
+          )}
+        ) : null}
       </ul>
     </div>
   );
