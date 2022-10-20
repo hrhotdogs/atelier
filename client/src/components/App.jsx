@@ -7,6 +7,7 @@ import Overview from './Overview/Overview.jsx';
 import Related from './Related/Related.jsx';
 import Questions from './Questions/Questions.jsx';
 import Ratings from './Ratings/Ratings.jsx';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const App = () => {
   // Render components with context (global state)
