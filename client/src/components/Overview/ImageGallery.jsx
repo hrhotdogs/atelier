@@ -6,7 +6,9 @@ const {useState, useEffect} = React;
 const ImageGallery = ({currentStyle}) => {
 
   // Set local state
-  let [mainImageUrl, setMainImageUrl] = useState(currentStyle.photos[0].url);
+  console.log('rendering gallery');
+  console.log('child: ', currentStyle);
+  const [mainImageUrl, setMainImageUrl] = useState(currentStyle.photos[0].url);
   console.log(mainImageUrl);
 
   const showTopArrow = () => {
@@ -26,7 +28,7 @@ const ImageGallery = ({currentStyle}) => {
   }, [currentStyle])
 
   return (
-    <div style={{display: 'flex', flexDirection: 'row'}}>
+    <div style={{display: 'flex', flexDirection: 'row'}} data-testid="imageGallery-1">
       <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
         <div style={{textAlign: 'center'}}>{showTopArrow()}</div>
         <div style={{overflow: 'hidden', maxHeight: '475px'}}>
@@ -34,7 +36,7 @@ const ImageGallery = ({currentStyle}) => {
         </div>
         <div style={{textAlign: 'center', marginTop: '10px'}}>{showBottomArrow()}</div>
       </div>
-      <div style={{backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '550px', height: '550px', backgroundPosition: 'center'}}>
+      <div style={{backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '650px', height: '650px', backgroundPosition: 'center'}}>
       </div>
     </div>
 

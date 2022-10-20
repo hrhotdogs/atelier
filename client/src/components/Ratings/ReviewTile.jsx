@@ -2,17 +2,18 @@ import React, { useState, useReducer } from 'react';
 import verifiedLogo from '../../../../images/Ratings&Reviews/checkmark.png';
 import axios from 'axios';
 import recommendLogo from '../../../../images/Ratings&Reviews/recommended.png';
-import StarRating from './StarRating.jsx';
+import StarRatingPerReview from './StarRatingPerReview.jsx';
 import Helpfulness from './Helpfulness.jsx';
 import ReviewPhotos from './ReviewPhotos.jsx';
 import SellerResponse from './SellerResponse.jsx';
+import ReportReview from './ReportReview.jsx';
 import { format, parseISO } from 'date-fns';
 
 const ReviewTile = ({ review }) => {
   return (
     <div className='review'>
       <div>
-        <StarRating review={review} />
+        <StarRatingPerReview review={review} />
       </div>
 
       <div>
@@ -26,13 +27,13 @@ const ReviewTile = ({ review }) => {
         <b>{review.summary}</b>
       </h3>
 
+      <SellerResponse review={review} />
+
       <div>
         {review.photos.map((photo, index) => (
           <ReviewPhotos key={index} photo={photo} />
         ))}
       </div>
-
-      <SellerResponse review={review} />
 
       {review.recommend ? (
         <div>
@@ -42,6 +43,7 @@ const ReviewTile = ({ review }) => {
       ) : null}
 
       <Helpfulness review={review} />
+      <ReportReview review={review} />
     </div>
   );
 };

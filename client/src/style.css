@@ -23,6 +23,28 @@ border: 2px solid black;
 .helpfulness {
   cursor:pointer;
 }
+.report {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.star {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+}
+
+.star:after {
+  font-family: FontAwesome;
+  content: '\f005';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  overflow: hidden;
+  color: #f80
+}
+
 
 /*============ Ratings and Reviews ============= */
 
