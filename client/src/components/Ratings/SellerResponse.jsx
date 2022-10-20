@@ -6,11 +6,25 @@ const SellerResponse = ({ review }) => {
   const handleShowResponse = () => {
     setShowResponse(!showResponse);
   };
+
+  const partialMessage = review.body.substring(0, 250);
+
   return (
     <>
       <div>
         {!showResponse ? (
-          <p>{review.body}</p>
+          <>
+            {review.body.length > 250 ? (
+              <>
+                <p>{partialMessage}</p>
+                <button onClick={() => <p>{review.body}</p>}>
+                  Show more...
+                </button>
+              </>
+            ) : (
+              <p>{review.body}</p>
+            )}
+          </>
         ) : (
           <>
             <p>{review.body}</p>
