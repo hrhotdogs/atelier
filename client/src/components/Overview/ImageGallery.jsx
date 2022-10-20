@@ -9,16 +9,23 @@ const ImageGallery = ({currentStyle}) => {
   console.log('rendering gallery');
   console.log('child: ', currentStyle);
   const [mainImageUrl, setMainImageUrl] = useState(currentStyle.photos[0].url);
+  const [carouselAtTop, setCarouselAtTop] = useState(true);
+  const [carouselAtBottom, setCarouselAtBottom] = useState(false);
   console.log(mainImageUrl);
 
+  const handleCarouselScroll = (e) => {
+    setCarouselAtBottom(e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight);
+    setCarouselAtTop(e.target.scrollTop === 0);
+  }
+
   const showTopArrow = () => {
-    if (1 === 1) {
+    if (carouselAtTop) {
       return  (<button style={{paddingLeft: '22px', paddingRight: '22px'}}>^</button>)
     }
   }
 
   const showBottomArrow = () => {
-    if (1 === 1) {
+    if (carouselAtBottom) {
       return  (<button style={{paddingLeft: '22px', paddingRight: '22px'}}>v</button>)
     }
   }
@@ -31,7 +38,7 @@ const ImageGallery = ({currentStyle}) => {
     <div style={{display: 'flex', flexDirection: 'row'}} data-testid="imageGallery-1">
       <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
         <div style={{textAlign: 'center'}}>{showTopArrow()}</div>
-        <div style={{overflow: 'hidden', maxHeight: '475px'}}>
+        <div className='thumbnailCarousel' style={{overflow: 'auto', maxHeight: '475px'}} onScroll={(e) => {handleCarouselScroll(e)}}>
           <ThumbnailCarousel currentStyle={currentStyle} setMainImageUrl={setMainImageUrl} />
         </div>
         <div style={{textAlign: 'center', marginTop: '10px'}}>{showBottomArrow()}</div>

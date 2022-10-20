@@ -1,5 +1,5 @@
 body {
-
+  background-color: white;
 }
 
 /*============ Ratings and Reviews ============= */
@@ -216,4 +216,14 @@ QUESTIONS AND ANSWERS
 
 .noMatch {
   font-size: 20pt;
+}
+
+/*-----Overview-----*/
+.thumbnailCarousel {
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+.thumbnailCarousel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
 }
