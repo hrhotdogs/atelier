@@ -49,16 +49,24 @@ const EachRelatedCard = (props) => {
     setCurrentProductID(product.id);
   };
 
-  return (
-    <li className="card">
-      <div onClick={(event) => { handleRelatedClick(event) }}>
-        <h3 className="card-title">{product.name}</h3>
-        <div className="card-content">
-          id:{product.id}
-        </div>
-      </div>
-    </li>
-  );
+  var isEmpty = false;
+
+  if (Object.keys(product).length === 0) {
+    isEmpty = true
+  }
+
+  if (!isEmpty) {
+    return (
+      <li className="card">
+          <div onClick={(event) => { handleRelatedClick(event) }}>
+            <h3 className="card-title">{product.name}</h3>
+            <div className="card-content">
+              id:{product.id}
+            </div>
+          </div>
+      </li>
+    )
+  } else { return null; }
 };
 
 export default EachRelatedCard;
