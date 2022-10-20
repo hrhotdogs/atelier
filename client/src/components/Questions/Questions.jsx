@@ -4,12 +4,14 @@ import { TOKEN } from '../../../../config.js';
 import {ProductIDContext} from '../Context.jsx';
 import QuestionsList from './QuestionsList.jsx'
 import SearchBar from './SearchBar.jsx'
+import AddQuestionModal from './AddQuestionModal.jsx'
 
 const { useEffect, useState, useContext } = React;
 
 const Questions = () => {
   const {currentProductID, setCurrentProductID} = useContext(ProductIDContext);
-  const [questions, setQuestions] = useState([])
+  const [questions, setQuestions] = useState([]);
+  const [openQuestionModal, setOpenQuestionModal] = useState(false);
 
 
   function getQuestions() {
@@ -31,16 +33,25 @@ const Questions = () => {
     if(filteredQuestions.length === 0) {
       getQuestions();
     }
-
   }
 
+  function onClickHandler(e) {
+    e.preventDefault();
+    setOpenQuestionModal(true);
+  }
+
+  function closeModal(e) {
+    e.preventDefault();
+    setOpenQuestionModal(false);
+  }
 
   return (
-    <div>
+    <div className='questionsAndAnswers'>
       Questions & Answers <br />
       <SearchBar questions={questions} searchQuestions={searchQuestions} getQuestions={getQuestions}/>
       <QuestionsList questions={questions} />
-      {/* <AddQuestions/> */}
+      <button onClick={(e) => onClickHandler(e)}>Add Question</button>
+      { openQuestionModal ? <AddQuestionModal closeModal={closeModal}/> : null}
     </div>
   );
 };
