@@ -74,7 +74,7 @@ const EachRelatedCard = (props) => {
   if (Object.keys(product).length !== 0) {
     isEmpty = false;
     if (product.styles.results[0].photos[0].thumbnail_url === null) {
-      prodIMGStyle.backgroundImage = "url(https://image.shutterstock.com/image-vector/photo-coming-soon-symbol-600w-161251868.jpg)";
+      prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
     } else {
         prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].url})`;
       }
@@ -82,13 +82,9 @@ const EachRelatedCard = (props) => {
 
   if (!isEmpty) {
     return (
-      <li className="card" style={prodIMGStyle}>
-          <div onClick={(event) => { handleRelatedClick(event) }}>
-            <h3 className="card-title">{product.info.name}</h3>
-            <div className="card-content">
-              id:{product.info.id}
-            </div>
-          </div>
+      <li className="card" style={prodIMGStyle} onClick={(event) => { handleRelatedClick(event) }}>
+            <div className="card-content-name">{product.info.name}</div>
+            <div className="card-content-id">id: {product.info.id}</div>
       </li>
     )
   } else { return null; }

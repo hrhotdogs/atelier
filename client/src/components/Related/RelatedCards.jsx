@@ -24,16 +24,13 @@ const RelatedCards = () => {
 
   // create multiple cards from the related prod array, and pass each array value and its index to the child component
   return (
-    <div>
-      <p></p>
-      <ul className="cards">
-        {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
-          return(
-            <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
-          )}
-        ) : null}
-      </ul>
-    </div>
+    <ul className="cards">
+      {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
+        return(
+          <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
+        )}
+      ) : null}
+    </ul>
   );
 };
 
