@@ -6,19 +6,39 @@ import { TOKEN } from '../../../../config.js';
 const EachRelatedCard = (props) => {
   const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
 
+  // product.info = specific prod GET, product.styles = prod styles GET
   const [product, setProduct] = React.useState({});
+  var prodIMGStyle = {
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  };
 
   // AbortController to be used as a signal for the GET and to abort any open requests on unmounting of this component (see the "return" statement in the useEffect fx below)
   const controller = new AbortController();
 
   // Promise with async GET for one related product details only resolves after request finishes
   const delayGetProdInfo = (prodID, ms) => new Promise(resolve => setTimeout(() => {
+    let prodObj = {};
     Axios.get(
       `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}`,
       { headers: { Authorization: `${TOKEN}` }, signal: controller.signal }
     )
       .then((res) => {
-        resolve(res.data);
+        prodObj.info = res.data;
+        // resolve(res.data);
+      })
+      .then(() => {
+        Axios.get(
+          `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${prodID}/styles`,
+          { headers: { Authorization: `${TOKEN}` }, signal: controller.signal }
+        )
+          .then((res) => {
+            prodObj.styles = res.data;
+            resolve(prodObj);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {})
   }, ms));
@@ -46,22 +66,27 @@ const EachRelatedCard = (props) => {
   // set the global product id to this related product's ID onClick
   const handleRelatedClick = (e) => {
     e.preventDefault();
-    setCurrentProductID(product.id);
+    setCurrentProductID(product.info.id);
   };
 
-  var isEmpty = false;
+  var isEmpty = true;
 
-  if (Object.keys(product).length === 0) {
-    isEmpty = true
+  if (Object.keys(product).length !== 0) {
+    isEmpty = false;
+    if (product.styles.results[0].photos[0].thumbnail_url === null) {
+      prodIMGStyle.backgroundImage = "url(https://image.shutterstock.com/image-vector/photo-coming-soon-symbol-600w-161251868.jpg)";
+    } else {
+        prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].url})`;
+      }
   }
 
   if (!isEmpty) {
     return (
-      <li className="card">
+      <li className="card" style={prodIMGStyle}>
           <div onClick={(event) => { handleRelatedClick(event) }}>
-            <h3 className="card-title">{product.name}</h3>
+            <h3 className="card-title">{product.info.name}</h3>
             <div className="card-content">
-              id:{product.id}
+              id:{product.info.id}
             </div>
           </div>
       </li>

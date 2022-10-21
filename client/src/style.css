@@ -93,27 +93,22 @@ h2 {
   scroll-snap-type: x mandatory;
 }
 
-@keyframes cardSlideInFromLeft {
-  0% {
-    transform: translateX(500%);
-  }
-  100% {
-    transform: translateX(100);
-  }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .card {
-  animation: 1s ease-out 0s 1 cardSlideInFromLeft;
-  display: flex;
+  animation: fadeIn 3s;
+  display: inline;
   flex-direction: column;
   flex: 0 0 100%;
   padding: 30px 30px;
   color: aqua;
-  background: rgb(4, 3, 99);
   border-radius: 12px;
   box-shadow: 5px 5px 5px rgb(0, 76, 255);
   scroll-snap-align: start;
-  transition: all 1.5s;
+  transition: all 1s;
 }
 
 .card:not(:last-child) {
@@ -122,7 +117,6 @@ h2 {
 
 .card:hover {
   color: rgb(0, 21, 156);
-  background: aqua;
   box-shadow: 10px 10px 10px 0px rgba(0, 25, 248, 0.7);
 }
 
