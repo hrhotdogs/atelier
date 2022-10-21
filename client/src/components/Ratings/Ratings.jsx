@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { TOKEN } from '../../../../config.js';
 import { ProductIDContext } from '../Context.jsx';
-import ReviewTile from './ReviewTile.jsx';
+import NewReview from './NewReview.jsx';
+import ReviewList from './ReviewList.jsx';
 
 const Ratings = () => {
   const { currentProductID, setCurrentProductID } =
     useContext(ProductIDContext);
   const [listValue, setListValue] = useState('set_one');
   const [listOfReviews, setListOfReviews] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios
@@ -24,49 +26,22 @@ const Ratings = () => {
       .catch((error) => console.log(error));
   }, [currentProductID]);
 
-  const firstSet = listOfReviews.slice(0, 2);
-  const secondSet = listOfReviews.slice(0, 4);
-
-  switch (listValue) {
-    case 'set_one':
-      return (
-        <>
-          <div>
-            {firstSet.map((review, index) => (
-              <ReviewTile review={review} key={index} />
-            ))}
-          </div>
-          <button onClick={() => setListValue('set_two')}>load more...</button>
-        </>
-      );
-      break;
-    case 'set_two':
-      return (
-        <>
-          <div>
-            {secondSet.map((review, index) => (
-              <ReviewTile review={review} key={index} />
-            ))}
-          </div>
-          <button onClick={() => setListValue('all')}>load more...</button>
-        </>
-      );
-      break;
-    case 'all':
-      return (
-        <>
-          <div>
-            {listOfReviews.map((review, index) => (
-              <ReviewTile review={review} key={index} />
-            ))}
-          </div>
-          <button onClick={() => setListValue('set_one')}>show less</button>
-        </>
-      );
-      break;
-    default:
-      break;
-  }
+  return (
+    <>
+      <ReviewList
+        listOfReviews={listOfReviews}
+        listValue={listValue}
+        setListValue={setListValue}
+      />
+      <div>
+        {' '}
+        <button onClick={() => setShowModal(true)}>New Review</button>
+        <NewReview showModal={showModal} setShowModal={setShowModal}>
+          Yo!
+        </NewReview>{' '}
+      </div>
+    </>
+  );
 };
 
 export default Ratings;
