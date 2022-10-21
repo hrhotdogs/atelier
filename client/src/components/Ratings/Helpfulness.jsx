@@ -23,11 +23,10 @@ const Helpfulness = ({ review }) => {
   const [helpfulness, dispatch] = useReducer(helpfulReducer, {
     ...counterState,
     countYes: review.helpfulness,
-    countNo: Math.floor(Math.random() * 15),
+    countNo: Math.floor(Math.random() * 12),
   });
-  const [isReviewed, setIsReviewed] = useState(false);
 
-  const handleRender = () => {};
+  const [isReviewed, setIsReviewed] = useState(false);
 
   const handleYesClick = (review) => {
     let article = { ...review, countYes: review.countYes + 1 };
