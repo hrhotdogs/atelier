@@ -58,6 +58,10 @@ border: 2px solid black;
   --thumb: #edf2f4;
 }
 
+.review {
+border: 2px solid black;
+}
+
 /* .scrolling-wrapper-flexbox {
   display: flex;
   padding: 20px 25px;
@@ -83,23 +87,33 @@ h2 {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  padding: 15px 15px;
+  padding: 10px 15px;
   list-style: none;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
 
+@keyframes cardSlideInFromLeft {
+  0% {
+    transform: translateX(500%);
+  }
+  100% {
+    transform: translateX(100);
+  }
+}
+
 .card {
+  animation: 1s ease-out 0s 1 cardSlideInFromLeft;
   display: flex;
   flex-direction: column;
   flex: 0 0 100%;
-  padding: 40px 20px;
+  padding: 30px 30px;
   color: aqua;
   background: rgb(4, 3, 99);
   border-radius: 12px;
   box-shadow: 5px 5px 5px rgb(0, 76, 255);
   scroll-snap-align: start;
-  transition: all .5s;
+  transition: all 1.5s;
 }
 
 .card:not(:last-child) {
@@ -121,22 +135,8 @@ h2 {
   max-width: 85%;
 }
 
-.card .card-link-wrapper {
+/* .card .card-link-wrapper {
   margin-top: auto;
-}
-
-/* .card .card-link {
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  background: aqua;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background 10s;
-} */
-
-/* .card:hover .card-link {
-  background: aqua;
 } */
 
 .cards::-webkit-scrollbar {
@@ -209,6 +209,17 @@ h2 {
 QUESTIONS AND ANSWERS
 ***********************************************/
 
+.questionsAndAnswers {
+  height: 600px;
+  overflow: auto;
+  position: relative;
+  margin: 20px;
+}
+
+.answersList {
+  overflow: auto;
+}
+
 .answerImage {
   height: 90px;
   margin: 10px;
@@ -244,3 +255,33 @@ QUESTIONS AND ANSWERS
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+.helpfulContainer {
+  float: right;
+}
+
+/* #modalBackground {
+  top: 0;
+  left: 0;
+  height: '100%';
+  width: '100%';
+  position: 'fixed';
+  display: 'flex';
+  background-color: 'rgba(200, 200, 200, 0.5)';
+  justify-content: 'center';
+  align-items: 'center';
+  z-index: 999
+}
+
+#modalContainer {
+  position: 'absolute';
+  width: '500px';
+  height: '500px';
+  border-radius: '12px';
+  background-color: '#fff';
+  box-shadow: 'rgba(0, 0, 0, 0.5)';
+  display: 'flex';
+  flex-direction: 'column';
+  padding: '25px';
+  text-align: 'center';
+  z-index: 1000
+} */

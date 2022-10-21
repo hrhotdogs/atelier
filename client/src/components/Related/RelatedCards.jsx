@@ -24,7 +24,7 @@ const RelatedCards = () => {
 
   // create multiple cards from the related prod array, and pass each array value and its index to the child component
   return (
-    <div className="cards">
+    <div>
       <p></p>
       <ul className="cards">
         {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
