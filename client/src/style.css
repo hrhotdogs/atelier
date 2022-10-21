@@ -1,5 +1,5 @@
 body {
-
+  background-color: white;
 }
 
 /*============ Ratings and Reviews ============= */
@@ -44,6 +44,43 @@ border: 2px solid black;
   overflow: hidden;
   color: #f80
 }
+.more-reviews {
+  cursor: pointer;
+}
+
+.modal-styles {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 1000;
+}
+
+.close {
+  color:#aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+ }
+
+ .close:hover,
+ .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+ }
 
 
 /*============ Ratings and Reviews ============= */
@@ -229,6 +266,32 @@ QUESTIONS AND ANSWERS
   font-size: 20pt;
 }
 
+/*-----Overview-----*/
+.thumbnailCarousel {
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+.thumbnailCarousel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 .helpfulContainer {
   float: right;
 }

@@ -1,20 +1,26 @@
 import React from 'react';
+import Thumbnail from './Thumbnail.jsx'
+const {useState, useEffect} = React;
 
-const ThumbnailCarousel = ({currentStyle, setMainImageUrl}) => {
+const ThumbnailCarousel = ({currentStyle, setMainImageUrl, setCarouselAtTop, setCarouselAtBottom}) => {
 
-  const thumbnailPhotos = [];
-  const topOverflowPhotos = [];
-  const bottomOverflowPhotos = [];
+  const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
+  const [carouselScrollTop, setCarouselScrollTop] = useState(0);
 
-
-
-  const handleThumbnailClick = (photoUrl) => {
-    setMainImageUrl(photoUrl);
+  const handleCarouselScroll = (e) => {
+    setCarouselScrollTop(e.target.scrollTop);
+    setCarouselAtBottom(e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight);
+    setCarouselAtTop(e.target.scrollTop === 0);
   }
+
+  useEffect(() => {
+    setSelectedThumbnailIndex(0);
+  }, [currentStyle]);
+
   return (
-    <div>
+    <div scrollTop={carouselScrollTop} className='thumbnailCarousel' style={{overflow: 'auto', maxHeight: '605px', margin: '5px'}} onScroll={(e) => {handleCarouselScroll(e)}}>
       {currentStyle.photos.map((photoObj, index) => (
-        <div style={{backgroundImage: `url('${photoObj.url}')`, backgroundPosition: 'center', backgroundSize: 'cover', width: '85px', height: '85px', margin: '10px'}} key={index} onClick={() => {handleThumbnailClick(photoObj.url)}}></div>
+        <Thumbnail currentStyle={currentStyle} key={index} index={index} selectedThumbnailIndex={selectedThumbnailIndex} setSelectedThumbnailIndex={setSelectedThumbnailIndex} photoObj={photoObj} setMainImageUrl={setMainImageUrl} />
       ))}
     </div>
   )
