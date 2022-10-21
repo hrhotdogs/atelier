@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductInfoFooter = () => {
   return (
-    <div>Product info</div>
+    <div></div>
   )
 }
 
