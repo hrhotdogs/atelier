@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import IndividualAnswers from './IndividualAnswers.jsx';
 import AddAnswerModal from './AddAnswerModal.jsx'
+import { TOKEN } from '../../../../config.js';
 
 const { useState } = React;
 
@@ -10,8 +11,15 @@ const IndividualQuestion = ({ question }) => {
   const [showAllAnswers, setShowAllAnswers] = useState(false)
   let answersArray = Object.values(question.answers)
 
-  function onClickHandler() {
-    console.log('clicked')
+  function onClickHandler(e) {
+    e.preventDefault()
+    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question.question_id}/helpful`, null,
+    {
+      headers: {
+        'Authorization': `${TOKEN}`,
+      }
+    })
+    .catch((err) => console.log('ERROR in PUT request', err))
   }
 
   function closeModal(e) {
@@ -34,7 +42,7 @@ const IndividualQuestion = ({ question }) => {
       Q: {question.question_body}
       <div className='helpfulContainer'>
         <span>Helpful |</span>
-        <span onClick={() => onClickHandler()}> Yes({question.question_helpfulness}) |</span>
+        <span onClick={(e) => onClickHandler(e)}> Yes({question.question_helpfulness}) |</span>
         <span onClick={() => setShowAnswersModal(true)}> Add Answer</span>
         {showAnswersModal && <AddAnswerModal closeModal={closeModal} question={question}/>}
       </div>
