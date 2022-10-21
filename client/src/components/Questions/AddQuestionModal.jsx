@@ -3,10 +3,9 @@ import axios from 'axios';
 import ReactDOM from 'react-dom';
 import css from '../../style.css';
 
-const { useRef } = React;
+const { useRef, useState, useEffect } = React;
 
-const AddQuestionModal = ({ closeModal }) => {
-
+const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
   const questionRef = useRef();
   const usernameRef = useRef();
   const emailRef = useRef();
@@ -40,7 +39,7 @@ const AddQuestionModal = ({ closeModal }) => {
 
   function submitHandler(e) {
     e.preventDefault()
-    console.log(questionRef.current.value, usernameRef.current.value, emailRef.current.value)
+    postQuestions(questionRef.current.value, usernameRef.current.value, emailRef.current.value)
   }
 
   return ReactDOM.createPortal(
@@ -48,7 +47,7 @@ const AddQuestionModal = ({ closeModal }) => {
       <div style={modalContainer}>
         <div>
           <h1>Ask Your Question</h1>
-          <h2>About the [Product Name Here]</h2>
+          <h2>About the {productName}</h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
           Question:<input type='text' placeholder='your question' ref={questionRef}/><br/>
