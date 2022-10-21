@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 
-const NewReview = ({ showModal, setShowModal, children }) => {
+const initialState = {
+  product_id: 0,
+  summary: '',
+  body: '',
+  recommend: false,
+  name: '',
+  email: '',
+  photos: [],
+  characteristics: {},
+};
+
+const NewReview = ({ showModal, setShowModal }) => {
+  const [form, setform] = useState(initialState);
   if (!showModal) {
     return null;
   } else {
@@ -28,8 +40,8 @@ const NewReview = ({ showModal, setShowModal, children }) => {
             <br></br>
             Please descirbe the fit:<br></br> Too small
             <input type='radio'></input>
-            Too large<input type='radio'></input>
-            Perfect<input type='radio'></input>
+            <input type='radio'></input>
+            <input type='radio'></input>
             <br></br>
             <input placeholder='Enter a nickname'></input>
           </form>

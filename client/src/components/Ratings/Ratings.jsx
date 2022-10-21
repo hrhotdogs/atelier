@@ -11,6 +11,7 @@ const Ratings = () => {
   const [listValue, setListValue] = useState('set_one');
   const [listOfReviews, setListOfReviews] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [metaProductId, setMetaProductId] = useState(null);
 
   useEffect(() => {
     axios
@@ -26,6 +27,16 @@ const Ratings = () => {
       .catch((error) => console.log(error));
   }, [currentProductID]);
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${currentProductID}`,
+        { headers: { Authorization: `${TOKEN}` } }
+      )
+      .then((results) => console.log('THIS IS THE META RESULTS', results.data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <>
       <ReviewList
@@ -36,9 +47,11 @@ const Ratings = () => {
       <div>
         {' '}
         <button onClick={() => setShowModal(true)}>New Review</button>
-        <NewReview showModal={showModal} setShowModal={setShowModal}>
-          Yo!
-        </NewReview>{' '}
+        <NewReview
+          showModal={showModal}
+          setShowModal={setShowModal}
+          currentProductID={currentProductID}
+        ></NewReview>{' '}
       </div>
     </>
   );
