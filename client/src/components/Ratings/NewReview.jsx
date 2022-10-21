@@ -6,7 +6,7 @@ const initialState = {
   product_id: 0,
   summary: '',
   body: '',
-  recommend: false,
+  recommend: null,
   name: '',
   email: '',
   photos: [],
@@ -15,12 +15,13 @@ const initialState = {
 
 const NewReview = ({ showModal, setShowModal }) => {
   const [form, setform] = useState(initialState);
+
   if (!showModal) {
     return null;
   } else {
     return ReactDom.createPortal(
       <>
-        <div className='modal-overlay' />
+        <div className='modal-overlay' onClick={() => setShowModal(false)} />
         <div className='modal-styles'>
           <span className='close' onClick={() => setShowModal(false)}>
             &times;
