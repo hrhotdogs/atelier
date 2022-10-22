@@ -39,9 +39,9 @@ const IndividualQuestion = ({ question }) => {
 
   return (
     <div>
-      Q: {question.question_body}
+      <div className='question'>Q: {question.question_body}</div>
       <div className='helpfulContainer'>
-        <span>Helpful |</span>
+        <span>Helpful? |</span>
         <span onClick={(e) => onClickHandler(e)}> Yes({question.question_helpfulness}) |</span>
         <span onClick={() => setShowAnswersModal(true)}> Add Answer</span>
         {showAnswersModal && <AddAnswerModal closeModal={closeModal} question={question}/>}
@@ -57,8 +57,8 @@ const IndividualQuestion = ({ question }) => {
           })
         }
       </div>
-      {!showAllAnswers && <button onClick={(e) => showAnswers(e)}>Show All Answers</button>}
-      {showAllAnswers && <button onClick={(e) => showLess(e)}>Show Less</button>}
+      {!showAllAnswers && <button className='btn' onClick={(e) => showAnswers(e)}>Show All Answers</button>}
+      {showAllAnswers && <button className='btn' onClick={(e) => showLess(e)}>Show Less</button>}
 
     </div>
   );

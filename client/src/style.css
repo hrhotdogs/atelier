@@ -247,10 +247,16 @@ QUESTIONS AND ANSWERS
 ***********************************************/
 
 .questionsAndAnswers {
-  height: 600px;
+  /* max-height: 500px; */
   overflow: auto;
   position: relative;
   margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.questionsList {
+  max-height: 500px;
+  overflow: auto;
 }
 
 .answersList {
@@ -265,6 +271,79 @@ QUESTIONS AND ANSWERS
 .noMatch {
   font-size: 20pt;
 }
+
+.helpfulContainer {
+  float: right;
+}
+
+.input {
+  margin: 10px;
+}
+
+.footer {
+  margin: 10px;
+}
+
+.question {
+  margin: 10px;
+  font-weight: bold;
+  font-size: large;
+}
+
+.answer {
+  margin: 10px;
+}
+
+.searchBar{
+  width: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: large;
+}
+
+.btn {
+  padding: 5px;
+  box-sizing:content-box;
+  background-color: #fff;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  background-color: #bac0c1;
+  color: rgb(0, 0, 0);
+}
+
+.add {
+  margin-top: 5px;
+}
+
+.modalBackground {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  background-color: rgba(200, 200, 200, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999
+}
+
+.modalContainer {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  text-align: center;
+  z-index: 1000
+}
+
 
 /*-----Overview-----*/
 .thumbnailCarousel {
@@ -292,33 +371,5 @@ QUESTIONS AND ANSWERS
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-.helpfulContainer {
-  float: right;
-}
 
-/* #modalBackground {
-  top: 0;
-  left: 0;
-  height: '100%';
-  width: '100%';
-  position: 'fixed';
-  display: 'flex';
-  background-color: 'rgba(200, 200, 200, 0.5)';
-  justify-content: 'center';
-  align-items: 'center';
-  z-index: 999
-}
 
-#modalContainer {
-  position: 'absolute';
-  width: '500px';
-  height: '500px';
-  border-radius: '12px';
-  background-color: '#fff';
-  box-shadow: 'rgba(0, 0, 0, 0.5)';
-  display: 'flex';
-  flex-direction: 'column';
-  padding: '25px';
-  text-align: 'center';
-  z-index: 1000
-} */
