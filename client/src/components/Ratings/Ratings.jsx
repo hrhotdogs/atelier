@@ -4,6 +4,7 @@ import { TOKEN } from '../../../../config.js';
 import { ProductIDContext } from '../Context.jsx';
 import NewReview from './NewReview.jsx';
 import ReviewList from './ReviewList.jsx';
+import SideBar from './SideBar.jsx';
 
 const Ratings = () => {
   const { currentProductID, setCurrentProductID } =
@@ -11,7 +12,7 @@ const Ratings = () => {
   const [listValue, setListValue] = useState('set_one');
   const [listOfReviews, setListOfReviews] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [metaProductId, setMetaProductId] = useState(null);
+  const [metaData, setMetaData] = useState({});
 
   useEffect(() => {
     axios
@@ -22,7 +23,6 @@ const Ratings = () => {
       .then((results) => {
         setCurrentProductID(results.data.product);
         setListOfReviews(results.data.results);
-        console.log(results.data.results);
       })
       .catch((error) => console.log(error));
   }, [currentProductID]);
@@ -33,7 +33,9 @@ const Ratings = () => {
         `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${currentProductID}`,
         { headers: { Authorization: `${TOKEN}` } }
       )
-      .then((results) => console.log('THIS IS THE META RESULTS', results.data))
+      .then((results) => {
+        setMetaData(results.data);
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -51,8 +53,10 @@ const Ratings = () => {
           showModal={showModal}
           setShowModal={setShowModal}
           currentProductID={currentProductID}
+          metaData={metaData}
         ></NewReview>{' '}
       </div>
+      <SideBar metaData={metaData} listOfReviews={listOfReviews} />
     </>
   );
 };
