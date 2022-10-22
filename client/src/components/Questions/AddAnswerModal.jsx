@@ -103,10 +103,10 @@ const AddAnswerModal = ({closeModal, question}) => {
           <div>
             <button id='upload-widget' className='cloudinary-button input' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
           </div>
-          <button type='submit'>Submit Answer</button>
+          <button className='btn' type='submit'>Submit Answer</button>
         </form>
         <div className='footer'>
-          <button className='footer' onClick={(e) => closeModal(e)}>CANCEL</button>
+          <button className=' btn' onClick={(e) => closeModal(e)}>CANCEL</button>
         </div>
       </div>
     </div>,
