@@ -50,9 +50,9 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
           <h2>About the {productName}</h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
-          Question:<input type='text' placeholder='your question' ref={questionRef}/><br/>
-          Username:<input type='text' placeholder='jackson11'ref={usernameRef}/><br/>
-          Email:<input type='text' placeholder='jackson11@email.com' ref={emailRef}/><br/>
+          Question:<input type='text' placeholder='your question' ref={questionRef} required/><br/>
+          Username:<input type='text' placeholder='jackson11'ref={usernameRef} required/><br/>
+          Email:<input type='text' placeholder='jackson11@email.com' ref={emailRef} required/><br/>
           <button type='submit'>Submit Question</button>
         </form>
         <footer>
