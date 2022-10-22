@@ -89,19 +89,19 @@ const AddAnswerModal = ({closeModal, question}) => {
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
           <div>
-            <lable> Answer </lable><br/>
+            <label> Answer </label><br/>
             <input type='text' placeholder='your answer...' className='input' required ref={AnswerRef}/>
           </div>
           <div>
-            <lable> Username </lable><br/>
+            <label> Username </label><br/>
             <input type='text' placeholder='jackson11' className='input' required ref={usernameRef}/>
           </div>
           <div>
-            <lable> Email </lable><br/>
+            <label> Email </label><br/>
             <input type='text' placeholder='jackson11@email.com' className='input' required ref={emailRef}/>
           </div>
           <div>
-            <button id='upload-widget' className='cloudinary-button input' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
+            <button id='upload-widget' className='cloudinary-button btn' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
           </div>
           <button className='btn' type='submit'>Submit Answer</button>
         </form>

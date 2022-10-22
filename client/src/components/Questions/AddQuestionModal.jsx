@@ -40,6 +40,7 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
   function submitHandler(e) {
     e.preventDefault()
     postQuestions(questionRef.current.value, usernameRef.current.value, emailRef.current.value)
+    closeModal(e)
   }
 
   return ReactDOM.createPortal(
@@ -50,13 +51,24 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
           <h2>About the {productName}</h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
-          Question:<input type='text' placeholder='your question' ref={questionRef} required/><br/>
-          Username:<input type='text' placeholder='jackson11'ref={usernameRef} required/><br/>
-          Email:<input type='text' placeholder='jackson11@email.com' ref={emailRef} required/><br/>
-          <button type='submit'>Submit Question</button>
+          <div>
+            <label>Question</label><br/>
+            <input className='input' type='text' placeholder='your question' ref={questionRef} required/><br/>
+          </div>
+          <div>
+            <label>Username</label><br/>
+            <input className='input' type='text' placeholder='jackson11'ref={usernameRef} required/><br/>
+          </div>
+          <div>
+            <label>Email</label><br/>
+            <input className='input' type='text' placeholder='jackson11@email.com' ref={emailRef} required/><br/>
+          </div>
+          <div>
+            <button className='btn' type='submit'>Submit Question</button>
+          </div>
         </form>
         <footer>
-          <button onClick={(e) => closeModal(e)}>CANCEL</button>
+          <button className='btn' onClick={(e) => closeModal(e)}>CANCEL</button>
         </footer>
       </div>
     </div>,

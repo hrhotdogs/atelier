@@ -294,7 +294,7 @@ QUESTIONS AND ANSWERS
 }
 
 .questionsList {
-  max-height: 500px;
+  max-height: 550px;
   overflow: auto;
 }
 
@@ -317,6 +317,8 @@ QUESTIONS AND ANSWERS
 
 .input {
   margin: 10px;
+  padding: 10px;
+  width: 400px;
 }
 
 .footer {
@@ -341,8 +343,10 @@ QUESTIONS AND ANSWERS
 }
 
 .btn {
+  color: black;
+  margin: 5px;
   padding: 5px;
-  box-sizing:content-box;
+  border: 1px solid black;
   background-color: #fff;
   transition-duration: 0.4s;
 }
@@ -350,6 +354,15 @@ QUESTIONS AND ANSWERS
 .btn:hover {
   background-color: #bac0c1;
   color: rgb(0, 0, 0);
+}
+
+.yes-btn {
+  text-decoration: underline;
+  color: cornflowerblue;
+}
+
+.yes-btn:hover {
+  text-decoration: none;
 }
 
 .add {
