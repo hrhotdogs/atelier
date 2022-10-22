@@ -64,7 +64,7 @@ border: 2px solid black;
   left: 0;
   right:0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, .7);
   z-index: 1000;
 }
 
@@ -80,6 +80,31 @@ border: 2px solid black;
   color: black;
   text-decoration: none;
   cursor: pointer;
+ }
+
+ .average-rating {
+  font-size: 50px;
+ }
+
+ .parent-div {
+  height: 20px;
+  width: 100%;
+  background-color: #aaa;
+  border-radius: 40px;
+  margin: 50;
+ }
+
+ .child-div {
+  height: 100%;
+  background-color: rgb(79, 77, 77);
+  border-radius: 40px;
+  text-align: 'right';
+ }
+
+ .progress-text {
+  padding: 10;
+  color: black;
+  font-weight: 900;
  }
 
 
