@@ -42,10 +42,12 @@ const IndividualAnswers = ({ answer }) => {
           return <img className="answerImage" src={photo} key={index}/>
         })}
         <br/>
-        <span style={{marginLeft: '20px'}} >by {answer.answerer_name}, {answerDate} | Helpful? | </span>
-        {showThanks ? <span>Thank You!</span> : <span className='yes-btn' onClick={(e) => onClickHandler(e)}>Yes({answer.helpfulness})</span>}
-        <span> | </span>
-        {reported ? <span>Reported</span> : <span className='yes-btn' onClick={(e) => reportAnswer(e)}>Report</span>}
+        <div className='answerInfo'>
+          <span style={{marginLeft: '20px'}} >by {answer.answerer_name}, {answerDate} | Helpful? | </span>
+          {showThanks ? <span>Thank You!</span> : <span className='yes-btn' onClick={(e) => onClickHandler(e)}>Yes({answer.helpfulness})</span>}
+          <span> | </span>
+          {reported ? <span>Reported</span> : <span className='yes-btn' onClick={(e) => reportAnswer(e)}>Report</span>}
+        </div>
     </div>
   );
 };

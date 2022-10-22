@@ -307,12 +307,17 @@ QUESTIONS AND ANSWERS
   margin: 10px;
 }
 
+.answerInfo {
+  color: #bac0c1;
+}
+
 .noMatch {
   font-size: 20pt;
 }
 
 .helpfulContainer {
   float: right;
+  color: #bac0c1;
 }
 
 .input {
@@ -349,6 +354,7 @@ QUESTIONS AND ANSWERS
   border: 1px solid black;
   background-color: #fff;
   transition-duration: 0.4s;
+  border-radius: 1px;
 }
 
 .btn:hover {
