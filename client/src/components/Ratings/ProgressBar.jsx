@@ -1,5 +1,5 @@
 import React from 'react';
-const ProgressBar = ({ metaData }) => {
+const ProgressBar = ({ metaData, currentProductID }) => {
   if (metaData.ratings !== undefined) {
     var totalFiveStars = Object.values(metaData.ratings)[4];
     var totalFourStars = Object.values(metaData.ratings)[3];
@@ -22,31 +22,41 @@ const ProgressBar = ({ metaData }) => {
     <>
       <div className='parent-div'>
         <div style={{ width: `${percentOfFiveStar}%` }} className='child-div'>
-          <span className='progress-text'></span>
+          <span className='progress-text'>
+            {`${Math.round(percentOfFiveStar * 10) / 10}%`}
+          </span>
         </div>
       </div>
       &nbsp;
       <div className='parent-div'>
         <div style={{ width: `${percentOfFourStar}%` }} className='child-div'>
-          <span className='progress-text'></span>
+          <span className='progress-text'>{`${
+            Math.round(percentOfFourStar * 10) / 10
+          }%`}</span>
         </div>
       </div>
       &nbsp;
       <div className='parent-div'>
         <div style={{ width: `${percentOfThreeStar}%` }} className='child-div'>
-          <span className='progress-text'></span>
+          <span className='progress-text'>{`${
+            Math.round(percentOfThreeStar * 10) / 10
+          }%`}</span>
         </div>
       </div>
       &nbsp;
       <div className='parent-div'>
         <div style={{ width: `${percentOfTwoStar}%` }} className='child-div'>
-          <span className='progress-text'></span>
+          <span className='progress-text'>{`${
+            Math.round(percentOfTwoStar * 10) / 10
+          }%`}</span>
         </div>
       </div>
       &nbsp;
       <div className='parent-div'>
-        <div style={{ width: `${percentOfFiveStar}%` }} className='child-div'>
-          <span className='progress-text'></span>
+        <div style={{ width: `${percentOfOneStar}%` }} className='child-div'>
+          <span className='progress-text'>{`${
+            Math.round(percentOfOneStar * 10) / 10
+          }%`}</span>
         </div>
       </div>
     </>
