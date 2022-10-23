@@ -40,8 +40,8 @@ const ImageGallery = ({currentStyle}) => {
         <ThumbnailCarousel currentStyle={currentStyle} setMainImageUrl={setMainImageUrl} setCarouselAtTop={setCarouselAtTop} setCarouselAtBottom={setCarouselAtBottom} />
         <div style={{height: '35px', position: 'relative'}}>{showBottomArrow()}</div>
       </div>
-      <div style={{backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '675px', height: '675px', backgroundPosition: 'center'}}>
-        <div><i className='arrow left'></i></div>
+      <div style={{backgroundSize: 'cover', width: '675px', height: '675px', backgroundPosition: 'center'}}>
+        <div style={{position: 'relative', width: '100px', height: '675px'}}><i className='arrow left' style={{position: 'absolute', top: '50%', left: '50%'}}></i></div>
         <div><i className='arrow right'></i></div>
       </div>
     </div>
