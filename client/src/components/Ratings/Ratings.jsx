@@ -44,14 +44,26 @@ const Ratings = () => {
 
   return (
     <>
-      <ReviewList
-        listOfReviews={listOfReviews}
-        listValue={listValue}
-        setListValue={setListValue}
-      />
+      <div className='review-list'>
+        <ReviewList
+          listOfReviews={listOfReviews}
+          listValue={listValue}
+          setListValue={setListValue}
+        />
+      </div>
+
+      <div className='side-bar'>
+        <SideBar metaData={metaData} listOfReviews={listOfReviews} />
+      </div>
+
       <div>
         {' '}
-        <button onClick={() => setShowModal(true)}>New Review</button>
+        <button
+          className='review-btn add-review'
+          onClick={() => setShowModal(true)}
+        >
+          New Review
+        </button>
         <NewReview
           showModal={showModal}
           setShowModal={setShowModal}
@@ -59,7 +71,6 @@ const Ratings = () => {
           metaData={metaData}
         ></NewReview>{' '}
       </div>
-      <SideBar metaData={metaData} listOfReviews={listOfReviews} />
     </>
   );
 };
