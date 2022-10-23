@@ -74,7 +74,7 @@ const Questions = () => {
       Questions & Answers <br />
       <SearchBar questions={questions} searchQuestions={searchQuestions} getQuestions={getQuestions}/>
       <QuestionsList questions={questions} />
-      <button onClick={(e) => onClickHandler(e)}>Add Question</button>
+      <button className='btn add' onClick={(e) => onClickHandler(e)}>Add Question</button>
       { openQuestionModal ? <AddQuestionModal closeModal={closeModal} productName={productName} postQuestions={postQuestions}/> : null}
     </div>
   );

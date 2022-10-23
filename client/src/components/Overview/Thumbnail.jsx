@@ -10,13 +10,13 @@ const Thumbnail = ({currentStyle, index, selectedThumbnailIndex, setSelectedThum
 
   if (index === selectedThumbnailIndex) {
     return (
-      <div style={{margin: '15px', border: '2px solid Black'}}>
+      <div style={{margin: '15px', border: '3px solid black'}}>
         <div style={{backgroundImage: `url('${photoObj.url}')`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100px', height: '100px', cursor: 'pointer'}} onClick={(e) => {handleThumbnailClick(e, index, photoObj.url)}}></div>
       </div>
     )
   } else {
     return (
-      <div style={{margin: '15px', padding: '2px'}}>
+      <div style={{margin: '15px', padding: '3px'}}>
         <div style={{backgroundImage: `url('${photoObj.url}')`, backgroundPosition: 'center', backgroundSize: 'cover', width: '100px', height: '100px', cursor: 'pointer'}} onClick={(e) => {handleThumbnailClick(e, index, photoObj.url)}}></div>
       </div>
 

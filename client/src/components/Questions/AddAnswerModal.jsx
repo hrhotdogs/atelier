@@ -12,7 +12,7 @@ const AddAnswerModal = ({closeModal, question}) => {
   const AnswerRef = useRef();
   const usernameRef = useRef();
   const emailRef = useRef();
-  const photoRef = useRef();
+  const [photos, setPhotos] = useState([])
   const [productInfo, setProductInfo] = useState({})
   const productName = productInfo.name;
 
@@ -21,7 +21,6 @@ const AddAnswerModal = ({closeModal, question}) => {
       .then((response) => {setProductInfo(response.data)})
       .catch((err) => {console.log(err)});
   }, [currentProductID])
-  console.log(question)
 
   const modalBackground = {
     top: 0,
@@ -50,15 +49,27 @@ const AddAnswerModal = ({closeModal, question}) => {
     zIndex: 1000
   }
 
+  function openWidget(e) {
+    e.preventDefault()
+    let myWidget = window.cloudinary.createUploadWidget({
+    cloudName: 'dsafunhlm',
+    uploadPreset: 'hackreacter_joe'}, (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log('Done! Here is the image info: ', result.info);
+        setPhotos((prev) => [...prev, result.info.url])
+      }
+    })
+    myWidget.open()
+  }
+
   function submitHandler(e) {
     e.preventDefault()
-    console.log(photoRef.current.value.length)
     axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question.question_id}/answers`,
     {
       body: AnswerRef.current.value,
       name: usernameRef.current.value,
       email: emailRef.current.value,
-      photos: [photoRef.current.value]
+      photos: photos
     },
     {
       headers: {
@@ -70,22 +81,33 @@ const AddAnswerModal = ({closeModal, question}) => {
   }
 
   return ReactDOM.createPortal(
-    <div style={modalBackground}>
-      <div style={modalContainer}>
+    <div className='modalBackground'>
+      <div className='modalContainer'>
         <div>
           <h1>Submit your Answer</h1>
           <h2>{productName}: {question.question_body}</h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
-          Answer:<input type='text' placeholder='your question' required ref={AnswerRef}/><br/>
-          Username:<input type='text' placeholder='jackson11' required ref={usernameRef}/><br/>
-          Email:<input type='text' placeholder='jackson11@email.com' required ref={emailRef}/><br/>
-          photos:<input type='file' multiple accept='image/*' ref={photoRef}/><br/>
+          <div>
+            <lable> Answer </lable><br/>
+            <input type='text' placeholder='your answer...' className='input' required ref={AnswerRef}/>
+          </div>
+          <div>
+            <lable> Username </lable><br/>
+            <input type='text' placeholder='jackson11' className='input' required ref={usernameRef}/>
+          </div>
+          <div>
+            <lable> Email </lable><br/>
+            <input type='text' placeholder='jackson11@email.com' className='input' required ref={emailRef}/>
+          </div>
+          <div>
+            <button id='upload-widget' className='cloudinary-button input' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
+          </div>
           <button type='submit'>Submit Answer</button>
         </form>
-        <footer>
-          <button onClick={(e) => closeModal(e)}>CANCEL</button>
-        </footer>
+        <div className='footer'>
+          <button className='footer' onClick={(e) => closeModal(e)}>CANCEL</button>
+        </div>
       </div>
     </div>,
     document.getElementById('portal')

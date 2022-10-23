@@ -64,7 +64,7 @@ border: 2px solid black;
   left: 0;
   right:0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, .7);
   z-index: 1000;
 }
 
@@ -82,6 +82,31 @@ border: 2px solid black;
   cursor: pointer;
  }
 
+ .average-rating {
+  font-size: 50px;
+ }
+
+ .parent-div {
+  height: 20px;
+  width: 100%;
+  background-color: #aaa;
+  border-radius: 40px;
+  margin: 50;
+ }
+
+ .child-div {
+  height: 100%;
+  background-color: rgb(79, 77, 77);
+  border-radius: 40px;
+  text-align: 'right';
+ }
+
+ .progress-text {
+  padding: 10;
+  color: black;
+  font-weight: 900;
+ }
+
 
 /*============ Ratings and Reviews ============= */
 
@@ -95,10 +120,6 @@ border: 2px solid black;
   --thumb: #edf2f4;
 }
 
-.review {
-border: 2px solid black;
-}
-
 /* .scrolling-wrapper-flexbox {
   display: flex;
   padding: 20px 25px;
@@ -108,73 +129,91 @@ border: 2px solid black;
 } */
 
 .container {
-  max-width: 500px;
-  padding: 10px 25px;
-  margin: 0 auto;
-  background:rgba(0 , 140 , 186, .5)
+  width: 725px;
+  height: 215px;
+  padding: 3px 15px 0 15px;
+  background:rgba(0 , 140 , 186, .5);
+  /*V V V Makes box centered on the browser V V V */
+ /* margin: 0 auto; */
 }
 
 h2 {
   color: rgb(0, 8, 164);
+  background: rgba(255, 255, 255, 0.2);
   font-size: 20px;
-  margin-bottom: 0;
+  /* opacity: .09; */
+  backdrop-filter: blur(50px);
 }
 
 .cards {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 10px 15px;
+  display: grid;
+  grid-auto-columns: 100px;
+  grid-column-gap: 50px;
+  grid-auto-flow: column;
   list-style: none;
-  overflow-x: scroll;
+  overflow-x: auto;
+  padding: 10px 10px;
   scroll-snap-type: x mandatory;
 }
 
-@keyframes cardSlideInFromLeft {
-  0% {
-    transform: translateX(500%);
-  }
-  100% {
-    transform: translateX(100);
-  }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .card {
-  animation: 1s ease-out 0s 1 cardSlideInFromLeft;
-  display: flex;
+  animation: fadeIn 4s;
+  display: -ms-inline-grid;
   flex-direction: column;
-  flex: 0 0 100%;
-  padding: 30px 30px;
-  color: aqua;
-  background: rgb(4, 3, 99);
-  border-radius: 12px;
+  height: 150px;
+  width: 100px;
+  padding: 1px 1px;
+  color: rgb(0, 0, 0);
+  border-radius: 18px;
   box-shadow: 5px 5px 5px rgb(0, 76, 255);
   scroll-snap-align: start;
-  transition: all 1.5s;
-}
-
-.card:not(:last-child) {
-  margin-right: 10px;
 }
 
 .card:hover {
   color: rgb(0, 21, 156);
-  background: aqua;
-  box-shadow: 10px 10px 10px 0px rgba(0, 25, 248, 0.7);
+  box-shadow: 8px 8px 8px 0px rgba(0, 25, 248, 0.7);
+  transform: scale(1.05);
+  transition: all .3s;
 }
 
 .card .card-title {
+  color: rgb(0, 8, 164);
+  background: rgba(255, 255, 255, 0.2);
   font-size: 15px;
+  margin-bottom: 0;
+  backdrop-filter: blur(5px);
 }
 
-.card .card-content {
-  margin: 10px 0px;
-  max-width: 85%;
+.card .card-content-name {
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 15px;
+  position: relative;
+  display: inline-table;
+  left: 5px;
+  top: 3px;
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  margin: 2px 2px 2px 2px;
 }
 
-/* .card .card-link-wrapper {
-  margin-top: auto;
-} */
+.card .card-content-id {
+  color: rgb(0, 8, 164);
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  display: inline-table;
+  left: 5px;
+  bottom: 0px;
+  backdrop-filter: blur(5px);
+  border-radius: 18px;
+}
 
 .cards::-webkit-scrollbar {
   height: 12px;
@@ -192,7 +231,7 @@ h2 {
 .cards::-webkit-scrollbar-track {
   background: var(--thumb);
 }
-
+/*
 @media (min-width: 500px) {
   .card {
     flex-basis: calc(50% - 10px);
@@ -221,12 +260,12 @@ h2 {
   .card:not(:last-child) {
     margin-right: 40px;
   }
-}
+} */
 
 
 /* FOOTER STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.page-footer {
+/* .page-footer {
   position: fixed;
   right: 0;
   bottom: 50px;
@@ -239,7 +278,7 @@ h2 {
 .page-footer a {
   display: flex;
   margin-left: 4px;
-}
+} */
 /* +++++++++++ Related Section Styles Above +++++++++++ */
 
 /**********************************************
@@ -247,10 +286,16 @@ QUESTIONS AND ANSWERS
 ***********************************************/
 
 .questionsAndAnswers {
-  height: 600px;
+  /* max-height: 500px; */
   overflow: auto;
   position: relative;
   margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.questionsList {
+  max-height: 500px;
+  overflow: auto;
 }
 
 .answersList {
@@ -265,6 +310,79 @@ QUESTIONS AND ANSWERS
 .noMatch {
   font-size: 20pt;
 }
+
+.helpfulContainer {
+  float: right;
+}
+
+.input {
+  margin: 10px;
+}
+
+.footer {
+  margin: 10px;
+}
+
+.question {
+  margin: 10px;
+  font-weight: bold;
+  font-size: large;
+}
+
+.answer {
+  margin: 10px;
+}
+
+.searchBar{
+  width: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: large;
+}
+
+.btn {
+  padding: 5px;
+  box-sizing:content-box;
+  background-color: #fff;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  background-color: #bac0c1;
+  color: rgb(0, 0, 0);
+}
+
+.add {
+  margin-top: 5px;
+}
+
+.modalBackground {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  background-color: rgba(200, 200, 200, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999
+}
+
+.modalContainer {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  text-align: center;
+  z-index: 1000
+}
+
 
 /*-----Overview-----*/
 .thumbnailCarousel {
@@ -307,29 +425,4 @@ QUESTIONS AND ANSWERS
   float: right;
 }
 
-/* #modalBackground {
-  top: 0;
-  left: 0;
-  height: '100%';
-  width: '100%';
-  position: 'fixed';
-  display: 'flex';
-  background-color: 'rgba(200, 200, 200, 0.5)';
-  justify-content: 'center';
-  align-items: 'center';
-  z-index: 999
-}
 
-#modalContainer {
-  position: 'absolute';
-  width: '500px';
-  height: '500px';
-  border-radius: '12px';
-  background-color: '#fff';
-  box-shadow: 'rgba(0, 0, 0, 0.5)';
-  display: 'flex';
-  flex-direction: 'column';
-  padding: '25px';
-  text-align: 'center';
-  z-index: 1000
-} */

@@ -12,11 +12,11 @@ const QuestionsList = ({ questions }) => {
     setShownQuestions(shownQuestions + 2)
   }
   return (
-    <div>
+    <div className='questionsList'>
       {questions.slice(0,shownQuestions).map((question) => (
         <IndividualQuestion question={question} key={question.question_id}/>
       ))}
-      { showButton ? <button onClick={() => onClickHandler()}>More Answered Questions</button> : null }
+      { showButton ? <button className='btn' onClick={() => onClickHandler()}>More Answered Questions</button> : null }
     </div>
   );
 };
