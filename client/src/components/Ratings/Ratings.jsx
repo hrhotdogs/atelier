@@ -9,11 +9,12 @@ import SideBar from './SideBar.jsx';
 const Ratings = () => {
   const { currentProductID, setCurrentProductID } =
     useContext(ProductIDContext);
+
   const [listValue, setListValue] = useState('set_one');
   const [listOfReviews, setListOfReviews] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [metaData, setMetaData] = useState({});
-
+  const [metaDataProductID, setMetaDataProductID] = useState(currentProductID);
   useEffect(() => {
     axios
       .get(
@@ -34,10 +35,12 @@ const Ratings = () => {
         { headers: { Authorization: `${TOKEN}` } }
       )
       .then((results) => {
+        console.log(results);
+        setMetaDataProductID(results.data.product_id);
         setMetaData(results.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [currentProductID]);
 
   return (
     <>
