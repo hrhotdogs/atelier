@@ -41,6 +41,8 @@ const ImageGallery = ({currentStyle}) => {
         <div style={{height: '35px', position: 'relative'}}>{showBottomArrow()}</div>
       </div>
       <div style={{backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '675px', height: '675px', backgroundPosition: 'center'}}>
+        <div><i className='arrow left'></i></div>
+        <div><i className='arrow right'></i></div>
       </div>
     </div>
 
