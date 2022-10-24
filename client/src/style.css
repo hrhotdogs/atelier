@@ -5,8 +5,21 @@ body {
 /*============ Ratings and Reviews ============= */
 .review {
 border: 2px solid black;
-}
+border-radius: 10px;
+box-sizing: content-box;
+padding: 10px;
+margin: 5px;
 
+}
+.review-list {
+border: 2px solid rgb(77, 79, 79);
+border-radius: 10px;
+padding: 2rem;
+width: 50%;
+box-sizing: content-box;
+margin: 5px;
+word-wrap:break-word;
+}
 .seller-response {
   text-decoration: underline;
   cursor: pointer;
@@ -44,8 +57,24 @@ border: 2px solid black;
   overflow: hidden;
   color: #f80
 }
-.more-reviews {
+
+.review-btn {
+  padding: 5px;
   cursor: pointer;
+  box-sizing: content-box;
+  background-color: #fff;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+}
+
+.review-btn:hover {
+  background-color: #bac0c1;
+  color: rgb(0, 0, 0);
+}
+
+.review-add {
+  margin-top: 5px;
+  margin: 5px;
 }
 
 .modal-styles {
@@ -107,6 +136,14 @@ border: 2px solid black;
   font-weight: 900;
  }
 
+ .side-bar {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 30%;
+  margin: 5px;
+ }
+
 
 /*============ Ratings and Reviews ============= */
 
@@ -129,31 +166,35 @@ border: 2px solid black;
 } */
 
 .container {
-  width: 725px;
-  height: 215px;
-  padding: 3px 15px 0 15px;
-  background:rgba(0 , 140 , 186, .5);
+  display: flex;
+  max-width: 900px;
+  min-height: 292px;
+  padding: 0 15px 0 1px;
+  background:rgba(158, 158, 158, 0.5);
+  /* background-image: url("https://dw9to29mmj727.cloudfront.net/properties/2016/3100-Thumb_PokemonGeneral_v3_400x320.jpg"); */
   /*V V V Makes box centered on the browser V V V */
- /* margin: 0 auto; */
+  margin: 0 auto;
+  border-radius: 18px;
 }
 
 h2 {
   color: rgb(0, 8, 164);
-  background: rgba(255, 255, 255, 0.2);
   font-size: 20px;
-  /* opacity: .09; */
-  backdrop-filter: blur(50px);
 }
 
 .cards {
-  display: grid;
-  grid-auto-columns: 100px;
-  grid-column-gap: 50px;
+  display: inline-flex;
+  grid-column-gap: 35px;
   grid-auto-flow: column;
-  list-style: none;
   overflow-x: auto;
-  padding: 10px 10px;
+  padding: 35px 50px;
   scroll-snap-type: x mandatory;
+}
+
+.add-card {
+  display: inline-flex;
+  grid-auto-flow: column;
+  padding: 35px 50px;
 }
 
 @keyframes fadeIn {
@@ -163,56 +204,95 @@ h2 {
 
 .card {
   animation: fadeIn 4s;
-  display: -ms-inline-grid;
   flex-direction: column;
-  height: 150px;
-  width: 100px;
-  padding: 1px 1px;
-  color: rgb(0, 0, 0);
-  border-radius: 18px;
-  box-shadow: 5px 5px 5px rgb(0, 76, 255);
-  scroll-snap-align: start;
+  display: flex;
+  min-height: 190px;
+  min-width: 100px;
+  max-height: 190px;
+  max-width: 100px;
+  border-radius: 0 18px 18px 18px;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0);
 }
 
 .card:hover {
   color: rgb(0, 21, 156);
-  box-shadow: 8px 8px 8px 0px rgba(0, 25, 248, 0.7);
+  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.7);
   transform: scale(1.05);
   transition: all .3s;
 }
 
-.card .card-title {
-  color: rgb(0, 8, 164);
-  background: rgba(255, 255, 255, 0.2);
-  font-size: 15px;
-  margin-bottom: 0;
-  backdrop-filter: blur(5px);
+.card-image {
+  width: 100%;
+  height: 75%;
+  border-radius: 0px 18px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card .card-content-name {
-  color: rgb(255, 255, 255);
+/* .card:hover .add-image {
+  opacity: .7;
+  transform: scale(1.4);
+  transition: all .5s;
+} */
+
+@keyframes fadeInAdd {
+  0% {
+    opacity: .4;
+    transform: scale(1.0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+.card-image:hover > .add-image:hover {
+  transform: scale(1.6);
+  opacity: .9;
+  transition: all .25s;
+}
+
+.card-image .add-image {
+  width: 25%;
+  opacity: .4;
+  border-radius: 18px;
+}
+
+.card-footer {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
   background: rgba(0, 0, 0, 0.2);
-  font-size: 15px;
-  position: relative;
-  display: inline-table;
-  left: 5px;
-  top: 3px;
   backdrop-filter: blur(8px);
-  border-radius: 18px;
-  margin: 2px 2px 2px 2px;
+  border-radius: 0px 0 18px 18px;
+  padding-bottom: 3px;
+  padding-left: 5px;
 }
 
-.card .card-content-id {
-  color: rgb(0, 8, 164);
-  background: rgba(255, 255, 255, 0.2);
-  font-size: 15px;
-  text-align: center;
-  position: relative;
-  display: inline-table;
-  left: 5px;
-  bottom: 0px;
-  backdrop-filter: blur(5px);
-  border-radius: 18px;
+.card-footer .card-content-name {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  font-weight: bold;
+  height: 100%;
+  padding: 2%;
+  font-size: 80%;
+}
+
+.card-footer .card-content-category {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  height: 100%;
+  padding: 2%;
+  font-size: 60%;
+}
+
+.card-footer .card-content-price {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  height: 100%;
+  padding: 2%;
+  font-size: 60%;
 }
 
 .cards::-webkit-scrollbar {
@@ -265,16 +345,7 @@ h2 {
 
 /* FOOTER STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* .page-footer {
-  position: fixed;
-  right: 0;
-  bottom: 50px;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  z-index: 1;
-}
-
+/*
 .page-footer a {
   display: flex;
   margin-left: 4px;
