@@ -82,9 +82,13 @@ const EachRelatedCard = (props) => {
 
   if (!isEmpty) {
     return (
-      <li className="card" style={prodIMGStyle} onClick={(event) => { handleRelatedClick(event) }}>
+      <li className="card">
+        <div className="card-image" style={prodIMGStyle} onClick={(event) => { handleRelatedClick(event) }}></div>
+        <div className="card-footer">
+            <div className="card-content-category">{product.info.category}</div>
             <div className="card-content-name">{product.info.name}</div>
-            <div className="card-content-id">id: {product.info.id}</div>
+            <div className="card-content-price">${product.info.default_price}</div>
+        </div>
       </li>
     )
   } else { return null; }
