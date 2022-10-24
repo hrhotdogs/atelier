@@ -1,11 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
-import PopulateOutfits from './PopulateOutfits.jsx';
 import { ProductIDContext } from '../Context.jsx';
 import {TOKEN} from '../../../../config.js';
 
-const AddOutfitCard = (props) => {
-  const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
+const AddOutfitCard = React.memo(({currentProductID, setRenderOutfit, renderOutfit}) => {
   const [product, setProduct] = React.useState({});
 
   const controller = new AbortController();
@@ -15,7 +13,6 @@ const AddOutfitCard = (props) => {
   };
 
   var prodObj = {};
-  var renderOutfitsList = false;
 
   const getProdInfo = () => {
     Axios.get(
@@ -47,6 +44,7 @@ const AddOutfitCard = (props) => {
       let outfit = [product];
       outfit = JSON.stringify(outfit);
       window.localStorage.setItem("outfits", outfit);
+      setRenderOutfit(!renderOutfit);
     } else {
       let alreadyAdded = false;
       for (let i = 0; i < getOutfits.length; i++) {
@@ -60,9 +58,9 @@ const AddOutfitCard = (props) => {
         let outfits = [...getOutfits, product];
         outfits = JSON.stringify(outfits);
         window.localStorage.setItem("outfits", outfits);
+        setRenderOutfit(!renderOutfit);
       }
     }
-    renderOutfitsList = !renderOutfitsList;
   }
 
   React.useEffect(() => {
@@ -96,12 +94,9 @@ const AddOutfitCard = (props) => {
             </div>
           </li>
         </ul>
-        <ul className="cards">
-          <PopulateOutfits key={renderOutfitsList}/>
-        </ul>
       </>
     );
   } else { return null; }
-};
+});
 
 export default AddOutfitCard;
