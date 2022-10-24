@@ -40,10 +40,15 @@ const AddOutfitCard = () => {
   }
 
   const handleOutfitClick = () => {
-    let outfits = JSON.parse(window.localStorage.getItem("outfits"));
-    console.log("outfits localstorage: ", outfits);
-    outfits = JSON.stringify({...outfits, product});
-    window.localStorage.setItem("outfits", outfits);
+    // let getOutfits = JSON.parse(window.localStorage.getItem("outfits"));
+    // if (Object.keys(getOutfits).length === 0) {
+    //   let outfits = {outfitsArr: [product]};
+    //   window.localStorage.setItem("outfits", JSON.stringify(outfits));
+    // } else {
+    //   let outfits = {outfitsArr: [...getOutfits.outfitsArr, product]};
+    //   // outfits = JSON.stringify(outfits);
+    //   window.localStorage.setItem("outfits", JSON.stringify(outfits));
+    // }
   }
 
   React.useEffect(() => {
