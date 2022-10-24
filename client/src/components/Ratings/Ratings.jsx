@@ -5,6 +5,7 @@ import { ProductIDContext } from '../Context.jsx';
 import NewReview from './NewReview.jsx';
 import ReviewList from './ReviewList.jsx';
 import SideBar from './SideBar.jsx';
+import { format, parseISO } from 'date-fns';
 
 const Ratings = () => {
   const { currentProductID, setCurrentProductID } =
@@ -15,10 +16,11 @@ const Ratings = () => {
   const [showModal, setShowModal] = useState(false);
   const [metaData, setMetaData] = useState({});
   const [metaDataProductID, setMetaDataProductID] = useState(currentProductID);
+  const [option, setOption] = useState('');
   useEffect(() => {
     axios
       .get(
-        ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?page&count&sort=relevant&product_id=${currentProductID}`,
+        ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?page&count=50&sort=relevant&product_id=${currentProductID}`,
         { headers: { Authorization: `${TOKEN}` } }
       )
       .then((results) => {
@@ -41,9 +43,45 @@ const Ratings = () => {
       .catch((error) => console.log(error));
   }, [currentProductID]);
 
+  const helpfulnessSort = () => {
+    let helpfulReviews = listOfReviews.slice();
+    helpfulReviews.sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
+    setListOfReviews(helpfulReviews);
+  };
+
+  const newestSort = () => {
+    let newestReviews = listOfReviews.slice();
+    newestReviews.sort((a, b) => (a.date < b.date ? 1 : -1));
+    setListOfReviews(newestReviews);
+  };
+
+  const changeOption = (e) => {
+    if (e.target.value === 'Helpfulness') {
+      helpfulnessSort();
+    } else if (e.target.value === 'Newest') {
+      newestSort();
+    } else {
+      setListOfReviews(listOfReviews);
+    }
+    setOption(e.target.value);
+  };
+
   return (
     <>
       <div className='review-list'>
+        <label htmlFor='sort-options'>
+          &nbsp; Sort by:
+          <select
+            value={option}
+            onChange={changeOption}
+            name='sort-options'
+            id='sort-options'
+          >
+            <option value='Relevance'>Relevance</option>
+            <option value='Helpfulness'>Helpfulness</option>
+            <option value='Newest'>Newest</option>
+          </select>
+        </label>
         <ReviewList
           listOfReviews={listOfReviews}
           listValue={listValue}
