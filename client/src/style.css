@@ -7,6 +7,9 @@ body {
 border: 2px solid black;
 border-radius: 10px;
 box-sizing: content-box;
+padding: 10px;
+margin: 5px;
+
 }
 .review-list {
 border: 2px solid rgb(77, 79, 79);
@@ -14,6 +17,8 @@ border-radius: 10px;
 padding: 2rem;
 width: 50%;
 box-sizing: content-box;
+margin: 5px;
+word-wrap:break-word;
 }
 .seller-response {
   text-decoration: underline;
@@ -69,6 +74,7 @@ box-sizing: content-box;
 
 .review-add {
   margin-top: 5px;
+  margin: 5px;
 }
 
 .modal-styles {
@@ -134,7 +140,8 @@ box-sizing: content-box;
   border: 2px solid black;
   border-radius: 10px;
   padding: 2rem;
-  width: 28%;
+  width: 30%;
+  margin: 5px;
  }
 
 
