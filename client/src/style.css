@@ -478,10 +478,12 @@ QUESTIONS AND ANSWERS
 
 .arrowLeftContainer:hover {
   background-color: rgb(40,40,40, 0.5);
+  cursor: pointer;
 }
 
 .arrowRightContainer:hover {
   background-color: rgb(40,40,40, 0.5);
+  cursor: pointer;
 }
 
 .right {
@@ -511,6 +513,10 @@ QUESTIONS AND ANSWERS
   border-radius: 50%;
   border: 1px solid white;
   box-shadow: 0 0 10px grey;
+}
+
+.styleIcon:hover {
+  cursor: pointer;
 }
 
 .sidebarSelected {
