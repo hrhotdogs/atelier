@@ -174,6 +174,7 @@ word-wrap:break-word;
   /* background-image: url("https://dw9to29mmj727.cloudfront.net/properties/2016/3100-Thumb_PokemonGeneral_v3_400x320.jpg"); */
   /*V V V Makes box centered on the browser V V V */
   margin: 0 auto;
+  border-radius: 18px;
 }
 
 h2 {
@@ -188,6 +189,12 @@ h2 {
   overflow-x: auto;
   padding: 35px 50px;
   scroll-snap-type: x mandatory;
+}
+
+.add-card {
+  display: inline-flex;
+  grid-auto-flow: column;
+  padding: 35px 50px;
 }
 
 @keyframes fadeIn {
@@ -214,7 +221,7 @@ h2 {
   transition: all .3s;
 }
 
-.card .card-image {
+.card-image {
   width: 100%;
   height: 75%;
   border-radius: 0px 18px 0 0;
@@ -223,10 +230,27 @@ h2 {
   align-items: center;
 }
 
-.card:hover .add-image {
+/* .card:hover .add-image {
   opacity: .7;
   transform: scale(1.4);
   transition: all .5s;
+} */
+
+@keyframes fadeInAdd {
+  0% {
+    opacity: .4;
+    transform: scale(1.0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+.card-image:hover > .add-image:hover {
+  transform: scale(1.6);
+  opacity: .9;
+  transition: all .25s;
 }
 
 .card-image .add-image {
@@ -235,7 +259,7 @@ h2 {
   border-radius: 18px;
 }
 
-.card .card-footer {
+.card-footer {
   height: 35%;
   display: flex;
   flex-direction: column;
