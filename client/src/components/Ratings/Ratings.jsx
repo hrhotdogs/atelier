@@ -35,7 +35,6 @@ const Ratings = () => {
         { headers: { Authorization: `${TOKEN}` } }
       )
       .then((results) => {
-        console.log(results);
         setMetaDataProductID(results.data.product_id);
         setMetaData(results.data);
       })
