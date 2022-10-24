@@ -5,7 +5,6 @@ import IndividualQuestion from './IndividualQuestion.jsx';
 const { useState } = React;
 
 const QuestionsList = ({ questions }) => {
-  console.log(questions)
   const [shownQuestions, setShownQuestions] = useState(2)
   const numOfQuestions = questions.length;
   const showButton = numOfQuestions > 2 && shownQuestions < numOfQuestions;
