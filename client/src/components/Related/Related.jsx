@@ -12,6 +12,7 @@ const Related = () => {
       <div className="container">
         <RelatedCards/>
       </div>
+      &nbsp;
       <div className="container">
         <OutfitCards />
       </div>
