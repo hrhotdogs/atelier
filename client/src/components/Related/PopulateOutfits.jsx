@@ -13,7 +13,7 @@ const PopulateOutfits = () => {
 
   return (
     <>
-      {outfitsList.length !== 0 ? outfitsList.map((eachOutfit, index) => {
+      {outfitsList !== null ? outfitsList.map((eachOutfit, index) => {
         return(
           <EachOutfitCard outfit={eachOutfit} key={index}/>
         )}
