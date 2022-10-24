@@ -27,7 +27,7 @@ const Questions = () => {
   }
 
   function postQuestions(question, name, email) {
-    axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions`,
+    axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductID}`,
     {
       body: question,
       name: name,
@@ -71,9 +71,9 @@ const Questions = () => {
 
   return (
     <div className='questionsAndAnswers'>
-      Questions & Answers <br />
+      <div>Questions & Answers</div><br />
       <SearchBar questions={questions} searchQuestions={searchQuestions} getQuestions={getQuestions}/>
-      <QuestionsList questions={questions} />
+      <QuestionsList questions={questions}/>
       <button className='btn add' onClick={(e) => onClickHandler(e)}>Add Question</button>
       { openQuestionModal ? <AddQuestionModal closeModal={closeModal} productName={productName} postQuestions={postQuestions}/> : null}
     </div>
