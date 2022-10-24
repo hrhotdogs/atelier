@@ -2,9 +2,8 @@ import React from 'react';
 import Thumbnail from './Thumbnail.jsx'
 const {useState, useEffect, useRef} = React;
 
-const ThumbnailCarousel = ({currentStyle, setMainImageUrl, setCarouselAtTop, setCarouselAtBottom}) => {
+const ThumbnailCarousel = ({currentStyle, setMainImageUrl, setCarouselAtTop, setCarouselAtBottom, selectedThumbnailIndex, setSelectedThumbnailIndex}) => {
 
-  const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
   const [carouselScrollTop, setCarouselScrollTop] = useState(0);
 
   const carouselElem = useRef(null);

@@ -383,6 +383,10 @@ QUESTIONS AND ANSWERS
   z-index: 1000
 }
 
+.helpfulContainer {
+  float: right;
+}
+
 
 /*-----Overview-----*/
 .thumbnailCarousel {
@@ -416,13 +420,56 @@ QUESTIONS AND ANSWERS
   -webkit-transform: rotate(135deg);
 }
 
+.arrowLeftContainer:hover {
+  background-color: rgb(40,40,40, 0.5);
+}
+
+.arrowRightContainer:hover {
+  background-color: rgb(40,40,40, 0.5);
+}
+
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
 
-.helpfulContainer {
-  float: right;
+.overview {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+#sidebarProductTitle {
+  font-size: 25pt;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
+#sidebarPrice {
+  font-size: 14pt;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.styleIcon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.sidebarSelected {
+  margin-right: 7px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.sidebarUnselected {
+  margin-right: 7px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.sidebarUnselected:hover {
+  margin-right: 7px;
+  border-radius: 50%;
+  border: 2px solid grey;
+}
