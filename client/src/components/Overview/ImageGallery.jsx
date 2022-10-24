@@ -9,6 +9,7 @@ const ImageGallery = ({currentStyle}) => {
   const [mainImageUrl, setMainImageUrl] = useState(currentStyle.photos[0].url);
   const [carouselAtTop, setCarouselAtTop] = useState(true);
   const [carouselAtBottom, setCarouselAtBottom] = useState(!(currentStyle.photos.length > 5));
+  const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
 
   const showTopArrow = () => {
     if (!carouselAtTop) {
@@ -26,6 +27,20 @@ const ImageGallery = ({currentStyle}) => {
     }
   }
 
+  const handleLeftArrowClick = () => {
+    if (selectedThumbnailIndex > 0) {
+      setSelectedThumbnailIndex(selectedThumbnailIndex - 1);
+      setMainImageUrl(currentStyle.photos[selectedThumbnailIndex - 1].url);
+    }
+  }
+
+  const handleRightArrowClick = () => {
+    if (selectedThumbnailIndex < currentStyle.photos.length - 1) {
+      setSelectedThumbnailIndex(selectedThumbnailIndex + 1);
+      setMainImageUrl(currentStyle.photos[selectedThumbnailIndex + 1].url);
+    }
+  }
+
   // Set actual default values when API data is received
   useEffect(() => {
       setMainImageUrl(currentStyle.photos[0].url);
@@ -37,10 +52,12 @@ const ImageGallery = ({currentStyle}) => {
     <div style={{display: 'flex', flexDirection: 'row'}} data-testid="imageGallery-1">
       <div style={{display: 'flex', flexDirection:'column', justifyContent: 'center', height: '675px'}}>
         <div style={{height: '35px', position: 'relative'}}>{showTopArrow()}</div>
-        <ThumbnailCarousel currentStyle={currentStyle} setMainImageUrl={setMainImageUrl} setCarouselAtTop={setCarouselAtTop} setCarouselAtBottom={setCarouselAtBottom} />
+        <ThumbnailCarousel currentStyle={currentStyle} setMainImageUrl={setMainImageUrl} setCarouselAtTop={setCarouselAtTop} setCarouselAtBottom={setCarouselAtBottom} selectedThumbnailIndex={selectedThumbnailIndex} setSelectedThumbnailIndex={setSelectedThumbnailIndex} />
         <div style={{height: '35px', position: 'relative'}}>{showBottomArrow()}</div>
       </div>
-      <div style={{backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '675px', height: '675px', backgroundPosition: 'center'}}>
+      <div className='mainImage' style={{display: 'flex', flexDirection: 'row', backgroundImage: `url('${mainImageUrl}')`, backgroundSize: 'cover', width: '675px', height: '675px', backgroundPosition: 'center'}}>
+        <div onClick={handleLeftArrowClick} className='arrowLeftContainer' style={{position: 'relative', width: '50px', height: '675px'}}><i className='arrow left' style={{position: 'absolute', top: '50%', left: '40%', height: '5px', width: '5px'}}></i></div>
+        <div onClick={handleRightArrowClick} className='arrowRightContainer' style={{position: 'relative', width: '50px', height: '675px', marginLeft: 'auto', marginRight: '0px'}}><div style={{position: 'absolute', top: '50%', left: '30%'}}><i className='arrow right' style={{height: '5px', width: '5px'}}></i></div></div>
       </div>
     </div>
 
