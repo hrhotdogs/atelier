@@ -9,12 +9,7 @@ const OutfitCards = () => {
 
   return (
     <>
-      <ul className="add-card">
-        <AddOutfitCard />
-      </ul>
-      <ul className="cards">
-        <PopulateOutfits />
-      </ul>
+      <AddOutfitCard />
     </>
   );
 };

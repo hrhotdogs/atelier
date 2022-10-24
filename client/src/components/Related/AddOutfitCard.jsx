@@ -1,9 +1,10 @@
 import React from 'react';
 import Axios from 'axios';
+import PopulateOutfits from './PopulateOutfits.jsx';
 import { ProductIDContext } from '../Context.jsx';
 import {TOKEN} from '../../../../config.js';
 
-const AddOutfitCard = () => {
+const AddOutfitCard = (props) => {
   const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
   const [product, setProduct] = React.useState({});
 
@@ -14,6 +15,7 @@ const AddOutfitCard = () => {
   };
 
   var prodObj = {};
+  var renderOutfitsList = false;
 
   const getProdInfo = () => {
     Axios.get(
@@ -60,6 +62,7 @@ const AddOutfitCard = () => {
         window.localStorage.setItem("outfits", outfits);
       }
     }
+    renderOutfitsList = !renderOutfitsList;
   }
 
   React.useEffect(() => {
@@ -78,18 +81,25 @@ const AddOutfitCard = () => {
       prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
     } else {
         prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].url})`;
-      }
+    }
     return (
-      <li className="card">
-        <div className="card-image" style={prodIMGStyle}>
-          <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg" onClick={(event) => handleOutfitClick()}></img>
-        </div>
-        <div className="card-footer">
-            <div className="card-content-category">{product.info.category}</div>
-            <div className="card-content-name">{product.info.name}</div>
-            <div className="card-content-price">${product.info.default_price}</div>
-        </div>
-      </li>
+      <>
+        <ul className="add-card">
+          <li className="card">
+            <div className="card-image" style={prodIMGStyle}>
+              <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg" onClick={(event) => handleOutfitClick()}></img>
+            </div>
+            <div className="card-footer">
+                <div className="card-content-category">{product.info.category}</div>
+                <div className="card-content-name">{product.info.name}</div>
+                <div className="card-content-price">${product.info.default_price}</div>
+            </div>
+          </li>
+        </ul>
+        <ul className="cards">
+          <PopulateOutfits key={renderOutfitsList}/>
+        </ul>
+      </>
     );
   } else { return null; }
 };

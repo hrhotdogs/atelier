@@ -1,7 +1,7 @@
 import React from 'react';
 import EachOutfitCard from './EachOutfitCard.jsx';
 
-const PopulateOutfits = () => {
+const PopulateOutfits = (props) => {
   const [outfitsList, setOutfitsList] = React.useState([]);
 
   React.useEffect(() => {
@@ -9,13 +9,13 @@ const PopulateOutfits = () => {
     setOutfitsList(parse);
     return () => {
     }
-  }, []);
+  }, [props.key]);
 
   return (
     <>
       {outfitsList.length !== 0 ? outfitsList.map((eachOutfit, index) => {
         return(
-          <EachOutfitCard outfit={eachOutfit} key={index}/>
+          <EachOutfitCard outfit={eachOutfit} key={index} setOutfitsList={setOutfitsList}/>
         )}
       ) : null}
     </>
