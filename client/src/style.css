@@ -174,11 +174,18 @@ word-wrap:break-word;
   /* background-image: url("https://dw9to29mmj727.cloudfront.net/properties/2016/3100-Thumb_PokemonGeneral_v3_400x320.jpg"); */
   /*V V V Makes box centered on the browser V V V */
   margin: 0 auto;
+  border-radius: 18px;
 }
 
 h2 {
   color: rgb(0, 8, 164);
   font-size: 20px;
+}
+
+.add-card {
+  display: inline-flex;
+  grid-auto-flow: column;
+  padding: 35px 50px;
 }
 
 .cards {
@@ -235,7 +242,13 @@ h2 {
   border-radius: 18px;
 }
 
-.card .card-footer {
+.card-image:hover > .add-image:hover {
+  transform: scale(1.6);
+  opacity: .9;
+  transition: all .25s;
+}
+
+.card-footer {
   height: 35%;
   display: flex;
   flex-direction: column;
