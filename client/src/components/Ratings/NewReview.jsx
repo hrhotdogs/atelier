@@ -30,33 +30,26 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const [selectedStarRating, setSelectedStarRating] = useState(null);
   const [selectedRecommend, setSelectedRecommend] = useState(null);
   const [photos, setPhotos] = useState([]);
-  const values = [];
+  const values = {};
 
   if (metaData.characteristics !== undefined) {
     for (let key in metaData.characteristics) {
-      values.push(metaData.characteristics[key].id);
+      values[key] = metaData.characteristics[key].id;
     }
   }
 
   const handleReviewSubmission = (e) => {
     e.preventDefault();
     let form = {
-      product_id: currentProductID,
-      rating: selectedStarRating,
+      product_id: Number(currentProductID),
+      rating: Number(selectedStarRating),
       summary: summaryRef.current.value,
       body: bodyRef.current.value,
       recommend: selectedRecommend,
       name: nicknameRef.current.value,
       email: emailRef.current.value,
       photos: photos,
-      characteristics: {
-        135219: selectedSizeRating,
-        135220: selectedLengthRating,
-        135221: selectedWidthRating,
-        135222: selectedFitRating,
-        135223: selectedComfortRating,
-        135224: selectedQualityRating,
-      },
+      characteristics: {'135232' : Number(selectedSizeRating), '135220': Number(selectedLengthRating), '135233': Number(selectedWidthRating), '135219': Number(selectedFitRating), '135221': Number(selectedComfortRating), '135223':Number(selectedQualityRating)},
     };
     axios
       .post(
@@ -69,6 +62,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
       })
       .catch((error) => {
         console.log('You suck at life sir', error);
+        console.log(error.config.data);
       });
   };
 
