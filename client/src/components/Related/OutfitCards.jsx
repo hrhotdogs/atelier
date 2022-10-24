@@ -1,21 +1,21 @@
 import React from 'react';
 import Axios from 'axios';
-import EachOutfitCard from './EachOutfitCard.jsx';
+import PopulateOutfits from './PopulateOutfits.jsx';
+import AddOutfitCard from './AddOutfitCard.jsx';
 import {TOKEN} from '../../../../config.js';
 
 
 const OutfitCards = () => {
 
-  //somehow access Window.localStorage to get all outfits, put them in...
-  let outfitsList = [1];
-
   return (
-    <div>
-      {/* <p></p>
-      {outfitsList.map((eachOutfit) =>
-        <EachOutfitCard outfit={eachOutfit} />
-      )} */}
-    </div>
+    <>
+      <ul className="add-card">
+        <AddOutfitCard />
+      </ul>
+      <ul className="cards">
+        <PopulateOutfits />
+      </ul>
+    </>
   );
 };
 
