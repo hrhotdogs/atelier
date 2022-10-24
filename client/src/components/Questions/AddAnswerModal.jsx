@@ -107,53 +107,24 @@ const AddAnswerModal = ({ closeModal, question }) => {
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
           <div>
-            <lable> Answer </lable>
-            <br />
-            <input
-              type='text'
-              placeholder='your answer...'
-              className='input'
-              required
-              ref={AnswerRef}
-            />
+            <label> Answer </label><br/>
+            <input type='text' placeholder='your answer...' className='input' required ref={AnswerRef}/>
           </div>
           <div>
-            <lable> Username </lable>
-            <br />
-            <input
-              type='text'
-              placeholder='jackson11'
-              className='input'
-              required
-              ref={usernameRef}
-            />
+            <label> Username </label><br/>
+            <input type='text' placeholder='jackson11' className='input' required ref={usernameRef}/>
           </div>
           <div>
-            <lable> Email </lable>
-            <br />
-            <input
-              type='text'
-              placeholder='jackson11@email.com'
-              className='input'
-              required
-              ref={emailRef}
-            />
+            <label> Email </label><br/>
+            <input type='text' placeholder='jackson11@email.com' className='input' required ref={emailRef}/>
           </div>
           <div>
-            <button
-              id='upload-widget'
-              className='cloudinary-button input'
-              onClick={(e) => openWidget(e)}
-            >
-              {' '}
-              Add Photos{' '}
-            </button>
-            <br />
+            <button id='upload-widget' className='cloudinary-button btn' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
           </div>
-          <button type='submit'>Submit Answer</button>
+          <button className='btn' type='submit'>Submit Answer</button>
         </form>
         <div className='footer'>
-          <button className='footer' onClick={(e) => closeModal(e)}>
+          <button className='btn' onClick={(e) => closeModal(e)}>
             CANCEL
           </button>
         </div>

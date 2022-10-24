@@ -9,7 +9,7 @@ const QuestionsList = ({ questions }) => {
   const numOfQuestions = questions.length;
   const showButton = numOfQuestions > 2 && shownQuestions < numOfQuestions;
   function onClickHandler() {
-    setShownQuestions(shownQuestions + 2)
+    setShownQuestions((prev) => prev + 2)
   }
   return (
     <div className='questionsList'>
