@@ -11,20 +11,15 @@ const PopulateOutfits = () => {
     }
   }, []);
 
-  if (outfitsList === null) {
-    return null;
-  } else {
-    return (
-      <>
-        {outfitsList.map((eachOutfit, index) => {
-          return(
-            <EachOutfitCard outfit={eachOutfit} key={index}/>
-          )
-          })
-        }
-      </>
-    );
-  }
+  return (
+    <>
+      {outfitsList.length !== 0 ? outfitsList.map((eachOutfit, index) => {
+        return(
+          <EachOutfitCard outfit={eachOutfit} key={index}/>
+        )}
+      ) : null}
+    </>
+  );
 };
 
 export default PopulateOutfits;
