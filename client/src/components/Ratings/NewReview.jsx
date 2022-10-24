@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import RadioButtons from './RadioButtons.jsx';
+import RadioStarRating from './RadioStarRating.jsx';
+import ReviewPhotoUpload from './ReviewPhotoUpload.jsx';
+import { TOKEN } from '../../../../config.js';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,10 +16,6 @@ const initialState = {
 };
 
 const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
-  const [form, setform] = useState({
-    ...initialState,
-    product_id: currentProductID,
-  });
   const summaryRef = useRef();
   const bodyRef = useRef();
   const nicknameRef = useRef();
@@ -28,9 +27,49 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const [selectedFitRating, setSelectedFitRating] = useState(null);
   const [selectedComfortRating, setSelectedComfortRating] = useState(null);
   const [selectedQualityRating, setSelectedQualityRating] = useState(null);
+  const [selectedStarRating, setSelectedStarRating] = useState(null);
+  const [selectedRecommend, setSelectedRecommend] = useState(null);
+  const [photos, setPhotos] = useState([]);
+  const values = [];
 
-  const handleChange = (e) => {
-    setForm({ ...form, rating: e.target.value });
+  if (metaData.characteristics !== undefined) {
+    for (let key in metaData.characteristics) {
+      values.push(metaData.characteristics[key].id);
+    }
+  }
+
+  const handleReviewSubmission = (e) => {
+    e.preventDefault();
+    let form = {
+      product_id: currentProductID,
+      rating: selectedStarRating,
+      summary: summaryRef.current.value,
+      body: bodyRef.current.value,
+      recommend: selectedRecommend,
+      name: nicknameRef.current.value,
+      email: emailRef.current.value,
+      photos: photos,
+      characteristics: {
+        135219: selectedSizeRating,
+        135220: selectedLengthRating,
+        135221: selectedWidthRating,
+        135222: selectedFitRating,
+        135223: selectedComfortRating,
+        135224: selectedQualityRating,
+      },
+    };
+    axios
+      .post(
+        'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews',
+        form,
+        { headers: { Authorization: `${TOKEN}` } }
+      )
+      .then(() => {
+        console.log('Successfully added review! You are a GOD');
+      })
+      .catch((error) => {
+        console.log('You suck at life sir', error);
+      });
   };
 
   if (!showModal) {
@@ -43,7 +82,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
           <span className='close' onClick={() => setShowModal(false)}>
             &times;
           </span>
-          <form>
+          <form onSubmit={(e) => handleReviewSubmission(e)}>
             <input
               maxLength='60'
               placeholder='Summary of review'
@@ -59,28 +98,29 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
               required
             ></textarea>
             <br></br>
-            <input
-              placeholder='Enter your email'
-              ref={emailRef}
-              required
-            ></input>
+            <label htmlFor='email'>Enter your email:</label>
+            <input type='email' ref={emailRef} name='email' required></input>
             <br></br>
             <input placeholder='Enter a nickname' ref={nicknameRef}></input>
             <br></br>
             <div>
-              Rating: <input type='radio'></input>
-              <input
-                type='radio'
-                value='2'
-                onChange={(e) => handleChange(e)}
-              ></input>
-              <input type='radio'></input>
-              <input type='radio'></input>
-              <input type='radio'></input>
+              <RadioStarRating setSelectedStarRating={setSelectedStarRating} />
             </div>
             <br></br>
-            Recommend this product? Yes<input type='checkbox'></input>
-            No<input type='checkbox'></input>
+            <div>
+              Recommend this product? Yes
+              <input
+                type='checkbox'
+                name='rec'
+                onClick={() => setSelectedRecommend(true)}
+              ></input>
+              No
+              <input
+                type='checkbox'
+                name='rec'
+                onClick={() => setSelectedRecommend(false)}
+              ></input>
+            </div>
             <br></br>
             <br></br>
             <div>
@@ -92,6 +132,9 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
                 setSelectedWidthRating={setSelectedWidthRating}
                 setSelectedQualityRating={setSelectedQualityRating}
               />
+            </div>
+            <div>
+              <ReviewPhotoUpload setPhotos={setPhotos} />
             </div>
             <br></br>
             <input type='submit' value='Send Review'></input>
