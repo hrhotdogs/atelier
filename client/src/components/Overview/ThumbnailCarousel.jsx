@@ -21,7 +21,7 @@ const ThumbnailCarousel = ({currentStyle, setMainImageUrl, setCarouselAtTop, set
   }, [currentStyle]);
 
   return (
-    <div ref={carouselElem} className='thumbnailCarousel' style={{overflow: 'auto', maxHeight: '605px', margin: '5px'}} onScroll={(e) => {handleCarouselScroll(e)}}>
+    <div ref={carouselElem} data-testid='thumbnailCarousel-1' className='thumbnailCarousel' style={{overflow: 'auto', maxHeight: '605px', margin: '5px'}} onScroll={(e) => {handleCarouselScroll(e)}}>
       {currentStyle.photos.map((photoObj, index) => (
         <Thumbnail currentStyle={currentStyle} key={index} index={index} selectedThumbnailIndex={selectedThumbnailIndex} setSelectedThumbnailIndex={setSelectedThumbnailIndex} photoObj={photoObj} setMainImageUrl={setMainImageUrl} />
       ))}

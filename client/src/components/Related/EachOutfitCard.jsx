@@ -18,6 +18,7 @@ const EachOutfitCard = (props) => {
     }
     outfits = JSON.stringify(outfits);
     window.localStorage.setItem("outfits", outfits);
+    props.setOutfitsList(JSON.parse(window.localStorage.getItem("outfits")));
   }
 
   return (

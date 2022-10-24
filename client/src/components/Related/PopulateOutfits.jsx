@@ -1,7 +1,7 @@
 import React from 'react';
 import EachOutfitCard from './EachOutfitCard.jsx';
 
-const PopulateOutfits = () => {
+const PopulateOutfits = ({renderOutfit}) => {
   const [outfitsList, setOutfitsList] = React.useState([]);
 
   React.useEffect(() => {
@@ -9,16 +9,16 @@ const PopulateOutfits = () => {
     setOutfitsList(parse);
     return () => {
     }
-  }, []);
+  }, [renderOutfit]);
 
   return (
-    <>
+    <ul className="cards">
       {outfitsList !== null ? outfitsList.map((eachOutfit, index) => {
         return(
-          <EachOutfitCard outfit={eachOutfit} key={index}/>
+          <EachOutfitCard outfit={eachOutfit} key={index} setOutfitsList={setOutfitsList}/>
         )}
       ) : null}
-    </>
+    </ul>
   );
 };
 
