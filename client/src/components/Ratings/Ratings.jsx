@@ -18,7 +18,7 @@ const Ratings = () => {
   useEffect(() => {
     axios
       .get(
-        ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?page&count&sort=relevant&product_id=${currentProductID}`,
+        ` https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?page&count=50&sort=relevant&product_id=${currentProductID}`,
         { headers: { Authorization: `${TOKEN}` } }
       )
       .then((results) => {
