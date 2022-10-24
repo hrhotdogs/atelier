@@ -485,6 +485,15 @@ QUESTIONS AND ANSWERS
   box-shadow: 0 0 10px grey;
 }
 
+.infoColumn {
+  display: 'flex';
+  flex-direction: 'column';
+  height: '675px';
+  width: '300px';
+  padding-left: '30px';
+  padding-top: '30px';
+}
+
 .thumbnailCarousel {
   -ms-overflow-style: none;
   /* Hide scrollbar for IE and Edge */
