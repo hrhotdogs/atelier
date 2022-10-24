@@ -3,8 +3,7 @@ import Axios from 'axios';
 import { ProductIDContext } from '../Context.jsx';
 import {TOKEN} from '../../../../config.js';
 
-const AddOutfitCard = () => {
-  const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
+const AddOutfitCard = React.memo(({currentProductID, setRenderOutfit, renderOutfit}) => {
   const [product, setProduct] = React.useState({});
 
   const controller = new AbortController();
@@ -45,6 +44,7 @@ const AddOutfitCard = () => {
       let outfit = [product];
       outfit = JSON.stringify(outfit);
       window.localStorage.setItem("outfits", outfit);
+      setRenderOutfit(!renderOutfit);
     } else {
       let alreadyAdded = false;
       for (let i = 0; i < getOutfits.length; i++) {
@@ -58,6 +58,7 @@ const AddOutfitCard = () => {
         let outfits = [...getOutfits, product];
         outfits = JSON.stringify(outfits);
         window.localStorage.setItem("outfits", outfits);
+        setRenderOutfit(!renderOutfit);
       }
     }
   }
@@ -78,20 +79,24 @@ const AddOutfitCard = () => {
       prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
     } else {
         prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].url})`;
-      }
+    }
     return (
-      <li className="card">
-        <div className="card-image" style={prodIMGStyle}>
-          <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg" onClick={(event) => handleOutfitClick()}></img>
-        </div>
-        <div className="card-footer">
-            <div className="card-content-category">{product.info.category}</div>
-            <div className="card-content-name">{product.info.name}</div>
-            <div className="card-content-price">${product.info.default_price}</div>
-        </div>
-      </li>
+      <>
+        <ul className="add-card">
+          <li className="card">
+            <div className="card-image" style={prodIMGStyle}>
+              <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg" onClick={(event) => handleOutfitClick()}></img>
+            </div>
+            <div className="card-footer">
+                <div className="card-content-category">{product.info.category}</div>
+                <div className="card-content-name">{product.info.name}</div>
+                <div className="card-content-price">${product.info.default_price}</div>
+            </div>
+          </li>
+        </ul>
+      </>
     );
   } else { return null; }
-};
+});
 
 export default AddOutfitCard;
