@@ -8,6 +8,7 @@ const RadioSizeButtons = ({ setSelectedSizeRating }) => {
       &nbsp; Size:
       <input
         type='radio'
+        name='size'
         onClick={() => {
           setRadioSize('A size too small');
           setSelectedSizeRating(1);
@@ -15,6 +16,7 @@ const RadioSizeButtons = ({ setSelectedSizeRating }) => {
       ></input>
       <input
         type='radio'
+        name='size'
         onClick={() => {
           setRadioSize('Half size too small');
           setSelectedSizeRating(2);
@@ -22,6 +24,7 @@ const RadioSizeButtons = ({ setSelectedSizeRating }) => {
       ></input>
       <input
         type='radio'
+        name='size'
         onClick={() => {
           setRadioSize('Perfect');
           setSelectedSizeRating(3);
@@ -29,6 +32,7 @@ const RadioSizeButtons = ({ setSelectedSizeRating }) => {
       ></input>
       <input
         type='radio'
+        name='size'
         onClick={() => {
           setRadioSize('Half size too big');
           setSelectedSizeRating(4);
@@ -36,6 +40,7 @@ const RadioSizeButtons = ({ setSelectedSizeRating }) => {
       ></input>
       <input
         type='radio'
+        name='size'
         onClick={() => {
           setRadioSize('A size too wide');
           setSelectedSizeRating(5);
