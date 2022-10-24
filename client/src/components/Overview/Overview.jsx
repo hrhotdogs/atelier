@@ -52,11 +52,15 @@ const Overview = () => {
 
   // Render
   return (
-    <div style={{margin: '50px', marginBottom: '150px'}}>
-      <ImageGallery currentStyle={currentStyle} />
-      <ProductInfoSidebar ratings={ratings} productInfo={productInfo} currentStyle={currentStyle} />
-      <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} />
-      <AddToCart currentStyle={currentStyle} />
+    <div className='overview' style={{margin: '50px', marginBottom: '150px'}}>
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+        <ImageGallery currentStyle={currentStyle} />
+        <div className = 'infoColumn' style={{display: 'flex', flexDirection: 'column', height: '675px', width: '300px', paddingLeft: '30px', paddingTop: '30px'}}>
+          <ProductInfoSidebar ratings={ratings} productInfo={productInfo} currentStyle={currentStyle} />
+          <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} />
+          <AddToCart currentStyle={currentStyle} />
+        </div>
+      </div>
       <ProductInfoFooter productInfo={productInfo} />
     </div>
 

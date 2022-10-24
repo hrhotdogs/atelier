@@ -1,8 +1,31 @@
 import React from 'react';
+import StarRating from './StarRating.jsx';
+const {useState, useEffect} = React;
 
-const ProductInfoSidebar = () => {
+const ProductInfoSidebar = ({ratings, productInfo, currentStyle}) => {
+
+  const [productName, setProductName] = useState('');
+  const [price, setPrice] = useState('')
+
+  useEffect(() => {
+    setProductName(productInfo.name);
+  }, [productInfo])
+
+  useEffect(() => {
+    // Set price
+    if (currentStyle.sale_price) {
+      setPrice(currentStyle.sale_price);
+    } else {
+      setPrice(currentStyle.original_price);
+    }
+  }, [currentStyle])
+
   return (
-    <div></div>
+    <div>
+      <StarRating />
+      <div id='sidebarProductTitle'>{productName}</div>
+      <div id='sidebarPrice'>{`$${price}`}</div>
+    </div>
   )
 }
 
