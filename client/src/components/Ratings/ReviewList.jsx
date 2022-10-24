@@ -13,7 +13,7 @@ const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
             <ReviewTile review={review} key={index} />
           ))}
           <button
-            className='more-reviews'
+            className='review-btn review-add'
             onClick={() => setListValue('set_two')}
           >
             load more...
@@ -27,7 +27,10 @@ const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
           {secondSet.map((review, index) => (
             <ReviewTile review={review} key={index} />
           ))}
-          <button className='more-reviews' onClick={() => setListValue('all')}>
+          <button
+            className='review-btn review-add'
+            onClick={() => setListValue('all')}
+          >
             load more...
           </button>
         </div>
@@ -40,7 +43,7 @@ const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
             <ReviewTile review={review} key={index} />
           ))}
           <button
-            className='more-reviews'
+            className='review-btn review-add'
             onClick={() => setListValue('set_one')}
           >
             show less

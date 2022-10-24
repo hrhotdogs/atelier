@@ -12,7 +12,10 @@ const Related = () => {
       <div className="container">
         <RelatedCards/>
       </div>
-      <OutfitCards />
+      &nbsp;
+      <div className="container">
+        <OutfitCards />
+      </div>
     </div>
   );
 };
