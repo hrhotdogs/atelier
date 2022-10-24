@@ -49,7 +49,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
       name: nicknameRef.current.value,
       email: emailRef.current.value,
       photos: photos,
-      characteristics: {'135232' : Number(selectedSizeRating), '135220': Number(selectedLengthRating), '135233': Number(selectedWidthRating), '135219': Number(selectedFitRating), '135221': Number(selectedComfortRating), '135223':Number(selectedQualityRating)},
+      characteristics: {'135232': Number(selectedSizeRating), '135220': Number(selectedLengthRating), '135233': Number(selectedWidthRating), '135219': Number(selectedFitRating), '135221': Number(selectedComfortRating), '135223':Number(selectedQualityRating)},
     };
     axios
       .post(
