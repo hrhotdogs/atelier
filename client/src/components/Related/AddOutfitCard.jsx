@@ -36,12 +36,11 @@ const AddOutfitCard = () => {
             console.log(err);
           });
       })
-      .catch(err => {console.log(err)});
+      .catch(err => {});
   }
 
   const handleOutfitClick = () => {
     let getOutfits = JSON.parse(window.localStorage.getItem("outfits"));
-    console.log("outfits", getOutfits);
     if (getOutfits === null) {
       let outfit = [product];
       outfit = JSON.stringify(outfit);
