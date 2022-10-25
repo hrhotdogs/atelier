@@ -7,14 +7,6 @@ import { TOKEN } from '../../../../config.js';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-const initialState = {
-  product_id: 0,
-  rating: 0,
-  recommend: null,
-  photos: [],
-  characteristics: {},
-};
-
 const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const summaryRef = useRef();
   const bodyRef = useRef();
@@ -27,8 +19,8 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const [selectedFitRating, setSelectedFitRating] = useState(null);
   const [selectedComfortRating, setSelectedComfortRating] = useState(null);
   const [selectedQualityRating, setSelectedQualityRating] = useState(null);
-  const [selectedStarRating, setSelectedStarRating] = useState(null);
-  const [selectedRecommend, setSelectedRecommend] = useState(null);
+  const [selectedStarRating, setSelectedStarRating] = useState(0);
+  const [selectedRecommend, setSelectedRecommend] = useState(false);
   const [photos, setPhotos] = useState([]);
   const values = {};
 
@@ -49,7 +41,14 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
       name: nicknameRef.current.value,
       email: emailRef.current.value,
       photos: photos,
-      characteristics: {'135232': Number(selectedSizeRating), '135220': Number(selectedLengthRating), '135233': Number(selectedWidthRating), '135219': Number(selectedFitRating), '135221': Number(selectedComfortRating), '135223':Number(selectedQualityRating)},
+      characteristics: {
+        135232: Number(selectedSizeRating),
+        135220: Number(selectedLengthRating),
+        135233: Number(selectedWidthRating),
+        135219: Number(selectedFitRating),
+        135221: Number(selectedComfortRating),
+        135223: Number(selectedQualityRating),
+      },
     };
     axios
       .post(
@@ -78,6 +77,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
           </span>
           <form onSubmit={(e) => handleReviewSubmission(e)}>
             <input
+              className='input-reviews'
               maxLength='60'
               placeholder='Summary of review'
               ref={summaryRef}
@@ -85,38 +85,58 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
             ></input>
             <br></br>
             <textarea
+              className='text-field input-reviews'
               minLength='50'
               maxLength='1000'
               ref={bodyRef}
-              placeholder='Enter your review here'
+              placeholder='Write your review'
               required
             ></textarea>
             <br></br>
-            <label htmlFor='email'>Enter your email:</label>
-            <input type='email' ref={emailRef} name='email' required></input>
+            <label htmlFor='email'></label>
+            <input
+              placeholder='Enter an email'
+              className='input-reviews'
+              type='email'
+              ref={emailRef}
+              name='email'
+              required
+            ></input>
             <br></br>
-            <input placeholder='Enter a nickname' ref={nicknameRef}></input>
+            <input
+              className='input-reviews'
+              placeholder='Enter a nickname'
+              ref={nicknameRef}
+            ></input>
+            <br></br>
             <br></br>
             <div>
-              <RadioStarRating setSelectedStarRating={setSelectedStarRating} />
+              <RadioStarRating
+                setSelectedStarRating={setSelectedStarRating}
+                selectedStarRating={selectedStarRating}
+              />
             </div>
             <br></br>
             <div>
-              Recommend this product? Yes
-              <input
-                type='checkbox'
-                name='rec'
-                onClick={() => setSelectedRecommend(true)}
-              ></input>
-              No
-              <input
-                type='checkbox'
-                name='rec'
-                onClick={() => setSelectedRecommend(false)}
-              ></input>
+              Recommend this product?
+              <label className='check-container'>
+                {' '}
+                Yes
+                <input
+                  className='checkbox'
+                  type='checkbox'
+                  onClick={() => setSelectedRecommend(!selectedRecommend)}
+                ></input>
+                <span className='checkmark'></span>
+              </label>
+              <label className='check-container'>
+                {' '}
+                No
+                <input className='checkbox' type='checkbox'></input>
+                <span className='checkmark'></span>
+              </label>
             </div>
-            <br></br>
-            <br></br>
+
             <div>
               <RadioButtons
                 setSelectedSizeRating={setSelectedSizeRating}
