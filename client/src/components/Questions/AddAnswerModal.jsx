@@ -72,23 +72,34 @@ const AddAnswerModal = ({ closeModal, question }) => {
     <div className='modalBackground'>
       <div className='modalContainer'>
         <div>
+          <span className='close' onClick={(e) => closeModal(e)}>
+              &times;
+          </span>
           <h1>Submit your Answer</h1>
           <h2>
             {productName}: {question.question_body}
           </h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
-          <div>
+          <div className='input-container'>
             <label> Answer </label><br/>
-            <input type='text' placeholder='your answer...' className='input' required ref={AnswerRef}/>
+            <textarea
+            type='text'
+            maxLength='1000'
+            placeholder='your answer...'
+            className='input textarea'
+            required
+            ref={AnswerRef}/>
           </div>
-          <div>
+          <div className='input-container'>
             <label> Username </label><br/>
             <input type='text' placeholder='jackson11' className='input' required ref={usernameRef}/>
+            <div className='helpfulMessage'>For privacy reasons, do not use your full name or email address</div>
           </div>
-          <div>
-            <label> Email </label><br/>
-            <input type='text' placeholder='jackson11@email.com' className='input' required ref={emailRef}/>
+          <div className='input-container'>
+            <label htmlFor='email'> Email </label><br/>
+            <input type='email' name='email' placeholder='jackson11@email.com' className='input' required ref={emailRef}/>
+            <div className='helpfulMessage'>"For authentication reasons, you will not be emailed"</div>
           </div>
           <div>
             <button id='upload-widget' className='cloudinary-button btn' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
@@ -96,9 +107,7 @@ const AddAnswerModal = ({ closeModal, question }) => {
           <button className='btn' type='submit'>Submit Answer</button>
         </form>
         <div className='footer'>
-          <button className='btn' onClick={(e) => closeModal(e)}>
-            CANCEL
-          </button>
+
         </div>
       </div>
     </div>,
