@@ -108,6 +108,7 @@ body {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  max-width: 30px;
 }
 
 .close:hover,
@@ -353,9 +354,9 @@ h2 {
 } */
 /* +++++++++++ Related Section Styles Above +++++++++++ */
 
-/**********************************************
+/**********************************************************************
 QUESTIONS AND ANSWERS
-***********************************************/
+***********************************************************************/
 
 .questionsAndAnswers {
   /* max-height: 500px; */
@@ -393,9 +394,23 @@ QUESTIONS AND ANSWERS
 }
 
 .input {
-  margin: 10px;
   padding: 10px;
   width: 400px;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.textarea {
+  max-width: 400px;
+  min-width: 200px;
+  max-height: 400px;
+  min-height: 30px;
+}
+
+.helpfulMessage {
+  font-size: smaller;
 }
 
 .footer {
@@ -457,15 +472,16 @@ QUESTIONS AND ANSWERS
   position: fixed;
   display: flex;
   background-color: rgba(200, 200, 200, 0.5);
-  justify-content: center;
-  align-items: center;
   z-index: 999
 }
 
 .modalContainer {
-  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 500px;
-  height: 500px;
+  height: 550px;
   border-radius: 12px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.5);
@@ -473,12 +489,18 @@ QUESTIONS AND ANSWERS
   flex-direction: column;
   padding: 25px;
   text-align: center;
-  z-index: 1000
+  z-index: 1000;
+  overflow: auto;
 }
 
 .helpfulContainer {
   float: right;
 }
+
+/* .question, .helpfulContainer {
+  display: flex;
+  flex-direction: row;
+} */
 
 
 /*-----Overview-----*/
