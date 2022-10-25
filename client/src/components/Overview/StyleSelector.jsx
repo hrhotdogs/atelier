@@ -44,15 +44,35 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
     }
   }
 
+  const showIconRows = (styles) => {
+    const iconRows = [];
+    let newIconRow = [];
+    for (let i = 0; i < styles.length; i++) {
+      if (i % 5 === 0) {
+        iconRows.push(newIconRow);
+        newIconRow = [];
+      }
+      newIconRow.push(styles[i]);
+      if (i === styles.length - 1) {
+        iconRows.push(newIconRow);
+      }
+    }
+    return iconRows;
+  }
+
   return (
     <div style={{marginTop: '20px'}}>
       <div style={{fontWeight: 'bold', fontSize: '14pt'}}>
         <span>Style > </span>
         <span>{currentStyle.name}</span>
       </div>
-      <div style={{display: 'flex', flexDirection: 'row', marginTop: '10px'}}>
-        {styles.map((style, index) => (
-          <div key={index}>{showStyleIcon(style)}</div>
+      <div style={{marginTop: '10px'}}>
+        {showIconRows(styles).map((row, index) => (
+          <div key={index} style={{display: 'flex', flexDirection: 'row'}}>
+            {row.map((style, innerIndex) => (
+              <div key='innerIndex'>{showStyleIcon(style)}</div>
+            ))}
+          </div>
         ))}
       </div>
     </div>
