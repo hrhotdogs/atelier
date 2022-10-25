@@ -182,33 +182,32 @@ margin-top: 18px;
 .container {
   display: flex;
   max-width: 900px;
-  min-width: 292px;
-  padding: 10px;
+  min-width: 340px;
+  max-height: 245px;
   background: rgba(158, 158, 158, 0.5);
   /*V V V Makes box centered on the browser V V V */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   border-radius: 18px;
+  padding: 0 10px 0  0;
 }
 
 .container .add-card-container {
   background: rgb(67, 67, 67, .2);
   border-radius: 18px;
   display: flex;
-  min-width: 110px;
-  padding: 0 20px 0 20px;
-
+  min-width: 180px;
 }
 
 .add-card {
   display: flex;
-  padding: 5px;
+  padding: 10px 35px 0 35px;
 }
 
 .cards {
   display: inline-flex;
-  min-height: 215px;
-  min-width: 500px;
-  grid-column-gap: 35px;
+  min-height: 210px;
+  padding: 10px 15px 0px 45px;
+  grid-column-gap: 50px;
   grid-auto-flow: column;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -231,7 +230,7 @@ margin-top: 18px;
   min-width: 100px;
   max-height: 190px;
   max-width: 100px;
-  border-radius: 18px 18px 18px 18px;
+  border-radius: 18px;
   box-shadow: 5px 5px 5px rgb(0, 0, 0);
 }
 
@@ -279,7 +278,7 @@ margin-top: 18px;
 
 .card-footer {
   height: 35%;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(8px);
@@ -293,6 +292,7 @@ margin-top: 18px;
   text-align: left;
   font-weight: bold;
   max-height: 15.833px;
+  padding: 0 0 0 3px;
   font-size: 80%;
 }
 
@@ -302,7 +302,7 @@ margin-top: 18px;
 
   width: 100%;
   max-height: 15.833px;
-  padding: 3px 0 0 0;
+  padding: 3px 0 0 3px;
   font-size: 60%;
 }
 
@@ -310,10 +310,44 @@ margin-top: 18px;
   color: rgb(0, 0, 0);
   text-align: center;
   width: 100%;
-  align-self: flex-end;
+  margin-top: auto;
+  margin-bottom: 3px;
   font-size: 60%;
 }
 
+.cards::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  background-clip: padding-box;
+  border: 0.05em solid #eeeeee;
+  border-radius: 10px;
+}
+
+.cards::-webkit-scrollbar-button:single-button {
+  background-color: #bbbbbb;
+  display: block;
+  border-style: solid;
+  height: 13px;
+  width: 16px;
+}
+/* Up */
+.cards::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+.cards::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #777777 transparent;
+}
+/* Down */
+.cards::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #555555 transparent transparent transparent;
+}
+
+.cards::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #777777 transparent transparent transparent;
+}
+/*
 .cards::-webkit-scrollbar {
   height: 12px;
 }
@@ -329,7 +363,7 @@ margin-top: 18px;
 
 .cards::-webkit-scrollbar-track {
   background: var(--thumb);
-}
+} */
 
 .rltd-modal-cols {
   display: flex;
