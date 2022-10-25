@@ -571,12 +571,12 @@ QUESTIONS AND ANSWERS
 }
 
 .infoColumn {
-  display: 'flex';
-  flex-direction: 'column';
-  height: '675px';
-  width: '300px';
-  padding-left: '30px';
-  padding-top: '30px';
+  display: flex;
+  flex-direction: column;
+  height: 675px;
+  width: 300px;
+  padding-left: 30px;
+  padding-top: 30px;
 }
 
 .thumbnailCarousel {
@@ -661,12 +661,14 @@ QUESTIONS AND ANSWERS
 }
 
 .sidebarSelected {
+  margin-bottom: 7px;
   margin-right: 7px;
   border-radius: 50%;
   border: 2px solid black;
 }
 
 .sidebarUnselected {
+  margin-bottom: 7px;
   margin-right: 7px;
   border-radius: 50%;
   border: 2px solid white;

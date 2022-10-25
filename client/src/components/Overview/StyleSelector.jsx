@@ -44,15 +44,40 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
     }
   }
 
+  const showIconRows = (styles) => {
+    const iconRows = [];
+    let newIconRow = [];
+    for (let i = 0; i < styles.length; i++) {
+      // If current index is a multiple of 5, push current row of 5 elements and start new row
+      if (i % 5 === 0) {
+        iconRows.push(newIconRow);
+        newIconRow = [];
+      }
+
+      // Push element at current index to current row
+      newIconRow.push(styles[i]);
+
+      // Push last row
+      if (i === styles.length - 1) {
+        iconRows.push(newIconRow);
+      }
+    }
+    return iconRows;
+  }
+
   return (
     <div style={{marginTop: '20px'}}>
       <div style={{fontWeight: 'bold', fontSize: '14pt'}}>
         <span>Style > </span>
         <span>{currentStyle.name}</span>
       </div>
-      <div style={{display: 'flex', flexDirection: 'row', marginTop: '10px'}}>
-        {styles.map((style, index) => (
-          <div key={index}>{showStyleIcon(style)}</div>
+      <div style={{marginTop: '10px'}}>
+        {showIconRows(styles).map((row, index) => (
+          <div key={index} style={{display: 'flex', flexDirection: 'row'}}>
+            {row.map((style, innerIndex) => (
+              <div key='innerIndex'>{showStyleIcon(style)}</div>
+            ))}
+          </div>
         ))}
       </div>
     </div>
