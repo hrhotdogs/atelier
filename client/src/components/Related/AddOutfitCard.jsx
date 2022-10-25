@@ -46,6 +46,7 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
       let outfit = [product];
       outfit = JSON.stringify(outfit);
       window.localStorage.setItem("outfits", outfit);
+      setRenderOutfit(!renderOutfit);
     } else {
       let alreadyAdded = false;
       for (let i = 0; i < getOutfits.length; i++) {
@@ -59,6 +60,7 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
         let outfits = [...getOutfits, product];
         outfits = JSON.stringify(outfits);
         window.localStorage.setItem("outfits", outfits);
+        setRenderOutfit(!renderOutfit);
       }
     }
   }
