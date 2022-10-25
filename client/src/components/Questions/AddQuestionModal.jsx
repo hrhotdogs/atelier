@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import css from '../../style.css';
 
 const { useRef, useState, useEffect } = React;
 
@@ -44,8 +43,8 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
   }
 
   return ReactDOM.createPortal(
-    <div style={modalBackground}>
-      <div style={modalContainer}>
+    <div className='modalBackground'>
+      <div className='modalContainer'>
         <div>
           <h1>Ask Your Question</h1>
           <h2>About the {productName}</h2>
