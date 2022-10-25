@@ -1,17 +1,19 @@
 import React from 'react';
 import Axios from 'axios';
 import { ProductIDContext } from '../Context.jsx';
+import {StyleIDContext} from '../StyleContext.jsx';
 import {TOKEN} from '../../../../config.js';
-// React.memo(
+
 const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
   const [product, setProduct] = React.useState({});
+  const { currentStyleID, setCurrentStyleID } = React.useContext(StyleIDContext);
 
   const controller = new AbortController();
+
   var prodIMGStyle = {
     backgroundSize: 'cover',
     backgroundPosition: 'center'
   };
-
   var prodObj = {};
 
   const getProdInfo = () => {
@@ -44,7 +46,6 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
       let outfit = [product];
       outfit = JSON.stringify(outfit);
       window.localStorage.setItem("outfits", outfit);
-      setRenderOutfit(!renderOutfit);
     } else {
       let alreadyAdded = false;
       for (let i = 0; i < getOutfits.length; i++) {
@@ -58,7 +59,6 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
         let outfits = [...getOutfits, product];
         outfits = JSON.stringify(outfits);
         window.localStorage.setItem("outfits", outfits);
-        setRenderOutfit(!renderOutfit);
       }
     }
   }
@@ -69,7 +69,7 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
       controller.abort();
       setProduct({});
     }
-  }, [currentProductID]);
+  }, [currentProductID, currentStyleID]);
 
   var isEmpty = true;
 
@@ -78,10 +78,13 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
     if (product.styles.results[0].photos[0].thumbnail_url === null) {
       prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
     } else {
-        prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].url})`;
+      for (let i = 0; i < product.styles.results.length; i++) {
+        if (currentStyleID === product.styles.results[i].style_id) {
+          prodIMGStyle.backgroundImage = `url(${product.styles.results[i].photos[0].url})`
+        }
+      }
     }
     return (
-      <>
         <ul className="add-card">
           <li className="card">
             <div className="card-image" style={prodIMGStyle}>
@@ -94,7 +97,6 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
             </div>
           </li>
         </ul>
-      </>
     );
   } else { return null; }
 };
