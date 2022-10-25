@@ -3,23 +3,36 @@ body {
 }
 
 /*============ Ratings and Reviews ============= */
+
+#sort-menu {
+font-family: Arial, Helvetica, sans-serif;
+font-size: large;
+margin-left: 25px;
+margin-top: 18px;
+
+}
 .review {
-  border: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
 .review-list {
-  border: 2px solid rgb(77, 79, 79);
-  border-radius: 10px;
+  /* border-left: 2px solid rgb(77, 79, 79);
+  border-right: 2px solid rgb(77, 79, 79);
+  border-radius: 2px; */
   padding: 2rem;
   width: 50%;
   height: 50vh;
   margin: 5px;
   word-wrap: break-word;
   overflow: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  float: right;
 }
 
 .seller-response {
@@ -71,6 +84,7 @@ body {
   background-color: #fff;
   border-radius: 10px;
   transition-duration: 0.4s;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .review-btn:hover {
@@ -81,6 +95,7 @@ body {
 .review-add {
   margin-top: 5px;
   margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .modal-styles {
@@ -148,6 +163,7 @@ body {
   padding: 2rem;
   width: 30%;
   margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 

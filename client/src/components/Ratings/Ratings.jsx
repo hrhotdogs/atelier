@@ -68,20 +68,20 @@ const Ratings = () => {
 
   return (
     <>
-      <div id='report' className='review-list'>
-        <label htmlFor='sort-options'>
-          &nbsp; Sort {listOfReviews.length} reviews by:
-          <select
-            value={option}
-            onChange={changeOption}
-            name='sort-options'
-            id='sort-options'
-          >
-            <option value='Relevance'>Relevance</option>
-            <option value='Helpfulness'>Helpfulness</option>
-            <option value='Newest'>Newest</option>
-          </select>
-        </label>
+      <label id='sort-menu' htmlFor='sort-options'>
+        &nbsp; Sort {listOfReviews.length} reviews by :
+        <select
+          value={option}
+          onChange={changeOption}
+          name='sort-options'
+          id='sort-options'
+        >
+          <option value='Relevance'>Relevance</option>
+          <option value='Helpfulness'>Helpfulness</option>
+          <option value='Newest'>Newest</option>
+        </select>
+      </label>
+      <div className='review-list'>
         <ReviewList
           listOfReviews={listOfReviews}
           listValue={listValue}
