@@ -32,13 +32,17 @@ const reviews =  [{
 
 describe('ReviewList', () => {
 
-  render(<ReviewList listOfReviews={reviews} listValue={'set_one'} setListValue={()=> {}} />);
-
-  const ReviewListElement = screen.getByTestId('review-report')
-
   it('renders ReviewList component', () => {
+    render(<ReviewList listOfReviews={reviews} listValue={'set_one'} setListValue={()=> {}} />);
+    const ReviewListElement = screen.getByTestId('review-report')
     expect(ReviewListElement).toBeInTheDocument()
   });
 
-
 });
+
+
+describe('ReviewTile', ()=> {
+  it('should render a single review', ()=> {
+    render(<ReviewTile />)
+  })
+})
