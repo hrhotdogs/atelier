@@ -47,5 +47,5 @@ const questions =  [{
 test('it should render the Questions List', () => {
   render(<QuestionsList questions={questions}/>);
   const QuestionsListElement = screen.getByTestId("QuestionsList-questions");
-  expect(QuestionsListElement).toBeInTheDocument;
+  expect(QuestionsListElement).toBeInTheDocument();
 })
