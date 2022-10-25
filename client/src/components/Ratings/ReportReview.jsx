@@ -25,7 +25,7 @@ const ReportReview = ({ review }) => {
   } else {
     return (
       <div onClick={() => handleReported(review)} className='report'>
-        Report this review
+        Report
       </div>
     );
   }
