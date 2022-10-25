@@ -54,34 +54,35 @@ const CompareRelatedModal = ({ closeModal }) => {
   };
 
   return ReactDOM.createPortal(
-    <div className="modalBackground">
-      <div className="modalContainer" onClick={event => {closeModal(event)}}>
-        <div className="rltd-modal-cols">
-          <div className="rltd-modal-titles">name1</div>
-          <div className="rltd-modal-titles">name2</div>
+    <>
+      <div className="modalBackground" onClick={event => closeModal(event)} />
+        <div className="modalContainer" >
+          <div className="rltd-modal-cols">
+            <div className="rltd-modal-titles">name1</div>
+            <div className="rltd-modal-titles">name2</div>
+          </div>
+          <div className="rltd-modal-cols">
+            <div className="rltd-modal-items">1a</div>
+            <div className="rltd-modal-comparison">compare</div>
+            <div className="rltd-modal-items">1b</div>
+          </div>
+          <div className="rltd-modal-cols">
+            <div className="rltd-modal-items">2a</div>
+            <div className="rltd-modal-comparison">compare</div>
+            <div className="rltd-modal-items">2b</div>
+          </div>
+          <div className="rltd-modal-cols">
+            <div className="rltd-modal-items">3a</div>
+            <div className="rltd-modal-comparison">compare</div>
+            <div className="rltd-modal-items">3b</div>
+          </div>
+          <div className="rltd-modal-cols">
+            <div className="rltd-modal-items">4a</div>
+            <div className="rltd-modal-comparison">compare</div>
+            <div className="rltd-modal-items">4b</div>
+          </div>
         </div>
-        <div className="rltd-modal-cols">
-          <div className="rltd-modal-items">1a</div>
-          <div className="rltd-modal-comparison">compare</div>
-          <div className="rltd-modal-items">1b</div>
-        </div>
-        <div className="rltd-modal-cols">
-          <div className="rltd-modal-items">2a</div>
-          <div className="rltd-modal-comparison">compare</div>
-          <div className="rltd-modal-items">2b</div>
-        </div>
-        <div className="rltd-modal-cols">
-          <div className="rltd-modal-items">3a</div>
-          <div className="rltd-modal-comparison">compare</div>
-          <div className="rltd-modal-items">3b</div>
-        </div>
-        <div className="rltd-modal-cols">
-          <div className="rltd-modal-items">4a</div>
-          <div className="rltd-modal-comparison">compare</div>
-          <div className="rltd-modal-items">4b</div>
-        </div>
-      </div>
-    </div>,
+    </>,
     document.getElementById('portal')
   );
 };

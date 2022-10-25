@@ -78,6 +78,7 @@ const EachRelatedCard = (props) => {
   };
 
   const closeModal = (e) => {
+    e.stopPropagation();
     e.preventDefault();
     setShowModal(false);
   }
