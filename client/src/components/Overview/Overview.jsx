@@ -55,7 +55,7 @@ const Overview = () => {
     <div className='overview' style={{margin: '50px', marginBottom: '150px'}}>
       <div style={{display: 'flex', flexDirection: 'row'}}>
         <ImageGallery currentStyle={currentStyle} />
-        <div className = 'infoColumn'>
+        <div className='infoColumn'>
           <ProductInfoSidebar ratings={ratings} productInfo={productInfo} currentStyle={currentStyle} />
           <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} />
           <AddToCart currentStyle={currentStyle} />
