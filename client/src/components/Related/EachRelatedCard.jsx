@@ -1,10 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
+import CompareRelatedModal from './CompareRelatedModal.jsx';
 import { ProductIDContext } from '../Context.jsx';
 import { TOKEN } from '../../../../config.js';
 
 const EachRelatedCard = (props) => {
   const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
+  const [showModal, setShowModal] = React.useState(false);
 
   // product.info = specific prod GET, product.styles = prod styles GET
   const [product, setProduct] = React.useState({});
@@ -69,6 +71,17 @@ const EachRelatedCard = (props) => {
     setCurrentProductID(product.info.id);
   };
 
+  const handleModalClick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setShowModal(true);
+  };
+
+  const closeModal = (e) => {
+    e.preventDefault();
+    setShowModal(false);
+  }
+
   var isEmpty = true;
 
   if (Object.keys(product).length !== 0) {
@@ -77,18 +90,21 @@ const EachRelatedCard = (props) => {
       prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
     } else {
         prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].url})`;
-      }
+    }
   }
 
   if (!isEmpty) {
     return (
       <li className="card">
-        <div className="card-image" style={prodIMGStyle} onClick={(event) => { handleRelatedClick(event) }}></div>
+        <div className="card-image" style={prodIMGStyle} onClick={(event) => { handleRelatedClick(event) }}>
+          <img className="star-image" src="https://image.shutterstock.com/image-vector/simply-weight-icon-compare-logo-260nw-567050233.jpg" onClick={event => { handleModalClick(event) }}></img>
+        </div>
         <div className="card-footer">
             <div className="card-content-category">{product.info.category}</div>
             <div className="card-content-name">{product.info.name}</div>
             <div className="card-content-price">${product.info.default_price}</div>
         </div>
+        { showModal ? <CompareRelatedModal closeModal={closeModal} /> : null}
       </li>
     )
   } else { return null; }
