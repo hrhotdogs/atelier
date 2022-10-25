@@ -432,6 +432,7 @@ QUESTIONS AND ANSWERS
 .btn:hover {
   background-color: #bac0c1;
   color: rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .yes-btn {
@@ -440,6 +441,7 @@ QUESTIONS AND ANSWERS
 }
 
 .yes-btn:hover {
+  cursor: pointer;
   text-decoration: none;
 }
 
