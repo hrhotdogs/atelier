@@ -276,7 +276,8 @@ margin-top: 18px;
   max-width: 900px;
   min-width: 340px;
   max-height: 245px;
-  background: rgba(158, 158, 158, 0.5);
+  background: #E1E7E0;
+  color: #2B4560;
   /*V V V Makes box centered on the browser V V V */
   /* margin: 0 auto; */
   border-radius: 18px;
@@ -284,7 +285,7 @@ margin-top: 18px;
 }
 
 .container .add-card-container {
-  background: rgb(67, 67, 67, .2);
+  background: #E1E7E0;
   border-radius: 18px;
   display: flex;
   min-width: 180px;
@@ -379,6 +380,7 @@ margin-top: 18px;
 
 .card-footer .card-content-name {
   color: rgb(0, 0, 0);
+  color: #2B4560;
 
   width: 100%;
   text-align: left;
@@ -389,7 +391,7 @@ margin-top: 18px;
 }
 
 .card-footer .card-content-category {
-  color: rgb(0, 0, 0);
+  color: #2B4560;
   text-align: left;
 
   width: 100%;
@@ -399,7 +401,7 @@ margin-top: 18px;
 }
 
 .card-footer .card-content-price {
-  color: rgb(0, 0, 0);
+  color: #2B4560;
   text-align: center;
   width: 100%;
   margin-top: auto;
