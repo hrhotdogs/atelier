@@ -20,7 +20,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const [selectedComfortRating, setSelectedComfortRating] = useState(null);
   const [selectedQualityRating, setSelectedQualityRating] = useState(null);
   const [selectedStarRating, setSelectedStarRating] = useState(0);
-  const [selectedRecommend, setSelectedRecommend] = useState(null);
+  const [selectedRecommend, setSelectedRecommend] = useState(false);
   const [photos, setPhotos] = useState([]);
   const values = {};
 
@@ -125,18 +125,14 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
                 <input
                   className='checkbox'
                   type='checkbox'
-                  onClick={() => setSelectedRecommend(true)}
+                  onClick={() => setSelectedRecommend(!selectedRecommend)}
                 ></input>
                 <span className='checkmark'></span>
               </label>
               <label className='check-container'>
                 {' '}
                 No
-                <input
-                  className='checkbox'
-                  type='checkbox'
-                  onClick={() => setSelectedRecommend(false)}
-                ></input>
+                <input className='checkbox' type='checkbox'></input>
                 <span className='checkmark'></span>
               </label>
             </div>
