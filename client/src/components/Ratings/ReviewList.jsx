@@ -10,7 +10,7 @@ const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
   switch (listValue) {
     case 'set_one':
       return (
-        <div>
+        <div data-testid='review-report'>
           {firstSet.map((review, index) => (
             <ReviewTile review={review} key={index} />
           ))}
