@@ -11,7 +11,7 @@ import { format, parseISO } from 'date-fns';
 
 const ReviewTile = ({ review }) => {
   return (
-    <div className='review'>
+    <div  className='review'>
       <div>
         <StarRatingPerReview review={review} />
       </div>
