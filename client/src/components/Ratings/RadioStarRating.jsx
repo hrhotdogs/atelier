@@ -1,52 +1,21 @@
 import React, { useState } from 'react';
+import StarRatings from 'react-star-ratings';
 
-const RadioStarRating = ({ setSelectedStarRating }) => {
+const RadioStarRating = ({ setSelectedStarRating, selectedStarRating }) => {
   const [radioStar, setRadioStar] = useState('');
   return (
     <div>
-      Rating:{' '}
-      <input
-        type='radio'
-        name='star'
-        onClick={() => {
-          setSelectedStarRating(1);
-          setRadioStar('Poor');
-        }}
-      ></input>
-      <input
-        type='radio'
-        name='star'
-        onClick={() => {
-          setSelectedStarRating(2);
-          setRadioStar('Fair');
-        }}
-      ></input>
-      <input
-        type='radio'
-        name='star'
-        onClick={() => {
-          setSelectedStarRating(3);
-          setRadioStar('Average');
-        }}
-      ></input>
-      <input
-        type='radio'
-        name='star'
-        onClick={() => {
-          setSelectedStarRating(4);
-          setRadioStar('Good');
-        }}
-      ></input>
-      <input
-        type='radio'
-        name='star'
-        onClick={() => {
-          setSelectedStarRating(5);
-          setRadioStar('Great');
-        }}
-      ></input>
-      &nbsp;
-      {!radioStar.length ? null : radioStar}
+      Overall Rating: &nbsp;
+      <StarRatings
+        rating={selectedStarRating}
+        starRatedColor='blue'
+        changeRating={(e) => setSelectedStarRating(e)}
+        numberOfStars={5}
+        starDimension={'20px'}
+        starSpacing={'3px'}
+        starEmptyColor={'black'}
+        starHoverColor={'blue'}
+      />
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReviewTile from './ReviewTile.jsx';
 
-
 const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
-  const firstSet = listOfReviews.slice(0, 2);
-  const secondSet = listOfReviews.slice(0, 4);
-
+  if (listOfReviews !== undefined) {
+    var firstSet = listOfReviews.slice(0, 2);
+    var secondSet = listOfReviews.slice(0, 4);
+  }
 
   switch (listValue) {
     case 'set_one':
