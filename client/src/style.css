@@ -1,6 +1,8 @@
 :root {
 --ivory: #E1E7E0;
---darkBlue: #2B4560
+--darkBlue: #2B4560;
+--tiffanyBlue: #6AA4B0;
+--midnightBlue: #2F6D80;
 }
 body {
   background-color: var(--ivory);
@@ -274,8 +276,7 @@ margin-top: 18px;
   max-width: 900px;
   min-width: 340px;
   max-height: 245px;
-  background: #E1E7E0;
-  color: #2B4560;
+  background: var(--ivory);
   /*V V V Makes box centered on the browser V V V */
   /* margin: 0 auto; */
   border-radius: 18px;
@@ -326,8 +327,8 @@ margin-top: 18px;
 }
 
 .card:hover {
-  color: rgb(0, 21, 156);
-  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.7);
+  color: var(--darkBlue);
+  box-shadow: var(--darkBlue);
   transform: scale(1.05);
   transition: all .3s;
 }
