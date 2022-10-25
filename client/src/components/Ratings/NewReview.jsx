@@ -7,14 +7,6 @@ import { TOKEN } from '../../../../config.js';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-const initialState = {
-  product_id: 0,
-  rating: 0,
-  recommend: null,
-  photos: [],
-  characteristics: {},
-};
-
 const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const summaryRef = useRef();
   const bodyRef = useRef();
@@ -27,7 +19,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const [selectedFitRating, setSelectedFitRating] = useState(null);
   const [selectedComfortRating, setSelectedComfortRating] = useState(null);
   const [selectedQualityRating, setSelectedQualityRating] = useState(null);
-  const [selectedStarRating, setSelectedStarRating] = useState(null);
+  const [selectedStarRating, setSelectedStarRating] = useState(0);
   const [selectedRecommend, setSelectedRecommend] = useState(null);
   const [photos, setPhotos] = useState([]);
   const values = {};
@@ -49,7 +41,14 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
       name: nicknameRef.current.value,
       email: emailRef.current.value,
       photos: photos,
-      characteristics: {'135232': Number(selectedSizeRating), '135220': Number(selectedLengthRating), '135233': Number(selectedWidthRating), '135219': Number(selectedFitRating), '135221': Number(selectedComfortRating), '135223':Number(selectedQualityRating)},
+      characteristics: {
+        135232: Number(selectedSizeRating),
+        135220: Number(selectedLengthRating),
+        135233: Number(selectedWidthRating),
+        135219: Number(selectedFitRating),
+        135221: Number(selectedComfortRating),
+        135223: Number(selectedQualityRating),
+      },
     };
     axios
       .post(
@@ -98,7 +97,10 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
             <input placeholder='Enter a nickname' ref={nicknameRef}></input>
             <br></br>
             <div>
-              <RadioStarRating setSelectedStarRating={setSelectedStarRating} />
+              <RadioStarRating
+                setSelectedStarRating={setSelectedStarRating}
+                selectedStarRating={selectedStarRating}
+              />
             </div>
             <br></br>
             <div>
