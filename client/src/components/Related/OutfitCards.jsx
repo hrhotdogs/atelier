@@ -10,10 +10,11 @@ const OutfitCards = () => {
   const { currentProductID, setCurrentProductID } = React.useContext(ProductIDContext);
   const [renderOutfit, setRenderOutfit] = React.useState(true);
 
-
   return (
     <>
-      <AddOutfitCard currentProductID={currentProductID} setRenderOutfit={setRenderOutfit} renderOutfit={renderOutfit}/>
+      <div className="add-card-container">
+        <AddOutfitCard currentProductID={currentProductID} setRenderOutfit={setRenderOutfit} renderOutfit={renderOutfit}/>
+      </div>
       <PopulateOutfits renderOutfit={renderOutfit}/>
     </>
   );

@@ -2,8 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import { ProductIDContext } from '../Context.jsx';
 import {TOKEN} from '../../../../config.js';
-
-const AddOutfitCard = React.memo(({currentProductID, setRenderOutfit, renderOutfit}) => {
+// React.memo(
+const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
   const [product, setProduct] = React.useState({});
 
   const controller = new AbortController();
@@ -97,6 +97,6 @@ const AddOutfitCard = React.memo(({currentProductID, setRenderOutfit, renderOutf
       </>
     );
   } else { return null; }
-});
+};
 
 export default AddOutfitCard;

@@ -75,7 +75,7 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
         {showIconRows(styles).map((row, index) => (
           <div key={index} style={{display: 'flex', flexDirection: 'row'}}>
             {row.map((style, innerIndex) => (
-              <div key='innerIndex'>{showStyleIcon(style)}</div>
+              <div key={innerIndex}>{showStyleIcon(style)}</div>
             ))}
           </div>
         ))}
