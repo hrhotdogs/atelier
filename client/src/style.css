@@ -2,8 +2,9 @@
 --ivory: #E1E7E0;
 --darkBlue: #2B4560;
 --tiffanyBlue: #6AA4B0;
---midnightBlue: #2F6D80;
+--midnightBlue:#2F6D80;
 }
+
 body {
   background-color: var(--ivory);
   color: var(--darkBlue);
