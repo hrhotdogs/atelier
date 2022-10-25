@@ -70,7 +70,7 @@ const Questions = () => {
   }
 
   return (
-    <div className='questionsAndAnswers'>
+    <div className='questionsAndAnswers' data-testid="Questions-parent">
       <div>Questions & Answers</div><br />
       <SearchBar questions={questions} searchQuestions={searchQuestions} getQuestions={getQuestions}/>
       <QuestionsList questions={questions}/>
