@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import css from '../../style.css';
 import { ProductIDContext } from '../Context.jsx';
 import { TOKEN } from '../../../../config.js';
 
@@ -30,33 +29,6 @@ const AddAnswerModal = ({ closeModal, question }) => {
         console.log(err);
       });
   }, [currentProductID]);
-
-  const modalBackground = {
-    top: 0,
-    left: 0,
-    height: '100%',
-    width: '100%',
-    position: 'fixed',
-    display: 'flex',
-    backgroundColor: 'rgba(200, 200, 200, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 999,
-  };
-
-  const modalContainer = {
-    position: 'absolute',
-    width: '500px',
-    height: '500px',
-    borderRadius: '12px',
-    backgroundColor: '#fff',
-    boxShadow: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '25px',
-    textAlign: 'center',
-    zIndex: 1000,
-  };
 
   function openWidget(e) {
     e.preventDefault();

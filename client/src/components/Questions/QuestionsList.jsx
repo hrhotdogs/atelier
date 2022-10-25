@@ -12,7 +12,7 @@ const QuestionsList = ({ questions }) => {
     setShownQuestions((prev) => prev + 2)
   }
   return (
-    <div className='questionsList'>
+    <div className='questionsList' data-testid="QuestionsList-questions">
       {questions.slice(0,shownQuestions).map((question) => (
         <IndividualQuestion question={question} key={question.question_id}/>
       ))}
