@@ -1,7 +1,11 @@
 import React from 'react';
-const {useState, useEffect} = React;
+import {StyleIDContext} from '../StyleContext.jsx';
+const {useState, useEffect, useContext} = React;
+
 
 const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
+
+  const { currentStyleID, setCurrentStyleID } = useContext(StyleIDContext);
 
   const isColor = (colorString) => {
     let s = new Option().style;
@@ -11,6 +15,7 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
 
   const handleStyleClick = (e, style) => {
     setCurrentStyle(style);
+    setCurrentStyleID(style.style_id);
   }
 
   const showStyleIcon = (style) => {
