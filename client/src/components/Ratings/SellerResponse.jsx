@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 const SellerResponse = ({ review }) => {
   const [showResponse, setShowResponse] = useState(false);
-
+  const [partialMessage, setPartialMessage] = useState(
+    review.body.substring(0, 250)
+  );
   const handleShowResponse = () => {
     setShowResponse(!showResponse);
   };
-
-  const partialMessage = review.body.substring(0, 250);
 
   return (
     <>
@@ -17,9 +17,14 @@ const SellerResponse = ({ review }) => {
             {review.body.length > 250 ? (
               <>
                 <p>{partialMessage}</p>
-                <button onClick={() => <p>{review.body}</p>}>
+                <div
+                  className='show-more-body'
+                  onClick={() => {
+                    setPartialMessage(review.body);
+                  }}
+                >
                   Show more...
-                </button>
+                </div>
               </>
             ) : (
               <p>{review.body}</p>

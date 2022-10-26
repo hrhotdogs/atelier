@@ -12,13 +12,17 @@ const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
       return (
         <div data-testid='review-report'>
           {firstSet.map((review, index) => (
-            <ReviewTile review={review} key={index} />
+            <ReviewTile
+              review={review}
+              key={index}
+              listOfReviews={listOfReviews}
+            />
           ))}
           <button
             className='review-btn review-add'
             onClick={() => setListValue('set_two')}
           >
-            load more...
+            Load more...
           </button>
         </div>
       );
@@ -27,13 +31,17 @@ const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
       return (
         <div>
           {secondSet.map((review, index) => (
-            <ReviewTile review={review} key={index} />
+            <ReviewTile
+              review={review}
+              key={index}
+              listOfReviews={listOfReviews}
+            />
           ))}
           <button
             className='review-btn review-add'
             onClick={() => setListValue('all')}
           >
-            load more...
+            Load more...
           </button>
         </div>
       );
@@ -42,13 +50,17 @@ const ReviewList = ({ listOfReviews, listValue, setListValue }) => {
       return (
         <div>
           {listOfReviews.map((review, index) => (
-            <ReviewTile review={review} key={index} />
+            <ReviewTile
+              review={review}
+              key={index}
+              listOfReviews={listOfReviews}
+            />
           ))}
           <button
             className='review-btn review-add'
             onClick={() => setListValue('set_one')}
           >
-            show less
+            Show less
           </button>
         </div>
       );

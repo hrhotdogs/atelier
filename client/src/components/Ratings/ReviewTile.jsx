@@ -9,11 +9,11 @@ import SellerResponse from './SellerResponse.jsx';
 import ReportReview from './ReportReview.jsx';
 import { format, parseISO } from 'date-fns';
 
-const ReviewTile = ({ review }) => {
+const ReviewTile = ({ review, listOfReviews }) => {
   return (
     <div className='review'>
       <div>
-        <StarRatingPerReview review={review} />
+        <StarRatingPerReview review={review} listOfReviews={listOfReviews} />
       </div>
 
       <div>
@@ -23,7 +23,7 @@ const ReviewTile = ({ review }) => {
 
       <div>{format(parseISO(review.date), 'MMM dd/yyyy')}</div>
 
-      <h3>
+      <h3 className='review-summary'>
         <b>{review.summary}</b>
       </h3>
 
@@ -36,7 +36,7 @@ const ReviewTile = ({ review }) => {
       </div>
 
       {review.recommend ? (
-        <div>
+        <div className='review-recommend'>
           Reviewer recommends this product!
           <img src={`${recommendLogo.slice(22)}`} />{' '}
         </div>
