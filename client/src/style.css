@@ -1,5 +1,13 @@
+:root {
+--ivory: #E1E7E0;
+--darkBlue: #2B4560;
+--tiffanyBlue: #6AA4B0;
+--midnightBlue:#2F6D80;
+}
+
 body {
-  background-color: white;
+  background-color: var(--ivory);
+  color: var(--darkBlue);
 }
 
 /*============ Ratings and Reviews ============= */
@@ -11,8 +19,8 @@ margin-left: 48%;
 margin-top: 18px;
 }
 .review {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 2px solid #2F6D80;
+  border-right: 2px solid #2F6D80;
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
@@ -168,7 +176,7 @@ margin-top: 18px;
 }
 
 .side-bar {
-  border: 2px solid black;
+  border: 2px solid #2F6D80;
   border-radius: 10px;
   padding: 2rem;
   width: 30%;
@@ -262,14 +270,7 @@ margin-top: 18px;
 /*============ Ratings and Reviews ============= */
 
 /* +++++++++++ Related Section Styles Below +++++++++++ */
-:root {
-  --red: #ef233c;
-  --darkred: #c00424;
-  --platinum: #e5e5e5;
-  --black: #2b2d42;
-  --white: #fff;
-  --thumb: #edf2f4;
-}
+
 
 .container {
   display: flex;
