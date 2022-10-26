@@ -8,13 +8,13 @@ const RadioStarRating = ({ setSelectedStarRating, selectedStarRating }) => {
       Overall Rating: &nbsp;
       <StarRatings
         rating={selectedStarRating}
-        starRatedColor='blue'
+        starRatedColor='#6AA4B0'
         changeRating={(e) => setSelectedStarRating(e)}
         numberOfStars={5}
         starDimension={'20px'}
         starSpacing={'3px'}
         starEmptyColor={'black'}
-        starHoverColor={'blue'}
+        starHoverColor={'#6AA4B0'}
       />
     </div>
   );

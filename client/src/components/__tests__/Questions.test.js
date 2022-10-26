@@ -6,5 +6,5 @@ import Questions from '../Questions/Questions.jsx';
 test('it should render the Questions component', () => {
   render(<Questions/>);
   const QuestionsElement = screen.getByTestId("Questions-parent");
-  expect(QuestionsElement).toBeInTheDocument;
+  expect(QuestionsElement).toBeInTheDocument();
 })
