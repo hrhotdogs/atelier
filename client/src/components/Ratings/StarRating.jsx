@@ -1,11 +1,27 @@
 import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 
-const StarRating = ({ metaData, listOfReviews }) => {
+const StarRating = ({ metaData, listOfReviews, show }) => {
   const averageRating = listOfReviews.reduce(
     (review, next) => (review = review + next.rating / listOfReviews.length),
     0
   );
+
+  const showTextAverage = () => {
+    if (show) {
+      return (
+        <div>{Math.round(averageRating * 10) / 10}{' '}</div>
+      )
+    }
+  }
+
+  const showRecommendedPercentage = () => {
+    if (show) {
+      return (
+        <div>{Math.round(averageRec * 10) / 10}% of reviews recommended this product!</div>
+      )
+    }
+  }
 
   if (metaData.recommended !== undefined) {
     var doesRec = metaData.recommended.true;
@@ -17,7 +33,7 @@ const StarRating = ({ metaData, listOfReviews }) => {
   return (
     <>
       <div className='average-rating'>
-        {Math.round(averageRating * 10) / 10}{' '}
+        {showTextAverage()}
         <StarRatings
           rating={averageRating}
           starRatedColor='#6AA4B0'
@@ -26,7 +42,7 @@ const StarRating = ({ metaData, listOfReviews }) => {
         />
       </div>
       <div>
-        {Math.round(averageRec * 10) / 10}% of reviews recommended this product!
+        {showRecommendedPercentage()}
       </div>
     </>
   );

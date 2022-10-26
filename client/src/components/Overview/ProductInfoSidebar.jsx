@@ -1,8 +1,8 @@
 import React from 'react';
-import StarRating from './StarRating.jsx';
+import StarRating from '../Ratings/StarRating.jsx';
 const {useState, useEffect} = React;
 
-const ProductInfoSidebar = ({ratings, productInfo, currentStyle}) => {
+const ProductInfoSidebar = ({metaData, listOfReviews, productInfo, currentStyle}) => {
 
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('')
@@ -22,7 +22,7 @@ const ProductInfoSidebar = ({ratings, productInfo, currentStyle}) => {
 
   return (
     <div>
-      <StarRating />
+      <StarRating metaData={metaData} listOfReviews={listOfReviews} />
       <div id='sidebarProductTitle'>{productName}</div>
       <div id='sidebarPrice'>{`$${price}`}</div>
     </div>

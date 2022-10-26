@@ -7,7 +7,7 @@ const SideBar = ({ metaData, listOfReviews }) => {
     <>
       <div>
         <h1 className='ratings-title'> Ratings & Reviews</h1>
-        <StarRating metaData={metaData} listOfReviews={listOfReviews} />
+        <StarRating metaData={metaData} listOfReviews={listOfReviews} show={true} />
       </div>
       <br></br>
       <div>

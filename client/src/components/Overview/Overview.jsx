@@ -21,9 +21,10 @@ const Overview = () => {
   //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
   // Create local state and global vars
-  let [productInfo, setProductInfo] = useState({});
-  let [styles, setStyles] = useState([]);
-  let [ratings, setRatings] = useState({});
+  const [productInfo, setProductInfo] = useState({});
+  const [styles, setStyles] = useState([]);
+  const [metaData, setMetaData] = useState({});
+  const [listOfReviews, setListOfReviews] = useState([]);
 
   // Image gallery state
   let [currentStyle, setCurrentStyle] = useState({photos: [{}]});
@@ -44,10 +45,19 @@ const Overview = () => {
       })
       .catch(err => console.log(err));
 
+    // Get list of reviews
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews?page&count=50&sort=relevant&product_id=${currentProductID}`, {headers: { Authorization: TOKEN}})
+      .then((results) => {
+        setListOfReviews(results.data.results);
+      })
+      .catch((error) => console.log(error));
+
     // Get review metadata
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta?product_id=${currentProductID}`, {headers: {Authorization: TOKEN}})
-      .then((response) => {setRatings(response.data.ratings)})
-      .catch((err) => console.log(err));
+      .then((results) => {
+        setMetaData(results.data);
+      })
+      .catch((error) => console.log(error));
   }, [currentProductID]);
 
   // Render
@@ -56,7 +66,7 @@ const Overview = () => {
       <div style={{display: 'flex', flexDirection: 'row'}}>
         <ImageGallery currentStyle={currentStyle} />
         <div className='infoColumn'>
-          <ProductInfoSidebar ratings={ratings} productInfo={productInfo} currentStyle={currentStyle} />
+          <ProductInfoSidebar metaData={metaData} listOfReviews={listOfReviews} productInfo={productInfo} currentStyle={currentStyle} />
           <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} />
           <AddToCart currentStyle={currentStyle} />
         </div>
