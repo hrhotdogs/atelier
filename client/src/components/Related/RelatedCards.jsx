@@ -30,6 +30,7 @@ const RelatedCards = () => {
           <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
         )}
       ) : null}
+      <div className="scroller">&#62;</div>
     </ul>
   );
 };

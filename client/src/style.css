@@ -356,24 +356,40 @@ font-size: 40px;
 
 /* +++++++++++ Related Section Styles Below +++++++++++ */
 
+.related-container {
+  display: flex;
+  flex-direction: column;
+  border-top:rgb(0, 0, 0);
+  border-width: 2px;
+}
+
+.related-title {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
 
 .container {
   display: flex;
   max-width: 900px;
   min-width: 340px;
   max-height: 245px;
-  background: rgba(158, 158, 158, 0.5);
+  background: var(--ivory);
   /*V V V Makes box centered on the browser V V V */
-  /* margin: 0 auto; */
+  margin: 0 auto;
   border-radius: 18px;
-  padding: 0 10px 0  0;
+  border-left: 2px solid #2F6D80;
+  border-right: 2px solid #2F6D80;
+  border-radius: 10px;
 }
 
 .container .add-card-container {
-  background: rgb(67, 67, 67, .2);
+  background: #E1E7E0;
   border-radius: 18px;
   display: flex;
   min-width: 180px;
+  border-right: 2px solid #2F6D80;
+  border-radius: 10px;
 }
 
 .add-card {
@@ -384,7 +400,7 @@ font-size: 40px;
 .cards {
   display: inline-flex;
   min-height: 210px;
-  padding: 10px 15px 0px 45px;
+  padding: 10px 45px 0 45px;
   grid-column-gap: 50px;
   grid-auto-flow: column;
   overflow-x: auto;
@@ -409,12 +425,10 @@ font-size: 40px;
   max-height: 190px;
   max-width: 100px;
   border-radius: 18px;
-  box-shadow: 5px 5px 5px rgb(0, 0, 0);
+  box-shadow: 5px 5px 5px var(--darkBlue);
 }
 
 .card:hover {
-  color: rgb(0, 21, 156);
-  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.7);
   transform: scale(1.05);
   transition: all .3s;
 }
@@ -465,6 +479,7 @@ font-size: 40px;
 
 .card-footer .card-content-name {
   color: rgb(0, 0, 0);
+  color: #2B4560;
 
   width: 100%;
   text-align: left;
@@ -475,7 +490,7 @@ font-size: 40px;
 }
 
 .card-footer .card-content-category {
-  color: rgb(0, 0, 0);
+  color: #2B4560;
   text-align: left;
 
   width: 100%;
@@ -485,7 +500,7 @@ font-size: 40px;
 }
 
 .card-footer .card-content-price {
-  color: rgb(0, 0, 0);
+  color: #2B4560;
   text-align: center;
   width: 100%;
   margin-top: auto;
@@ -522,7 +537,7 @@ font-size: 40px;
   border-color: #555555 transparent transparent transparent;
 }
 
-.cards::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+.cards .scroller::-webkit-scrollbar-button:vertical:single-button:increment:hover {
   border-color: #777777 transparent transparent transparent;
 }
 /*
