@@ -17,11 +17,12 @@ const StarRating = ({ metaData, listOfReviews }) => {
   return (
     <>
       <div className='average-rating'>
-        {Math.round(averageRating * 10) / 10}
+        {Math.round(averageRating * 10) / 10}{' '}
         <StarRatings
           rating={averageRating}
-          starRatedColor='gold'
-          starDimension='60px'
+          starRatedColor='#6AA4B0'
+          starDimension='40px'
+          starEmptyColor='#E1E7E0'
         />
       </div>
       <div>
