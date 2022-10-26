@@ -53,12 +53,12 @@ const IndividualQuestion = ({ question }) => {
   }
 
   return (
-    <div>
-      <div className='question'>Q: {question.question_body}</div>
-      <div className='helpfulContainer'>
+    <div data-testid="IndividualQuestion-test" >
+      <div  className='question' >Q: {question.question_body}</div>
+      <div data-testid="helpfulContainer-test" className='helpfulContainer'>
         <span>Helpful?</span>
         <span> | </span>
-        {showThanks ? <span>Thank you!</span> : <span onClick={(e) => onClickHandler(e)} className='yes-btn'>Yes({question.question_helpfulness})</span>}
+        {showThanks ? <span data-testid="thankyou-test" >Thank you!</span> : <span onClick={(e) => onClickHandler(e)} data-testid="YesBtn" className='yes-btn'>Yes({question.question_helpfulness})</span>}
         <span> | </span>
         <span className='yes-btn' onClick={() => setShowAnswersModal(true)}>Add Answer</span>
         <span> | </span>
