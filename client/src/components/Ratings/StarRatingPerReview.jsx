@@ -5,7 +5,7 @@ const StarRatingPerReview = ({ review }) => {
   for (let i = 0; i < 5; i++) {
     if (i < review.rating) {
       stars.push(
-        <i key={i} className='star fa fa-star' style={{ color: '#f80' }}></i>
+        <i key={i} className='star fa fa-star' style={{ color: '#6AA4B0' }}></i>
       );
     } else {
       stars.push(<i key={i} className='star fa-regular fa-star'></i>);

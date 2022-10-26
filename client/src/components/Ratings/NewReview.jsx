@@ -19,6 +19,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const [selectedFitRating, setSelectedFitRating] = useState(null);
   const [selectedComfortRating, setSelectedComfortRating] = useState(null);
   const [selectedQualityRating, setSelectedQualityRating] = useState(null);
+
   const [selectedStarRating, setSelectedStarRating] = useState(0);
   const [selectedRecommend, setSelectedRecommend] = useState(false);
   const [photos, setPhotos] = useState([]);
