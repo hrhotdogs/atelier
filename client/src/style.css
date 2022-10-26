@@ -3,7 +3,6 @@
 --darkBlue: #2B4560;
 --tiffanyBlue: #6AA4B0;
 --midnightBlue:#2F6D80;
---roboto: 'Roboto', sans-serif;
 }
 
 body {
@@ -19,10 +18,9 @@ font-size: large;
 margin-left: 48%;
 margin-top: 18px;
 }
-
 .review {
-  border-left: 2px solid var(--midnightBlue);
-  border-right: 2px solid var(--midnightBlue);
+  border-left: 2px solid #2F6D80;
+  border-right: 2px solid #2F6D80;
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
@@ -89,35 +87,11 @@ margin-top: 18px;
   color: #f80
 }
 
-.add-photos-btn {
-  padding: 5px;
-  color: var(--darkBlue);
-  cursor: pointer;
-  box-sizing: content-box;
-  background-color: var(--ivory);
-  border-radius: 10px;
-  transition-duration: 0.4s;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.send-review-btn {
-  padding: 5px;
-  color: var(--darkBlue);
-  cursor: pointer;
-  box-sizing: content-box;
-  background-color: var(--ivory);
-  border-radius: 10px;
-  transition-duration: 0.4s;
-  font-family: Arial, Helvetica, sans-serif;
-  float:right;
-}
-
 .review-btn {
   padding: 5px;
-  color: var(--darkBlue);
   cursor: pointer;
   box-sizing: content-box;
-  background-color: var(--ivory);
+  background-color: #fff;
   border-radius: 10px;
   transition-duration: 0.4s;
   font-family: Arial, Helvetica, sans-serif;
@@ -135,18 +109,19 @@ margin-top: 18px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .modal-styles {
   position: fixed;
   border-radius: 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--ivory);
+  background-color: #fff;
   padding: 50px;
   z-index: 1000;
   font-family: Arial, Helvetica, sans-serif;
   overflow: auto;
-  max-height: 80vh;
+  max-height: 70vh;
 }
 
 .modal-overlay {
@@ -176,42 +151,28 @@ margin-top: 18px;
 }
 
 .average-rating {
-  font-family: var(--roboto);
-  font-size: 40px;
-}
-
-.star-rate-count {
-  font-family: var(--roboto);
-  font-size: 14px;
+  font-size: 50px;
 }
 
 .parent-div {
   height: 20px;
-  width: 60%;
-  background-color: var(--ivory);
-  border: 2px solid;
+  width: 100%;
+  background-color: #aaa;
   border-radius: 40px;
-  border-color: var(--midnightBlue);
   margin: 50;
-  margin-left:1.5em;
 }
 
 .child-div {
   height: 100%;
-  background-color: var(--tiffanyBlue);
+  background-color: rgb(79, 77, 77);
   border-radius: 40px;
   text-align: right;
-  font-size: 15px;
-  top: 5px;
-  right:5px
 }
 
 .progress-text {
-  padding: 1px;
-  color: var(--midnightBlue);
-  font-family: var(--roboto);
-  font-weight: 100;
-  font-size: 13px;
+  padding: 10;
+  color: lightblue;
+  font-weight: 900;
 }
 
 .side-bar {
@@ -223,45 +184,7 @@ margin-top: 18px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.slider {
-  --sliderHieght:21px;
-  --sliderWidth: 7px;
-  -webkit-appearance: none;
-  width:54%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline:none;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: var(--sliderWidth);
-  height: var(--sliderHieght);
-  background: var(--midnightBlue);
-  cursor: pointer;
-}
-
-.fit-fit {
-display: flex;
-gap: 70px;
-color:grey;
-font-size: 10.5px;
-width:54%;
-}
-
-.comfort-fit {
-display: flex;
-  gap: 150px;
-  color: grey;
-  font-size: 10.5px;
-  width: 54%;
-  justify-content: space-around;
-}
-
 .input-reviews {
-  background-color: var(--ivory);
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -279,7 +202,7 @@ display: flex;
 
 .text-field {
   line-height: 15px;
-  height: 12px;
+  height: 10px;
   max-width: 400px;
   min-width: 200px;
   max-height: 400px;
@@ -310,7 +233,7 @@ display: flex;
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: var(--ivory);
+  background-color: #eee;
 }
 
 .check-container:hover input~.checkmark {
@@ -318,7 +241,7 @@ display: flex;
 }
 
 .check-container input:checked~.checkmark {
-  background-color: var(--tiffanyBlue);
+  background-color: #2196F3;
 }
 
 .checkmark:after {
@@ -343,14 +266,6 @@ display: flex;
     transform: rotate(45deg);
   }
 
-  .ratings-title {
-    font-family: var(--roboto);
-  }
-
-#progress-bar-title {
-  font-family: var(--roboto);
-  font-size: 10px;
-}
 
 /*============ Ratings and Reviews ============= */
 

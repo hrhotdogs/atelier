@@ -21,7 +21,7 @@ const ReviewPhotoUpload = ({ setPhotos }) => {
     <div>
       <button
         id='upload-widget'
-        className='add-photos-btn'
+        className='cloudinary-button input'
         onClick={(e) => openWidget(e)}
       >
         {' '}

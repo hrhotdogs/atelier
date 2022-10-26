@@ -147,16 +147,11 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
                 setSelectedQualityRating={setSelectedQualityRating}
               />
             </div>
-            <br></br>
             <div>
               <ReviewPhotoUpload setPhotos={setPhotos} />
             </div>
             <br></br>
-            <input
-              className='send-review-btn'
-              type='submit'
-              value='Send Review'
-            ></input>
+            <input type='submit' value='Send Review'></input>
           </form>
         </div>
       </>,

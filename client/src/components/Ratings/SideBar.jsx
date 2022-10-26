@@ -6,7 +6,6 @@ const SideBar = ({ metaData, listOfReviews }) => {
   return (
     <>
       <div>
-        <h1 className='ratings-title'> Ratings & Reviews</h1>
         <StarRating metaData={metaData} listOfReviews={listOfReviews} />
       </div>
       <br></br>
