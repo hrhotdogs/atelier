@@ -69,7 +69,7 @@ const AddAnswerModal = ({ closeModal, question }) => {
   }
 
   return ReactDOM.createPortal(
-    <div className='modalBackground'>
+    <div className='modalBackground' data-testid="addAnswerModal-test">
       <div className='modalContainer'>
         <div>
           <span className='close' onClick={(e) => closeModal(e)}>
