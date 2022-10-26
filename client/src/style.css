@@ -11,6 +11,10 @@ body {
   color: var(--darkBlue);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*============ Ratings and Reviews ============= */
 
 #sort-menu {
@@ -838,15 +842,33 @@ QUESTIONS AND ANSWERS
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#sidebarProductTitle {
-  font-size: 25pt;
-  font-weight: bold;
-  margin-bottom: 10px;
+#sidebarReviewInfo {
+  margin-bottom: 20px;
 }
 
-#sidebarPrice {
+.sidebarProductTitle {
+  font-size: 25pt;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sidebarPriceContainer {
+  margin-bottom: 30px;
+}
+
+.sidebarPrice {
   font-size: 14pt;
-  margin-bottom: 10px;
+}
+
+.saleOriginal {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 2px;
+  color: grey;
+}
+
+.saleNew {
+  color: red;
 }
 
 .styleIcon {
@@ -879,4 +901,35 @@ QUESTIONS AND ANSWERS
   margin-right: 7px;
   border-radius: 50%;
   border: 2px solid grey;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.styleSelectorContainer {
+  margin-bottom: 20px;
+}
+
+.addToCartContainer {
+  display: flex;
+  flex-direction: row;
 }
