@@ -60,12 +60,12 @@ const IndividualQuestion = ({ question }) => {
         <span> | </span>
         {showThanks ? <span data-testid="thankyou-test" >Thank you!</span> : <span onClick={(e) => onClickHandler(e)} data-testid="YesBtn" className='yes-btn'>Yes({question.question_helpfulness})</span>}
         <span> | </span>
-        <span className='yes-btn' onClick={() => setShowAnswersModal(true)}>Add Answer</span>
+        <span data-testid="addAnswer-btn" className='yes-btn' onClick={() => setShowAnswersModal(true)}>Add Answer</span>
         <span> | </span>
-        {reported ? <span>Reported</span> : <span className='yes-btn' onClick={(e) => reportQuestion(e)}>Report</span>}
-        {showAnswersModal && <AddAnswerModal closeModal={closeModal} question={question}/>}
+        {reported ? <span data-testid="report-test">Reported</span> : <span data-testid="ReportBtn" className='yes-btn' onClick={(e) => reportQuestion(e)}>Report</span>}
+        {showAnswersModal && <AddAnswerModal closeModal={closeModal} question={question} />}
       </div>
-      <div className='answersList'>
+      <div data-testid="AnswerList-test" className='answersList'>
         {
           showAllAnswers ?
           answersArray.map((answer) => {

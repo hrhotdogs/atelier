@@ -2,6 +2,7 @@
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import IndividualQuestion from '../Questions/IndividualQuestion.jsx';
+import AddAnswerModal from '../Questions/AddAnswerModal.jsx';
 
 const question =  {
   "question_id": 640902,
@@ -53,6 +54,13 @@ describe('IndividualQuestion', () => {
     expect(IndividualQuestionElement).toBeInTheDocument();
   })
 
+  it('it should render the answers list with 2 or less answers', () => {
+    render(<IndividualQuestion question={question}/>);
+    const AnswersListElement = screen.getByTestId("AnswerList-test");
+    expect(AnswersListElement).toBeInTheDocument();
+    expect(answersArray.length).toEqual(3)
+  })
+
   it('it should render the helpful container', () => {
     render(<IndividualQuestion question={question}/>);
     const HelpfulContainerElement = screen.getByTestId("helpfulContainer-test");
@@ -61,10 +69,28 @@ describe('IndividualQuestion', () => {
 
   it('it should render the thank you span', () => {
     render(<IndividualQuestion question={question}/>);
-    // const YesBtn = screen.getByRole('span', {name: `Yes(${question.question_helpfulness})`});
     const YesBtn = screen.getByTestId("YesBtn")
     fireEvent.click(YesBtn)
     const ThankyouElement = screen.getByTestId("thankyou-test");
     expect(ThankyouElement).toBeInTheDocument();
   })
+
+  it('it should render the Reported! span', () => {
+    render(<IndividualQuestion question={question}/>);
+    const ReportBtn = screen.getByTestId("ReportBtn")
+    fireEvent.click(ReportBtn)
+    const ReportedElement = screen.getByTestId("report-test");
+    expect(ReportedElement).toBeInTheDocument();
+  })
+
+
 })
+
+// it('it should render the add answer modal', () => {
+  //   render(<IndividualQuestion question={question}/>);
+  //   const AddAnswerBtn = screen.getByTestId("addAnswer-btn")
+  //   fireEvent.click(AddAnswerBtn)
+  //   render(<AddAnswerModal/>)
+  //   const AddAnswerModalElement = screen.getByTestId("addAnswerModal-test");
+  //   expect(AddAnswerModalElement).toBeInTheDOM()
+  // })
