@@ -452,7 +452,7 @@ margin-top: 18px;
   border-color: #555555 transparent transparent transparent;
 }
 
-.cards::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+.cards .scroller::-webkit-scrollbar-button:vertical:single-button:increment:hover {
   border-color: #777777 transparent transparent transparent;
 }
 /*
