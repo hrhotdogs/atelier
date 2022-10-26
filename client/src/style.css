@@ -18,18 +18,33 @@ html {
 /*============ Ratings and Reviews ============= */
 
 #sort-menu {
-font-family: Arial, Helvetica, sans-serif;
+font-family:var(--roboto);
 font-size: large;
 margin-left: 48%;
 margin-top: 18px;
 }
+
+#sort-options {
+  color: var(--darkBlue);
+  border: none;
+  background-color: var(--ivory);
+  font-family: var(--roboto);
+  font-size: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#sort-options:focus {
+  outline: none;
+}
+
 .review {
   border-left: 2px solid var(--midnightBlue);
-    border-right: 2px solid var(--midnightBlue);
+  border-right: 2px solid var(--midnightBlue);
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto)
 }
 
 .review-list {
@@ -39,9 +54,11 @@ margin-top: 18px;
   margin: 5px;
   word-wrap: break-word;
   overflow: auto;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
   float: right;
 }
+
+
 .add-photos-btn {
   padding: 5px;
   color: var(--darkBlue);
@@ -50,7 +67,12 @@ margin-top: 18px;
   background-color: var(--ivory);
   border-radius: 10px;
   transition-duration: 0.4s;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
+}
+
+.add-photos-btn:hover {
+  background-color: white;
+  color: var(--darkBlue)
 }
 
 .send-review-btn {
@@ -61,20 +83,40 @@ margin-top: 18px;
   background-color: var(--ivory);
   border-radius: 10px;
   transition-duration: 0.4s;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
   float: right;
-}s
+}
+
+.send-review-btn:hover {
+  background-color: white;
+  color: var(--darkBlue);
+}
 
 .load-more {
   margin-top: 5px;
   margin-left: 10%;
   margin: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
+}
+
+.show-more-body {
+  font-family: var(--roboto);
+  cursor: pointer;
+  color: var(--darkBlue);
+  text-decoration: underline;
+  font-size: 11px;
+}
+
+.show-more-body:hover {
+  text-decoration: none;
+  color: var(--tiffanyBlue);
 }
 
 .seller-response {
   text-decoration: underline;
   cursor: pointer;
+  color: var(--darkBlue);
+  font-family: var(--roboto);
 }
 
 .review-thumbnail {
@@ -94,7 +136,13 @@ margin-top: 18px;
 
 .report {
   cursor: pointer;
+  color: var(--darkBlue);
   text-decoration: underline;
+}
+
+.report:hover {
+  text-decoration: none;
+  color: var(--tiffanyBlue);
 }
 
 .star {
@@ -122,19 +170,19 @@ margin-top: 18px;
   background-color: var(--ivory);
   border-radius: 10px;
   transition-duration: 0.4s;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
 }
 
 .review-btn:hover {
-  background-color: #bac0c1;
-  color: rgb(0, 0, 0);
+  background-color: white;
+  color: var(--darkBlue);
 }
 
 .review-add {
   margin-top: 5px;
   margin-left: 10%;
   margin: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
 }
 
 
@@ -144,10 +192,10 @@ margin-top: 18px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-    background-color: var(--ivory);
+  background-color: var(--ivory);
   padding: 50px;
   z-index: 1000;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
   overflow: auto;
   max-height: 80vh;
 }
@@ -223,7 +271,7 @@ font-size: 40px;
   padding: 2rem;
   width: 30%;
   margin: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
 }
 
 .slider {
@@ -273,7 +321,7 @@ font-size: 40px;
   width: 300px;
   margin: 5px;
   margin-top: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--roboto);
 }
 
 .input-reviews:focus {

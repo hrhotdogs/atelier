@@ -38,7 +38,8 @@ const StarRating = ({ metaData, listOfReviews, show }) => {
           rating={averageRating}
           starRatedColor='#6AA4B0'
           starDimension='40px'
-          starEmptyColor='#E1E7E0'
+          starEmptyColor='black'
+          starSpacing='2px'
         />
       </div>
       <div>
