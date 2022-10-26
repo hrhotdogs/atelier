@@ -22,15 +22,19 @@ const RelatedCards = () => {
       .catch((err) => {});
   }, [currentProductID]);
 
+  // reference the carousal (.cards) to get its scroll properties
+  const carouselElem = useRef(null);
+
   // create multiple cards from the related prod array, and pass each array value and its index to the child component
   return (
-    <ul className="cards">
+    <ul ref={} className="cards">
+      <div className="scroller-left">&#62;</div>
       {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
         return(
           <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
         )}
       ) : null}
-      <div className="scroller">&#62;</div>
+      <div className="scroller-right">&#62;</div>
     </ul>
   );
 };

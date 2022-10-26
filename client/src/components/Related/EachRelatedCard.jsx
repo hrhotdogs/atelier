@@ -71,6 +71,7 @@ const EachRelatedCard = (props) => {
     setCurrentProductID(product.info.id);
   };
 
+  // close and open modal's on each related card
   const handleModalClick = (e) => {
     e.stopPropagation();
     e.preventDefault();
