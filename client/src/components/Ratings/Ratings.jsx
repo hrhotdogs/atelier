@@ -69,13 +69,14 @@ const Ratings = () => {
 
   return (
     <>
-      <label id='sort-menu' htmlFor='sort-options'>
+      <label className='sort-menu' id='sortMenu' htmlFor='sort-options'>
         &nbsp; Sort {listOfReviews.length} reviews by :
         <select
           value={option}
           onChange={changeOption}
           name='sort-options'
           id='sort-options'
+          className='sort-options'
         >
           <option value='Relevance'>Relevance</option>
           <option value='Helpfulness'>Helpfulness</option>

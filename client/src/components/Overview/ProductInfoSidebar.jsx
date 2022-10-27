@@ -42,7 +42,7 @@ const ProductInfoSidebar = ({metaData, listOfReviews, productInfo, currentStyle}
     <div>
       <div id='sidebarReviewInfo'>
         <StarRating metaData={metaData} listOfReviews={listOfReviews} />
-        <a href="#sort-menu">{`See all ${listOfReviews.length} reviews`}</a>
+        <a href="#sortMenu">{`See all ${listOfReviews.length} reviews`}</a>
       </div>
       <div className='sidebarProductTitle'>{productName}</div>
       <div>{showPrice()}</div>
