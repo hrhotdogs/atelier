@@ -54,9 +54,6 @@ const Questions = () => {
 
   function searchQuestions(filteredQuestions) {
     setQuestions(filteredQuestions)
-    if(filteredQuestions.length === 0) {
-      getQuestions();
-    }
   }
 
   function onClickHandler(e) {
