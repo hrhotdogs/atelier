@@ -23,19 +23,33 @@ const RelatedCards = () => {
   }, [currentProductID]);
 
   // reference the carousal (.cards) to get its scroll properties
-  const carouselElem = useRef(null);
+  const relatedCarousel = React.useRef(null);
+
+  // scroll left on left arrow click
+  const handleScrollLeft = (e) => {
+    relatedCarousel.current.scrollLeft = relatedCarousel.current.scrollLeft - 50;
+  }
+
+  // scroll right on right arrow click
+  const handleScrollRight = (e) => {
+    relatedCarousel.current.scrollLeft = relatedCarousel.current.scrollLeft + 50;
+  }
 
   // create multiple cards from the related prod array, and pass each array value and its index to the child component
   return (
-    <ul ref={} className="cards">
-      <div className="scroller-left">&#62;</div>
-      {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
-        return(
-          <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
-        )}
-      ) : null}
-      <div className="scroller-right">&#62;</div>
-    </ul>
+    <>
+      <div className="scroller-left" onClick={event => {handleScrollLeft(event)}}><span className="left-arrow">&#62;</span></div>
+      <ul ref={relatedCarousel} className="cards">
+        {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
+          return(
+            <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
+          )}
+        ) : null}
+      </ul>
+      <div className="scroller-right" onClick={event => {handleScrollRight(event)}}>
+        <span className="right-arrow">&#62;</span>
+      </div>
+    </>
   );
 };
 
