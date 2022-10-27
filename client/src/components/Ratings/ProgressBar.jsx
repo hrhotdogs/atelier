@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRatings from 'react-star-ratings';
 const ProgressBar = ({ metaData, currentProductID }) => {
   if (metaData.ratings !== undefined) {
     var totalFiveStars = Object.values(metaData.ratings)[4];
@@ -20,9 +21,9 @@ const ProgressBar = ({ metaData, currentProductID }) => {
 
   return (
     <div className='progress-container'>
-      <div id='progress-bar-title'>*(PERCENTAGE OF RATINGS PER STAR)</div>
+      {/* <div id='progress-bar-title'>*(PERCENTAGE OF RATINGS PER STAR)</div> */}
       <br></br>
-      <div className='star-rate-count'>(5)</div>
+      <div className='star-rate-count'>5 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfFiveStar}%` }} className='child-div'>
           <span className='progress-text'>
@@ -30,7 +31,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
           </span>
         </div>
       </div>
-      <div className='star-rate-count'>(4)</div>
+      <div className='star-rate-count'>4 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfFourStar}%` }} className='child-div'>
           <span className='progress-text'>{`${
@@ -38,7 +39,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
           }%`}</span>
         </div>
       </div>
-      <div className='star-rate-count'>(3)</div>
+      <div className='star-rate-count'>3 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfThreeStar}%` }} className='child-div'>
           <span className='progress-text'>{`${
@@ -46,7 +47,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
           }%`}</span>
         </div>
       </div>
-      <div className='star-rate-count'>(2)</div>
+      <div className='star-rate-count'>2 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfTwoStar}%` }} className='child-div'>
           <span className='progress-text'>{`${
@@ -54,7 +55,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
           }%`}</span>
         </div>
       </div>
-      <div className='star-rate-count'>(1)</div>
+      <div className='star-rate-count'>1 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfOneStar}%` }} className='child-div'>
           <span className='progress-text'>{`${
