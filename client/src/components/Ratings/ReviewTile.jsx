@@ -12,17 +12,15 @@ import { format, parseISO } from 'date-fns';
 const ReviewTile = ({ review, listOfReviews }) => {
   return (
     <div className='review'>
-      <div>
-        <StarRatingPerReview review={review} listOfReviews={listOfReviews} />
-      </div>
-
       <div className='review-info'>
-        <em>{review.reviewer_name}</em>
+        {format(parseISO(review.date), 'MMMM dd, yyyy')}
+      </div>
+      <div className='review-info'>
+        by <em>{review.reviewer_name}</em>,
         {review.reviewer_email !== undefined ? <i>verifiedLogo</i> : null}
       </div>
-
-      <div className='review-info'>
-        {format(parseISO(review.date), 'MMM dd/yyyy')}
+      <div>
+        <StarRatingPerReview review={review} listOfReviews={listOfReviews} />
       </div>
 
       <h3 className='review-summary'>

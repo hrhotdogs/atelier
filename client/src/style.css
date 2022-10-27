@@ -107,9 +107,7 @@ font-size: 20px;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-
   justify-content: space-around;
-
 }
 
 .ratings-item {
@@ -139,6 +137,7 @@ font-size: 20px;
   width: 50%;
   max-height: 90vh;
   margin: 5px;
+  margin-top: 20px;
   word-wrap: break-word;
   overflow: auto;
   font-family: var(--roboto);
@@ -151,13 +150,15 @@ font-size: 20px;
   padding: 10px;
   margin: 5px;
   margin-top: 30px;
-  font-family: var(--roboto)
+  font-family: var(--roboto);
+  padding-bottom: 30px;
 }
 
-.review-info{
-
+.review-info {
+color: var(--tiffanyBlue);
+float: right;
+margin: 5px
 }
-
 
 .add-photos-btn {
   padding: 5px;
@@ -238,6 +239,7 @@ font-size: 20px;
   cursor: pointer;
   color: var(--darkBlue);
   text-decoration: underline;
+  float: right;
 }
 
 .report:hover {
