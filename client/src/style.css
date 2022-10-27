@@ -451,8 +451,8 @@ display: flex;
 
 .related-container {
   display: flex;
-  height: 900px;
-  width: 1190px;
+  height: 800px;
+  width: 1100px;
   flex-direction: column;
   border-top:rgb(0, 0, 0);
   margin-left: 50px;
@@ -485,7 +485,6 @@ display: flex;
 .container .add-card-container {
   display: flex;
   flex: 1;
-  background-image: linear-gradient(to right, var(--tiffanyBlue), var(--ivory));
   border-radius: 18px;
   min-width: 250px;
   border-right: 2px solid #2F6D80;
@@ -504,12 +503,12 @@ display: flex;
 }
 
 .scroller-right:hover {
-  opacity: .7;
-  background: var(--tiffanyBlue);
+  opacity: .8;
+  background-image: linear-gradient(to right, var(--ivory), var(--tiffanyBlue));
 }
 
 .scroller-right .right-arrow {
-  top: 45%;
+  top: 50%;
   position:relative;
 }
 
@@ -528,19 +527,20 @@ display: flex;
 }
 
 .scroller-left:hover {
-  opacity: .7;
+  opacity: .8;
   background: var(--tiffanyBlue);
+  background-image: linear-gradient(to right, var(--ivory), var(--tiffanyBlue));
 }
 
 .scroller-left .left-arrow {
-  top: 45%;
+  top: 50%;
   position:relative;
 }
 
 .cards {
   display: inline-flex;
   flex: 2;
-  min-height: 210px;
+  /* min-height: 210px; */
   /* max-height: 400px; */
   /* max-height: 500px; */
   /* max-width: 900px; */
@@ -557,7 +557,7 @@ display: flex;
   display: flex;
   justify-content: center;
   align-content: center;
-  padding: 15px 40px 15px 40px;
+  padding: 15px 50px 15px 50px;
   overflow: auto;
 }
 
@@ -580,9 +580,9 @@ display: flex;
   display: flex;
   flex-direction: column;
   min-height: 220px;
-  min-width: 300px;
-  max-height: 600px;
-  max-width: 300px;
+  min-width: 260px;
+  max-height: 900px;
+  max-width: 260px;
   /* max-width: 110px; */
   /* max-width: 15vw; */
   border-radius: 18px;
@@ -657,12 +657,13 @@ display: flex;
   width: 100%;
   color: #2B4560;
   text-align: left;
-  font-size: 75%;
+  font-size: 7
 }
 
 .card-footer .card-content-slogan {
   flex: 3;
   color: #2B4560;
+  width: 100%;
   text-align: left;
   font-style:italic;
   font-size: 80%;
@@ -690,9 +691,15 @@ display: flex;
   flex-direction: row;
 }
 
-.rltd-modal-titles {
-  flex: 2;
-  padding: 5%
+.rltd-modal-titles-1 {
+  flex: 1;
+  padding: 5%;
+  align-self: flex-start;
+}
+.rltd-modal-titles-2 {
+  flex: 1;
+  padding: 5%;
+  align-self: flex-end;
 }
 
 .rltd-modal-items {
