@@ -64,7 +64,6 @@ const ImageGallery = ({currentStyle}) => {
         </div>
       </div>
     </div>
-
   )
 }
 
