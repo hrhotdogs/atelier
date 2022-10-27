@@ -19,7 +19,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   const [selectedFitRating, setSelectedFitRating] = useState(null);
   const [selectedComfortRating, setSelectedComfortRating] = useState(null);
   const [selectedQualityRating, setSelectedQualityRating] = useState(null);
-
+  const [isSent, setIsSent] = useState(false);
   const [selectedStarRating, setSelectedStarRating] = useState(0);
   const [selectedRecommend, setSelectedRecommend] = useState(false);
   const [photos, setPhotos] = useState([]);
@@ -33,6 +33,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
 
   const handleReviewSubmission = (e) => {
     e.preventDefault();
+    setIsSent(true);
     let form = {
       product_id: Number(currentProductID),
       rating: Number(selectedStarRating),
@@ -71,9 +72,21 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
   } else {
     return ReactDom.createPortal(
       <>
-        <div className='modal-overlay' onClick={() => setShowModal(false)} />
+        <div
+          className='modal-overlay'
+          onClick={() => {
+            setShowModal(false);
+            setIsSent(false);
+          }}
+        />
         <div className='modal-styles'>
-          <span className='close' onClick={() => setShowModal(false)}>
+          <span
+            className='close'
+            onClick={() => {
+              setShowModal(false);
+              setIsSent(false);
+            }}
+          >
             &times;
           </span>
           <form onSubmit={(e) => handleReviewSubmission(e)}>
@@ -151,11 +164,15 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
               <ReviewPhotoUpload setPhotos={setPhotos} />
             </div>
             <br></br>
-            <input
-              className='send-review-btn'
-              type='submit'
-              value='Send Review'
-            ></input>
+            {isSent ? (
+              <div>Your feedback has been received!</div>
+            ) : (
+              <input
+                className='send-review-btn'
+                type='submit'
+                value='Send Review'
+              ></input>
+            )}
           </form>
         </div>
       </>,
