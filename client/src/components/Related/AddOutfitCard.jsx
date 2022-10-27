@@ -54,9 +54,7 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
           alreadyAdded = true;
         }
       }
-      if (alreadyAdded) {
-        console.log("You've already added this Style to your outfits.");
-      } else {
+      if (!alreadyAdded) {
         let outfits = [...getOutfits, product];
         outfits = JSON.stringify(outfits);
         window.localStorage.setItem("outfits", outfits);
@@ -82,12 +80,12 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
     } else {
       for (let i = 0; i < product.styles.results.length; i++) {
         if (currentStyleID === product.styles.results[i].style_id) {
-          prodIMGStyle.backgroundImage = `url(${product.styles.results[i].photos[0].url})`
+          prodIMGStyle.backgroundImage = `url(${product.styles.results[i].photos[0].thumbnail_url})`
         }
       }
     }
     return (
-        <ul className="add-card">
+
           <li className="card">
             <div className="card-image" style={prodIMGStyle}>
               <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg" onClick={(event) => handleOutfitClick()}></img>
@@ -99,7 +97,7 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
                 <div className="card-content-price">${product.info.default_price}</div>
             </div>
           </li>
-        </ul>
+
     );
   } else { return null; }
 };
