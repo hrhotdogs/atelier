@@ -15,6 +15,7 @@ const AddAnswerModal = ({ closeModal, question }) => {
   const [photos, setPhotos] = useState([]);
   const [productInfo, setProductInfo] = useState({});
   const [showSubmitted, setShowSubmitted] = useState(false)
+  const [showTooManyPhotos, setShowTooManyPhotos] = useState(false)
   const productName = productInfo.name;
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const AddAnswerModal = ({ closeModal, question }) => {
 
   function openWidget(e) {
     e.preventDefault();
+    setShowTooManyPhotos(false)
     let myWidget = window.cloudinary.createUploadWidget(
       {
         cloudName: 'dsafunhlm',
@@ -50,6 +52,11 @@ const AddAnswerModal = ({ closeModal, question }) => {
 
   function submitHandler(e) {
     e.preventDefault();
+    if (photos.length > 5) {
+      setShowTooManyPhotos(true)
+      setPhotos([])
+      return;
+    }
     axios
       .post(
         `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question.question_id}/answers`,
@@ -105,9 +112,11 @@ const AddAnswerModal = ({ closeModal, question }) => {
           </div>
           <div>
             <button id='upload-widget' className='cloudinary-button btn' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
-            <div className='helpfulMessage'>Max 5 images. Photo count: {photos.length}</div>
+            <div className='helpfulMessage'>Max 5 images. Photo count: {photos.length}</div> {showTooManyPhotos ? <div>Too many images</div> : null}
           </div>
-          <button className='btn submit' type='submit'>Submit Answer</button>{showSubmitted ? <span>SUBMITTED!</span> : null}
+          <div className='submit-container'>
+            {showSubmitted ? <span>SUBMITTED!</span> : <button className='btn submit' type='submit'>Submit Answer</button>}
+          </div>
         </form>
       </div>
     </div>,
