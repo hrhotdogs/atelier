@@ -66,7 +66,7 @@ const RatingSlider = ({ metaData }) => {
         default:
       }
       results.push(
-        <div key={key}>
+        <div className='slider-container' key={key}>
           <div className='ratings-title'>{title}:</div>
           <div>
             <input
