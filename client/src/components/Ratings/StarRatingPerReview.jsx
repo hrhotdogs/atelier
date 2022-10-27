@@ -12,7 +12,7 @@ const StarRatingPerReview = ({ review, listOfReviews }) => {
       <StarRatings
         rating={review.rating}
         starRatedColor='#6AA4B0'
-        starDimension='15px'
+        starDimension='20px'
         starEmptyColor='black'
         starSpacing='1px'
       />
