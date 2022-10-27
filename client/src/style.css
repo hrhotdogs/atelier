@@ -15,6 +15,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.app > div {
+  margin-bottom: 50px;
+}
+
 /*============ Ratings and Reviews ============= */
 
 .sort-menu {
@@ -106,7 +110,8 @@ font-size: 20px;
 }
 
 .ratings-container {
-  margin-left: 50px;
+  margin: auto;
+  width: 80%;
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;
@@ -452,10 +457,10 @@ display: flex;
 .related-container {
   display: flex;
   height: 800px;
-  width: 1100px;
+  width: 80%;
   flex-direction: column;
   border-top:rgb(0, 0, 0);
-  margin-left: 50px;
+  margin: auto;
   justify-content: center;
   align-content: center;
 }
@@ -751,7 +756,8 @@ QUESTIONS AND ANSWERS
   display: flex;
   flex-direction: column;
   overflow: auto;
-  margin: 50px;
+  margin: auto;
+  width: 80%;
   font-family: var(--roboto), Helvetica, sans-serif;
   color: var(--darkBlue);
   min-width: 550px;
@@ -1016,6 +1022,8 @@ QUESTIONS AND ANSWERS
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
+  margin: auto;
+  width: 80%
 }
 
 #sidebarReviewInfo {
@@ -1127,4 +1135,15 @@ QUESTIONS AND ANSWERS
 
 .productInfoFooter {
   margin-left: 146px;
+  display: flex;
+  flex-direction: row;
+}
+
+.productInfoFooterLeft {
+  width: 675px;
+}
+
+.productSlogan {
+  font-weight: bold;
+  margin-bottom: 10px;
 }

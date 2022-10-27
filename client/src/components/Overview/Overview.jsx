@@ -62,7 +62,7 @@ const Overview = () => {
 
   // Render
   return (
-    <div className='overview' style={{margin: '50px', marginBottom: '150px'}}>
+    <div className='overview'>
       <div style={{display: 'flex', flexDirection: 'row'}}>
         <ImageGallery currentStyle={currentStyle} />
         <div className='infoColumn'>
