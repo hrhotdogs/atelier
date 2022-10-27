@@ -19,7 +19,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
   const percentOfOneStar = (totalOneStar / totalStarRatings) * 100;
 
   return (
-    <>
+    <div className='progress-container'>
       <div id='progress-bar-title'>*(PERCENTAGE OF RATINGS PER STAR)</div>
       <br></br>
       <div className='star-rate-count'>(5)</div>
@@ -62,7 +62,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
           }%`}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
