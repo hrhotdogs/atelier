@@ -8,7 +8,6 @@ import {TOKEN} from '../../../../config.js';
 const Related = () => {
 
   return (
-    <div>
     <div className="related-container">
       <div className="related-title">Related Products</div>
       <div className="container">
@@ -19,7 +18,6 @@ const Related = () => {
       <div className="container">
         <OutfitCards />
       </div>
-    </div>
     </div>
   );
 };
