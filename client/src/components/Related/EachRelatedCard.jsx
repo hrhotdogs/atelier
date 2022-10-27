@@ -104,6 +104,7 @@ const EachRelatedCard = (props) => {
         <div className="card-footer">
             <div className="card-content-category">{product.info.category}</div>
             <div className="card-content-name">{product.info.name}</div>
+            <div className="card-content-slogan">{product.info.slogan}</div>
             <div className="card-content-price">${product.info.default_price}</div>
         </div>
         { showModal ? <CompareRelatedModal closeModal={closeModal} /> : null}
