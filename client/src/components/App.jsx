@@ -12,14 +12,16 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const App = () => {
   // Render components with context (global state)
   return (
-    <ProductIDProvider>
-      <StyleIDProvider>
-        <Overview />
-        <Related />
-      </StyleIDProvider>
-      <Questions />
-      <Ratings />
-    </ProductIDProvider>
+    <div className='app'>
+      <ProductIDProvider>
+        <StyleIDProvider>
+          <Overview />
+          <Related />
+        </StyleIDProvider>
+        <Questions />
+        <Ratings />
+      </ProductIDProvider>
+    </div>
   );
 };
 
