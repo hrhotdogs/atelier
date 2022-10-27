@@ -12,13 +12,14 @@ const SearchBar = ({questions, searchQuestions, getQuestions}) => {
     setNoMatch(false)
     if (input.length > 2) {
       let filtered = questions.filter((question) => {
+        question.question_body.toLowerCase()
         return question.question_body.includes(input)
       })
       if (filtered.length === 0) {
         setNoMatch(true);
       }
       searchQuestions(filtered)
-    } else if (input.length <= 2 || filtered.length === 0) {
+    } else if (input.length <= 2) {
       getQuestions();
     }
   }
