@@ -7,6 +7,7 @@ const AddToCart = ({currentStyle}) => {
   const [selectedSize, setSelectedSize] = useState('Select size');
   const [selectedQty, setSelectedQty] = useState(1);
   const [inStock, setInStock] = useState(true);
+  const [added, setAdded] = useState(false);
 
   const handleOptionChange = (e, comp) => {
     if (comp === 'size') {
@@ -15,13 +16,16 @@ const AddToCart = ({currentStyle}) => {
     } else if (comp === 'qty') {
       setSelectedQty(e.target.value);
     }
+    setAdded(false);
   }
 
   const handleAddToCart = () => {
     const sku = Object.keys(currentStyle.skus).find(key => currentStyle.skus[key].size === selectedSize);
-    console.log(sku);
     for (let i = 0; i < selectedQty; i++) {
       Axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart`, {sku_id: sku}, {headers: {Authorization: TOKEN}})
+      .then(() => {
+        setAdded(true);
+      })
       .catch(err => console.log(err));
     }
   }
@@ -59,13 +63,20 @@ const AddToCart = ({currentStyle}) => {
 
   const showAddButton = () => {
     if (inStock) {
-      return (
-        <button className='btn addToCartButton' onClick={handleAddToCart}>Add to cart</button>
-      )
+      if (added) {
+        return (
+          <button className='btn addToCartButton'>Added!</button>
+        )
+      } else {
+        return (
+          <button className='btn addToCartButton' onClick={handleAddToCart}>Add to cart</button>
+        )
+      }
     }
   }
 
   useEffect(() => {
+    setAdded(false);
     setSelectedSize('Select size');
     setSelectedQty(1);
   }, [currentStyle])
