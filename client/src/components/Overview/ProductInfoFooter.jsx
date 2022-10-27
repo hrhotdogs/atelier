@@ -1,8 +1,10 @@
 import React from 'react';
 
-const ProductInfoFooter = () => {
+const ProductInfoFooter = ({productInfo}) => {
   return (
-    <div></div>
+    <div className='productInfoFooter'>
+      {productInfo.slogan}
+    </div>
   )
 }
 
