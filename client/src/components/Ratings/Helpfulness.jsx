@@ -52,7 +52,7 @@ const Helpfulness = ({ review }) => {
   } else {
     return (
       <div className='helpfulness'>
-        Was this review <em>helpful</em>?{' '}
+        <em>Helpful?</em>{' '}
         <a onClick={() => handleYesClick(review)}>Y({helpfulness.countYes})</a>{' '}
         <a onClick={handleNoClick}>N({helpfulness.countNo})</a>
       </div>
