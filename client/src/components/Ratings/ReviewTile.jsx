@@ -16,12 +16,14 @@ const ReviewTile = ({ review, listOfReviews }) => {
         <StarRatingPerReview review={review} listOfReviews={listOfReviews} />
       </div>
 
-      <div>
+      <div className='review-info'>
         <em>{review.reviewer_name}</em>
         {review.reviewer_email !== undefined ? <i>verifiedLogo</i> : null}
       </div>
 
-      <div>{format(parseISO(review.date), 'MMM dd/yyyy')}</div>
+      <div className='review-info'>
+        {format(parseISO(review.date), 'MMM dd/yyyy')}
+      </div>
 
       <h3 className='review-summary'>
         <b>{review.summary}</b>
