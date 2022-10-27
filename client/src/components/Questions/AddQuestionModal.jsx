@@ -43,32 +43,38 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
   }
 
   return ReactDOM.createPortal(
-    <div className='modalBackground'>
+    <div>
+      <div className='modalBackground' onClick={(e) => closeModal(e)}></div>
       <div className='modalContainer'>
         <div>
+          <span className='close' onClick={(e) => closeModal(e)}>&times;</span>
           <h1>Ask Your Question</h1>
           <h2>About the {productName}</h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
           <div>
             <label>Question</label><br/>
-            <input className='input' type='text' placeholder='your question' ref={questionRef} required/><br/>
+            <textarea
+            maxLength='1000'
+            className='input textarea'
+            type='text'
+            placeholder='your question'
+            ref={questionRef}
+            required/><br/>
           </div>
           <div>
             <label>Username</label><br/>
             <input className='input' type='text' placeholder='jackson11'ref={usernameRef} required/><br/>
           </div>
           <div>
-            <label>Email</label><br/>
-            <input className='input' type='text' placeholder='jackson11@email.com' ref={emailRef} required/><br/>
+            <label htmlFor='email'>Email</label><br/>
+            <input className='input' type='email' name='email' placeholder='jackson11@email.com' ref={emailRef} required/>
+            <div className='helpfulMessage'>"For authentication reasons, you will not be emailed"</div>
           </div>
           <div>
-            <button className='btn' type='submit'>Submit Question</button>
+            <button className='btn submit' type='submit'>Submit Question</button>
           </div>
         </form>
-        <footer>
-          <button className='btn' onClick={(e) => closeModal(e)}>CANCEL</button>
-        </footer>
       </div>
     </div>,
     document.getElementById('portal')

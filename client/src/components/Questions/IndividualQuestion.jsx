@@ -11,9 +11,11 @@ const IndividualQuestion = ({ question }) => {
   const [showAllAnswers, setShowAllAnswers] = useState(false)
   const [showThanks, setShowThanks] = useState(false)
   const [reported, setReported] = useState(false)
-  let answersArray = Object.values(question.answers)
 
-  function onClickHandler(e) {
+  let answersArray = Object.values(question.answers)
+  answersArray.sort((a, b) => b.helpfulness - a.helpfulness)
+
+  function helpfulHandler(e) {
     e.preventDefault()
     axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question.question_id}/helpful`, null,
     {
@@ -23,6 +25,18 @@ const IndividualQuestion = ({ question }) => {
     })
     .catch((err) => console.log('ERROR in PUT request', err))
     setShowThanks(true)
+  }
+
+  function reportQuestion(e) {
+    e.preventDefault();
+    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question.question_id}/report`, null,
+    {
+      headers: {
+        'Authorization': `${TOKEN}`,
+      }
+    })
+    .catch((err) => console.log('ERROR in PUT request to report question', err))
+    setReported(true)
   }
 
   function closeModal(e) {
@@ -40,30 +54,21 @@ const IndividualQuestion = ({ question }) => {
     setShowAllAnswers(false)
   }
 
-  function reportQuestion(e) {
-    e.preventDefault();
-    axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question.question_id}/report`, null,
-    {
-      headers: {
-        'Authorization': `${TOKEN}`,
-      }
-    })
-    .catch((err) => console.log('ERROR in PUT request to report question', err))
-    setReported(true)
-  }
+
 
   return (
     <div data-testid="IndividualQuestion-test" >
-      <div  className='question' >Q: {question.question_body}</div>
-      <div data-testid="helpfulContainer-test" className='helpfulContainer'>
-        <span>Helpful?</span>
-        <span> | </span>
-        {showThanks ? <span data-testid="thankyou-test" >Thank you!</span> : <span onClick={(e) => onClickHandler(e)} data-testid="YesBtn" className='yes-btn'>Yes({question.question_helpfulness})</span>}
-        <span> | </span>
-        <span data-testid="addAnswer-btn" className='yes-btn' onClick={() => setShowAnswersModal(true)}>Add Answer</span>
-        <span> | </span>
-        {reported ? <span data-testid="report-test">Reported</span> : <span data-testid="ReportBtn" className='yes-btn' onClick={(e) => reportQuestion(e)}>Report</span>}
-        {showAnswersModal && <AddAnswerModal closeModal={closeModal} question={question} />}
+      <div  className='question' >Q: {question.question_body}
+        <div data-testid="helpfulContainer-test" className='helpfulContainer'>
+          <span>Question helpful?</span>
+          <span> | </span>
+          {showThanks ? <span data-testid="thankyou-test" >Thank you!</span> : <span onClick={(e) => helpfulHandler(e)} data-testid="YesBtn" className='yes-btn'>Yes({question.question_helpfulness})</span>}
+          <span> | </span>
+          <span data-testid="addAnswer-btn" className='yes-btn' onClick={() => setShowAnswersModal(true)}>Add Answer</span>
+          <span> | </span>
+          {reported ? <span data-testid="report-test">Reported</span> : <span data-testid="ReportBtn" className='yes-btn' onClick={(e) => reportQuestion(e)}>Report</span>}
+          {showAnswersModal && <AddAnswerModal closeModal={closeModal} question={question} />}
+        </div>
       </div>
       <div data-testid="AnswerList-test" className='answersList'>
         {
