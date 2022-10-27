@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ProductInfoFooter = () => {
+const ProductInfoFooter = ({productInfo}) => {
   return (
     <div className='productInfoFooter'>
-      Hello
+      {productInfo.slogan}
     </div>
   )
 }
