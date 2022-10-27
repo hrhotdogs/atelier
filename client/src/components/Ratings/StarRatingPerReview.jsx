@@ -1,16 +1,22 @@
 import React from 'react';
+import StarRatings from 'react-star-ratings';
 
-const StarRatingPerReview = ({ review }) => {
-  const stars = [];
-  for (let i = 0; i < 5; i++) {
-    if (i < review.rating) {
-      stars.push(
-        <i key={i} className='star fa fa-star' style={{ color: '#6AA4B0' }}></i>
-      );
-    } else {
-      stars.push(<i key={i} className='star fa-regular fa-star'></i>);
-    }
-  }
-  return stars;
+const StarRatingPerReview = ({ review, listOfReviews }) => {
+  const averageRating = listOfReviews.reduce(
+    (review, next) => (review = review + next.rating / listOfReviews.length),
+    0
+  );
+
+  return (
+    <div className='star'>
+      <StarRatings
+        rating={review.rating}
+        starRatedColor='#6AA4B0'
+        starDimension='15px'
+        starEmptyColor='black'
+        starSpacing='1px'
+      />
+    </div>
+  );
 };
 export default StarRatingPerReview;

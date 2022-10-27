@@ -67,7 +67,7 @@ const RatingSlider = ({ metaData }) => {
       }
       results.push(
         <div key={key}>
-          <h3 className='ratings-title'>{title}:</h3>
+          <div className='ratings-title'>{title}:</div>
           <div>
             <input
               className='slider'
@@ -77,7 +77,7 @@ const RatingSlider = ({ metaData }) => {
               disabled
             ></input>
           </div>
-          <div className='fit-fit'>
+          <div className='slider-fit'>
             <div>{divOne}</div>
             <div>{divTwo}</div>
             <div>{divThree}</div>

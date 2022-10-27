@@ -36,8 +36,8 @@ const IndividualAnswers = ({ answer }) => {
   }
 
   return (
-    <div className='answer'>
-      <span style={{fontWeight: 'bold'}}> A: </span><span>{answer.body}</span><br/>
+    <div className='answer-container'>
+      <span style={{fontWeight: 'bold'}}> A: </span><span className='answer-body'>{answer.body}</span><br/>
         {answer.photos.map((photo, index) => {
           return <img className="answerImage" src={photo} key={index}/>
         })}
