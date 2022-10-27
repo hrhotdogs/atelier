@@ -17,6 +17,7 @@ const Ratings = () => {
   const [metaData, setMetaData] = useState({});
   const [metaDataProductID, setMetaDataProductID] = useState(currentProductID);
   const [option, setOption] = useState('');
+
   useEffect(() => {
     axios
       .get(
