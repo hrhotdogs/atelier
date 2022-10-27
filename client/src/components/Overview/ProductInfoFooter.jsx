@@ -2,7 +2,9 @@ import React from 'react';
 
 const ProductInfoFooter = () => {
   return (
-    <div></div>
+    <div className='productInfoFooter'>
+      Hello
+    </div>
   )
 }
 

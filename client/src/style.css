@@ -973,6 +973,8 @@ QUESTIONS AND ANSWERS
 
 .overview {
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 #sidebarReviewInfo {
@@ -1080,4 +1082,8 @@ QUESTIONS AND ANSWERS
   margin-top: 20px;
   background-color: white;
   box-shadow: 0 0 2px grey;
+}
+
+.productInfoFooter {
+  margin-left: 146px;
 }
