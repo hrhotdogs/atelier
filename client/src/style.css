@@ -670,9 +670,15 @@ font-size: 40px;
   flex-direction: row;
 }
 
-.rltd-modal-titles {
-  flex: 2;
-  padding: 5%
+.rltd-modal-titles-1 {
+  flex: 1;
+  padding: 5%;
+  align-self: flex-start;
+}
+.rltd-modal-titles-2 {
+  flex: 1;
+  padding: 5%;
+  align-self: flex-end;
 }
 
 .rltd-modal-items {

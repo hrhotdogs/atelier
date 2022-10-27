@@ -58,8 +58,8 @@ const CompareRelatedModal = ({ closeModal }) => {
       <div className="modalBackground" onClick={event => closeModal(event)} />
         <div className="modalContainer" >
           <div className="rltd-modal-cols">
-            <div className="rltd-modal-titles">name1</div>
-            <div className="rltd-modal-titles">name2</div>
+            <div className="rltd-modal-titles-1">name1</div>
+            <div className="rltd-modal-titles-2">name2</div>
           </div>
           <div className="rltd-modal-cols">
             <div className="rltd-modal-items">1a</div>
