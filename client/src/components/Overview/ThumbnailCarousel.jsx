@@ -10,7 +10,6 @@ const ThumbnailCarousel = ({currentStyle, setMainImageUrl, setCarouselAtTop, set
 
   const handleCarouselScroll = (e) => {
     setCarouselScrollTop(e.target.scrollTop);
-    console.log(e.target.scrollTop);
     setCarouselAtBottom(e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight);
     setCarouselAtTop(e.target.scrollTop === 0);
   }

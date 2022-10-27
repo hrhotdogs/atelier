@@ -11,14 +11,18 @@ body {
   color: var(--darkBlue);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*============ Ratings and Reviews ============= */
 
-#sort-menu {
+.sort-menu {
 font-family:var(--roboto);
 font-size: 20px;
 }
 
-#sort-options {
+.sort-options {
   color: var(--darkBlue);
   border: none;
   background-color: var(--ivory);
@@ -28,7 +32,7 @@ font-size: 20px;
   cursor: pointer;
 }
 
-#sort-options:focus {
+.sort-options:focus {
   outline: none;
 }
 
@@ -971,16 +975,33 @@ QUESTIONS AND ANSWERS
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#sidebarProductTitle {
-  font-size: 25pt;
-  font-weight: bold;
-  margin-bottom: 10px;
+#sidebarReviewInfo {
+  margin-bottom: 20px;
 }
 
-#sidebarPrice {
+.sidebarProductTitle {
+  font-size: 25pt;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sidebarPriceContainer {
+  margin-bottom: 30px;
+}
+
+.sidebarPrice {
   font-size: 14pt;
-  margin-bottom: 10px;
-  margin-left: 5px;
+}
+
+.saleOriginal {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 2px;
+  color: grey;
+}
+
+.saleNew {
+  color: red;
 }
 
 .styleIcon {
@@ -988,7 +1009,7 @@ QUESTIONS AND ANSWERS
   width: 40px;
   border-radius: 50%;
   border: 1px solid white;
-  box-shadow: 0 0 10px grey;
+  box-shadow: 0 0 3px grey;
 }
 
 .styleIcon:hover {
@@ -1013,4 +1034,50 @@ QUESTIONS AND ANSWERS
   margin-right: 7px;
   border-radius: 50%;
   border: 2px solid grey;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.styleSelectorContainer {
+  margin-bottom: 20px;
+}
+
+.addToCartContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: '20pt'
+}
+
+.addToCartButton {
+  color: #2B4560;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 0 2px grey;
 }

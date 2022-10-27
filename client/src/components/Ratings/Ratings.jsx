@@ -71,8 +71,8 @@ const Ratings = () => {
     <div className='ratings-container'>
       <div className='ratings-item review-list'>
         <label
-          id='sort-menu'
-          className='sort-positioning'
+          id='sortMenu'
+          className='sort-menu sort-positioning'
           htmlFor='sort-options'
         >
           Sort {listOfReviews.length} reviews by:

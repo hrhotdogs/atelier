@@ -71,8 +71,8 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
   }
 
   return (
-    <div style={{marginTop: '20px'}}>
-      <div style={{fontWeight: 'bold', fontSize: '14pt'}}>
+    <div className='styleSelectorContainer'>
+      <div style={{fontSize: '14pt'}}>
         <span>Style > </span>
         <span>{currentStyle.name}</span>
       </div>
