@@ -87,11 +87,13 @@ const Ratings = () => {
             <option value='Newest'>Newest</option>
           </select>
         </label>
-        <ReviewList
-          listOfReviews={listOfReviews}
-          listValue={listValue}
-          setListValue={setListValue}
-        />
+        <div className='review-list-component'>
+          <ReviewList
+            listOfReviews={listOfReviews}
+            listValue={listValue}
+            setListValue={setListValue}
+          />
+        </div>
         <button
           className='review-btn review-add new-review-sizing'
           onClick={() => setShowModal(true)}
