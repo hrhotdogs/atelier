@@ -42,7 +42,6 @@ const Questions = () => {
     .then(() => console.log('POSTED!'))
     .catch((err) => console.log('ERROR in post request for questions', err))
   }
-  console.log(currentProductID)
 
   useEffect(() => {
     getQuestions();

@@ -29,6 +29,7 @@ const EachOutfitCard = (props) => {
       <div className="card-footer">
           <div className="card-content-category">{props.outfit.info.category}</div>
           <div className="card-content-name">{props.outfit.info.name}</div>
+          <div className="card-content-slogan">{props.outfit.info.slogan}</div>
           <div className="card-content-price">${props.outfit.info.default_price}</div>
       </div>
     </li>

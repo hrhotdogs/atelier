@@ -68,7 +68,7 @@ const Ratings = () => {
   };
 
   return (
-    <>
+    <div className='ratings-container'>
       <label className='sort-menu' id='sortMenu' htmlFor='sort-options'>
         &nbsp; Sort {listOfReviews.length} reviews by :
         <select
@@ -83,7 +83,7 @@ const Ratings = () => {
           <option value='Newest'>Newest</option>
         </select>
       </label>
-      <div className='review-list'>
+      <div className='ratings-item review-list'>
         <ReviewList
           listOfReviews={listOfReviews}
           listValue={listValue}
@@ -91,11 +91,9 @@ const Ratings = () => {
         />
       </div>
 
-      <div className='side-bar'>
-        <SideBar metaData={metaData} listOfReviews={listOfReviews} />
-      </div>
+      <SideBar metaData={metaData} listOfReviews={listOfReviews} />
 
-      <div>
+      <div className='ratings-item'>
         {' '}
         <button
           className='review-btn add-review'
@@ -110,7 +108,7 @@ const Ratings = () => {
           metaData={metaData}
         ></NewReview>{' '}
       </div>
-    </>
+    </div>
   );
 };
 

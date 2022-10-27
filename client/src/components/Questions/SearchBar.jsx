@@ -24,7 +24,7 @@ const SearchBar = ({questions, searchQuestions, getQuestions}) => {
   }
   return (
     <div>
-      <input  className='searchBar' type='text' placeholder='Have a question. Search for Answers...' value={input} onChange={(e) => onChangeHandler(e)}/>
+      <input  className='searchBar' type='text' placeholder='Have a question? Search for Answers...' value={input} onChange={(e) => onChangeHandler(e)}/>
       <br/>
       {noMatch ? <span className='noMatch'>Search results have no match.</span> : null}
     </div>
