@@ -69,38 +69,47 @@ const Ratings = () => {
 
   return (
     <div className='ratings-container'>
-      <label className='sort-menu' id='sortMenu' htmlFor='sort-options'>
-        &nbsp; Sort {listOfReviews.length} reviews by :
-        <select
-          value={option}
-          onChange={changeOption}
-          name='sort-options'
-          id='sort-options'
-          className='sort-options'
-        >
-          <option value='Relevance'>Relevance</option>
-          <option value='Helpfulness'>Helpfulness</option>
-          <option value='Newest'>Newest</option>
-        </select>
-      </label>
       <div className='ratings-item review-list'>
+        <label
+          id='sortMenu'
+          className='sort-menu sort-positioning'
+          htmlFor='sort-options'
+        >
+          Sort {listOfReviews.length} reviews by:
+          <select
+            value={option}
+            onChange={changeOption}
+            name='sort-options'
+            id='sort-options'
+          >
+            <option value='Relevance'>Relevance</option>
+            <option value='Helpfulness'>Helpfulness</option>
+            <option value='Newest'>Newest</option>
+          </select>
+        </label>
         <ReviewList
           listOfReviews={listOfReviews}
           listValue={listValue}
           setListValue={setListValue}
         />
+        <button
+          className='review-btn review-add new-review-sizing'
+          onClick={() => setShowModal(true)}
+        >
+          New Review
+        </button>
       </div>
 
       <SideBar metaData={metaData} listOfReviews={listOfReviews} />
 
       <div className='ratings-item'>
         {' '}
-        <button
+        {/* <button
           className='review-btn add-review'
           onClick={() => setShowModal(true)}
         >
           New Review
-        </button>
+        </button> */}
         <NewReview
           showModal={showModal}
           setShowModal={setShowModal}

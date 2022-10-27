@@ -19,9 +19,7 @@ html {
 
 .sort-menu {
 font-family:var(--roboto);
-font-size: large;
-margin-left: 48%;
-margin-top: 18px;
+font-size: 20px;
 }
 
 .sort-options {
@@ -38,6 +36,11 @@ margin-top: 18px;
   outline: none;
 }
 
+.sort-positioning {
+  text-decoration: underline;
+  margin: 5px 10px 0px 40px;
+}
+
 .parent-div {
   height: 20px;
   width: 80%;
@@ -47,7 +50,6 @@ margin-top: 18px;
   border-color: var(--midnightBlue);
   margin: 50;
   margin-left: 1.5em;
-
 }
 
 .child-div {
@@ -109,13 +111,11 @@ margin-top: 18px;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-  border: solid;
   justify-content: space-around;
-
 }
 
 .ratings-item {
-
+  margin-top: auto;
 }
 
 .side-bar {
@@ -133,7 +133,7 @@ margin-top: 18px;
 }
 
 .side-bar-items {
-
+  position:relative;
 }
 
 .review-list {
@@ -141,6 +141,7 @@ margin-top: 18px;
   width: 50%;
   max-height: 90vh;
   margin: 5px;
+  margin-top: 20px;
   word-wrap: break-word;
   overflow: auto;
   font-family: var(--roboto);
@@ -152,10 +153,16 @@ margin-top: 18px;
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
-  font-family: var(--roboto)
+  margin-top: 30px;
+  font-family: var(--roboto);
+  padding-bottom: 30px;
 }
 
-
+.review-info {
+color: var(--tiffanyBlue);
+float: right;
+margin: 5px
+}
 
 .add-photos-btn {
   padding: 5px;
@@ -236,6 +243,7 @@ margin-top: 18px;
   cursor: pointer;
   color: var(--darkBlue);
   text-decoration: underline;
+  float: right;
 }
 
 .report:hover {
@@ -277,10 +285,14 @@ margin-top: 18px;
 }
 
 .review-add {
-  margin-top: 5px;
-  margin-left: 10%;
-  margin: 5px;
+  margin: 2px;
+  margin-left: 10px;
   font-family: var(--roboto);
+}
+
+.new-review-sizing {
+  padding: 7px;
+  font-size: 18px;
 }
 
 
