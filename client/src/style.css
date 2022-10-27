@@ -823,6 +823,7 @@ QUESTIONS AND ANSWERS
   box-sizing: border-box;
   font-size: large;
   background-color: var(--ivory);
+  /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
 }
 
 .btn {
@@ -849,6 +850,7 @@ QUESTIONS AND ANSWERS
 .yes-btn:hover {
   cursor: pointer;
   text-decoration: none;
+  align-content: ;
 }
 
 .add {
@@ -864,7 +866,8 @@ QUESTIONS AND ANSWERS
   position: fixed;
   display: flex;
   background-color: rgba(200, 200, 200, 0.5);
-  z-index: 999
+  z-index: 999;
+  backdrop-filter: blur(5px);
 }
 
 .modalContainer {
@@ -898,12 +901,31 @@ QUESTIONS AND ANSWERS
   margin: 20px;
 }
 
-/* @media (max-width: 500px) {
+@media (max-width: 500px) {
   .questionsAndAnswers {
+    display:contents;
     align-items: center;
     width: auto;
   }
-} */
+
+  .modalContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    text-align: center;
+    z-index: 1000;
+    overflow: auto;
+  }
+}
 
 /* .question, .helpfulContainer {
   display: flex;
