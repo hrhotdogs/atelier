@@ -848,6 +848,14 @@ QUESTIONS AND ANSWERS
   float: right;
 }
 
+.submit {
+  padding: 10px;
+}
+
+.submit-container {
+  margin: 20px;
+}
+
 /* @media (max-width: 500px) {
   .questionsAndAnswers {
     align-items: center;

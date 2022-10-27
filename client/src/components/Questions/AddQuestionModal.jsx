@@ -52,7 +52,7 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
           <h2>About the {productName}</h2>
         </div>
         <form onSubmit={(e) => submitHandler(e)}>
-          <div>
+          <div className='input-container'>
             <label>Question</label><br/>
             <textarea
             maxLength='1000'
@@ -62,11 +62,11 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
             ref={questionRef}
             required/><br/>
           </div>
-          <div>
+          <div className='input-container'>
             <label>Username</label><br/>
             <input className='input' type='text' placeholder='jackson11'ref={usernameRef} required/><br/>
           </div>
-          <div>
+          <div className='input-container'>
             <label htmlFor='email'>Email</label><br/>
             <input className='input' type='email' name='email' placeholder='jackson11@email.com' ref={emailRef} required/>
             <div className='helpfulMessage'>"For authentication reasons, you will not be emailed"</div>
