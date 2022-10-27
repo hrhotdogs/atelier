@@ -12,15 +12,6 @@ const ProductInfoSidebar = ({metaData, listOfReviews, productInfo, currentStyle}
     setProductName(productInfo.name);
   }, [productInfo])
 
-  /*useEffect(() => {
-    // Set price
-    if (currentStyle.sale_price) {
-      setPrice(currentStyle.sale_price);
-    } else {
-      setPrice(currentStyle.original_price);
-    }
-  }, [currentStyle])*/
-
   const showPrice = () => {
     if (currentStyle.sale_price) {
       return (
