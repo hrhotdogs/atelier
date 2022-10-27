@@ -11,12 +11,13 @@ const QuestionsList = ({ questions }) => {
   function onClickHandler() {
     setShownQuestions((prev) => prev + 2)
   }
+  questions.sort((a, b) => b.question_helpfulness - a.question_helpfulness)
   return (
     <div className='questionsList' data-testid="QuestionsList-questions">
       {questions.slice(0,shownQuestions).map((question) => (
-        <IndividualQuestion question={question} key={question.question_id}/>
+        <IndividualQuestion className='question-container' question={question} key={question.question_id}/>
       ))}
-      { showButton ? <button className='btn' onClick={() => onClickHandler()}>More Answered Questions</button> : null }
+      { showButton ? <button className='btn' onClick={() => onClickHandler()}>More Questions</button> : null }
     </div>
   );
 };

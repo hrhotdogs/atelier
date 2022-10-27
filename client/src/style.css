@@ -617,34 +617,23 @@ font-size: 40px;
 } */
 /* +++++++++++ Related Section Styles Above +++++++++++ */
 
-/**********************************************************************
+/*******************************************************************************************************
 QUESTIONS AND ANSWERS
-***********************************************************************/
+******************************************************************************************************/
 
 .questionsAndAnswers {
-  /* max-height: 500px; */
+  display: flex;
+  flex-direction: column;
   overflow: auto;
-  position: relative;
-  margin: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 50px;
+  font-family: var(--roboto), Helvetica, sans-serif;
+  color: var(--darkBlue);
+  min-width: 550px;
 }
 
 .questionsList {
   max-height: 650px;
   overflow: auto;
-}
-
-.answersList {
-  overflow: auto;
-}
-
-.answerImage {
-  height: 90px;
-  margin: 10px;
-}
-
-.answerInfo {
-  color: #bac0c1;
 }
 
 .noMatch {
@@ -653,7 +642,7 @@ QUESTIONS AND ANSWERS
 
 .helpfulContainer {
   float: right;
-  color: #bac0c1;
+  color: var(--tiffanyBlue);
 }
 
 .input {
@@ -683,11 +672,34 @@ QUESTIONS AND ANSWERS
 .question {
   margin: 10px;
   font-weight: bold;
-  font-size: large;
+  font-size: larger;
 }
 
-.answer {
+.question-container {
+  width: fit-content;
+  height: fit-content;
+}
+
+.answersList {
   margin: 10px;
+}
+
+.answerImage {
+  height: 90px;
+  margin: 10px;
+}
+
+.answerInfo {
+  color: var(--tiffanyBlue);
+  font-size: smaller;
+}
+
+.answer-container {
+  margin: 10px;
+}
+
+.answer-body {
+  word-wrap: break-word;
 }
 
 .searchBar {
@@ -695,27 +707,28 @@ QUESTIONS AND ANSWERS
   padding: 10px;
   box-sizing: border-box;
   font-size: large;
+  background-color: var(--ivory);
 }
 
 .btn {
-  color: black;
+  color: var(--darkBlue);
   margin: 5px;
   padding: 5px;
-  border: 1px solid black;
-  background-color: #fff;
+  border: 1px solid var(--darkBlue);
+  background-color: var(--ivory);
   transition-duration: 0.4s;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .btn:hover {
-  background-color: #bac0c1;
+  background-color: white;
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
 
 .yes-btn {
   text-decoration: underline;
-  color: cornflowerblue;
+  color: var(--tiffanyBlue);
 }
 
 .yes-btn:hover {
@@ -724,6 +737,7 @@ QUESTIONS AND ANSWERS
 }
 
 .add {
+  width: fit-content;
   margin-top: 5px;
 }
 
@@ -757,8 +771,16 @@ QUESTIONS AND ANSWERS
 }
 
 .helpfulContainer {
+  font-size: 14px;
   float: right;
 }
+
+/* @media (max-width: 500px) {
+  .questionsAndAnswers {
+    align-items: center;
+    width: auto;
+  }
+} */
 
 /* .question, .helpfulContainer {
   display: flex;

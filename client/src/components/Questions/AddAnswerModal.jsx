@@ -14,6 +14,7 @@ const AddAnswerModal = ({ closeModal, question }) => {
   const emailRef = useRef();
   const [photos, setPhotos] = useState([]);
   const [productInfo, setProductInfo] = useState({});
+  const [showSubmitted, setShowSubmitted] = useState(false)
   const productName = productInfo.name;
 
   useEffect(() => {
@@ -64,12 +65,13 @@ const AddAnswerModal = ({ closeModal, question }) => {
           },
         }
       )
-      .then(() => console.log('POSTED!'))
+      .then(() => setShowSubmitted(true))
       .catch((err) => console.log('ERROR in post request for ANSWERS', err));
   }
 
   return ReactDOM.createPortal(
-    <div className='modalBackground' data-testid="addAnswerModal-test">
+    <div>
+      <div className='modalBackground' data-testid="addAnswerModal-test" onClick={(e) => closeModal(e)}></div>
       <div className='modalContainer'>
         <div>
           <span className='close' onClick={(e) => closeModal(e)}>
@@ -103,12 +105,10 @@ const AddAnswerModal = ({ closeModal, question }) => {
           </div>
           <div>
             <button id='upload-widget' className='cloudinary-button btn' onClick={(e) => openWidget(e)}> Add Photos </button><br/>
+            <div className='helpfulMessage'>Max 5 images. Photo count: {photos.length}</div>
           </div>
-          <button className='btn' type='submit'>Submit Answer</button>
+          <button className='btn submit' type='submit'>Submit Answer</button>{showSubmitted ? <span>SUBMITTED!</span> : null}
         </form>
-        <div className='footer'>
-
-        </div>
       </div>
     </div>,
     document.getElementById('portal')
