@@ -12,7 +12,6 @@ const ProgressBar = ({ metaData, currentProductID }) => {
       totalStarRatings += Number(metaData.ratings[key]);
     }
   }
-
   const percentOfFiveStar = (totalFiveStars / totalStarRatings) * 100;
   const percentOfFourStar = (totalFourStars / totalStarRatings) * 100;
   const percentOfThreeStar = (totalThreeStars / totalStarRatings) * 100;
@@ -21,7 +20,6 @@ const ProgressBar = ({ metaData, currentProductID }) => {
 
   return (
     <div className='progress-container'>
-      {/* <div id='progress-bar-title'>*(PERCENTAGE OF RATINGS PER STAR)</div> */}
       <br></br>
       <div className='star-rate-count'>5 stars</div>
       <div className='parent-div'>
@@ -55,7 +53,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
           }%`}</span>
         </div>
       </div>
-      <div className='star-rate-count'>1 stars</div>
+      <div className='star-rate-count'>1 star</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfOneStar}%` }} className='child-div'>
           <span className='progress-text'>{`${

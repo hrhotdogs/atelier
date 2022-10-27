@@ -132,9 +132,9 @@ font-size: 20px;
   border-right: 2px solid var(--midnightBlue);
   border-radius: 10px;
   /* background-image: linear-gradient(to right, var(--ivory)40%, var(--tiffanyBlue)); */
-  padding: 0 2rem;
+  padding: 0 50px;
    /* width: 30%; */
-   margin: 5px;
+    margin: 5px 90px 0px 0px;
    font-family: var(--roboto);
    display: flex;
    flex-direction: column;
