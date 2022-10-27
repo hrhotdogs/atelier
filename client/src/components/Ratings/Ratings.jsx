@@ -80,7 +80,7 @@ const Ratings = () => {
             value={option}
             onChange={changeOption}
             name='sort-options'
-            id='sort-options'
+            className='sort-options'
           >
             <option value='Relevance'>Relevance</option>
             <option value='Helpfulness'>Helpfulness</option>

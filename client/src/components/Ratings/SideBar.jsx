@@ -7,13 +7,17 @@ const SideBar = ({ metaData, listOfReviews }) => {
     <div className='ratings-item side-bar'>
       <h1 className='ratings-title'> Ratings & Reviews</h1>
       <div className='side-bar-items'>
-        <StarRating metaData={metaData} listOfReviews={listOfReviews} show={true}/>
+        <StarRating
+          metaData={metaData}
+          listOfReviews={listOfReviews}
+          show={true}
+        />
       </div>
-      <br></br>
+      {/* <br></br> */}
       <div className='side-bar-items'>
         <ProgressBar metaData={metaData} />
       </div>
-      <br></br>
+      {/* <br></br> */}
       <div className='side-bar-items'>
         <RatingSlider metaData={metaData} />
       </div>

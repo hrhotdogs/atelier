@@ -22,28 +22,27 @@ const ReviewTile = ({ review, listOfReviews }) => {
       <div>
         <StarRatingPerReview review={review} listOfReviews={listOfReviews} />
       </div>
-
       <h3 className='review-summary'>
         <b>{review.summary}</b>
       </h3>
-
       <SellerResponse review={review} />
-
       <div>
         {review.photos.map((photo, index) => (
           <ReviewPhotos key={index} photo={photo} />
         ))}
       </div>
-
       {review.recommend ? (
         <div className='review-recommend'>
-          Reviewer recommends this product!
+          Product recommended!
           <img src={`${recommendLogo.slice(22)}`} />{' '}
         </div>
       ) : null}
-
-      <Helpfulness review={review} />
-      <ReportReview review={review} />
+      <div>
+        <ReportReview review={review} />
+      </div>
+      <div>
+        <Helpfulness review={review} />
+      </div>
     </div>
   );
 };
