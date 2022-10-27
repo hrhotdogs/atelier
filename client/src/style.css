@@ -15,6 +15,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.app > div {
+  margin-bottom: 50px;
+}
+
 /*============ Ratings and Reviews ============= */
 
 .sort-menu {
@@ -105,8 +109,13 @@ font-size: 20px;
   width: 54%;
 }
 
+.slider-container {
+
+}
+
 .ratings-container {
-  margin-left: 50px;
+  margin: auto;
+  width: 80%;
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;
@@ -122,18 +131,21 @@ font-size: 20px;
   border-left: 2px solid var(--midnightBlue);
   border-right: 2px solid var(--midnightBlue);
   border-radius: 10px;
-  padding: 2rem;
-  width: 30%;
-  height:80vh;
-  margin: 5px;
-  font-family: var(--roboto);
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
+  /* background-image: linear-gradient(to right, var(--ivory)40%, var(--tiffanyBlue)); */
+  padding: 0 50px;
+   /* width: 30%; */
+    margin: 5px 90px 0px 0px;
+   font-family: var(--roboto);
+   display: flex;
+   flex-direction: column;
+   grid-row-gap: 10px;
+   /* position: relative; */
+   align-content: center;
+   height: max-content;
 }
 
 .side-bar-items {
-  position:relative;
+  /* position:relative; */
 }
 
 .review-list {
@@ -145,6 +157,11 @@ font-size: 20px;
   word-wrap: break-word;
   overflow: auto;
   font-family: var(--roboto);
+}
+
+.review-list-component {
+  overflow: auto;
+  max-height: 600px;
 }
 
 .review {
@@ -447,10 +464,11 @@ font-size: 40px;
 
 .related-container {
   display: flex;
-  height: 650px;
+  height: 800px;
   width: 1100px;
   flex-direction: column;
   border-top:rgb(0, 0, 0);
+  margin-left: 50px;
   justify-content: center;
   align-content: center;
 }
@@ -748,7 +766,8 @@ QUESTIONS AND ANSWERS
   display: flex;
   flex-direction: column;
   overflow: auto;
-  margin: 50px;
+  margin: auto;
+  width: 80%;
   font-family: var(--roboto), Helvetica, sans-serif;
   color: var(--darkBlue);
   min-width: 550px;
@@ -981,6 +1000,10 @@ QUESTIONS AND ANSWERS
 
 .overview {
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 80%
 }
 
 #sidebarReviewInfo {
@@ -1088,4 +1111,19 @@ QUESTIONS AND ANSWERS
   margin-top: 20px;
   background-color: white;
   box-shadow: 0 0 2px grey;
+}
+
+.productInfoFooter {
+  margin-left: 146px;
+  display: flex;
+  flex-direction: row;
+}
+
+.productInfoFooterLeft {
+  width: 675px;
+}
+
+.productSlogan {
+  font-weight: bold;
+  margin-bottom: 10px;
 }
