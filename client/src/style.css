@@ -23,8 +23,8 @@ html {
 /*============ Ratings and Reviews ============= */
 
 .sort-menu {
-font-family:var(--roboto);
-font-size: 20px;
+  font-family: var(--roboto);
+  font-size: 20px;
 }
 
 .sort-options {
@@ -110,9 +110,7 @@ font-size: 20px;
   width: 54%;
 }
 
-.slider-container {
 
-}
 
 .ratings-container {
   margin: auto;
@@ -133,20 +131,18 @@ font-size: 20px;
   border-radius: 10px;
   /* background-image: linear-gradient(to right, var(--ivory)40%, var(--tiffanyBlue)); */
   padding: 0 50px;
-   /* width: 30%; */
-    margin: 5px 60px 0px 0px;
-   font-family: var(--roboto);
-   display: flex;
-   flex-direction: column;
-   grid-row-gap: 10px;
-   /* position: relative; */
-   align-content: center;
-   height: max-content;
+  /* width: 30%; */
+  margin: 5px 60px 0px 0px;
+  font-family: var(--roboto);
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 10px;
+  /* position: relative; */
+  align-content: center;
+  height: max-content;
 }
 
-.side-bar-items {
-  /* position:relative; */
-}
+
 
 .review-list {
   padding: 2rem;
@@ -176,35 +172,39 @@ font-size: 20px;
 }
 
 .review-info {
-color: var(--tiffanyBlue);
-float: right;
-margin: 5px
+  color: var(--tiffanyBlue);
+  float: right;
+  margin: 5px
 }
 
 .add-photos-btn {
   padding: 5px;
+  margin: 10px;
   color: var(--darkBlue);
   cursor: pointer;
   box-sizing: content-box;
   background-color: var(--ivory);
   border-radius: 10px;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   font-family: var(--roboto);
 }
 
 .add-photos-btn:hover {
   background-color: white;
-  color: var(--darkBlue)
+  color: var(--darkBlue);
+  padding: 10px;
+  margin: 5px;
 }
 
 .send-review-btn {
   padding: 5px;
+  margin: 10px;
   color: var(--darkBlue);
   cursor: pointer;
   box-sizing: content-box;
   background-color: var(--ivory);
   border-radius: 10px;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   font-family: var(--roboto);
   float: right;
 }
@@ -212,6 +212,8 @@ margin: 5px
 .send-review-btn:hover {
   background-color: white;
   color: var(--darkBlue);
+  padding: 10px;
+  margin: 5px;
 }
 
 .load-more {
@@ -287,31 +289,44 @@ margin: 5px
 
 .review-btn {
   padding: 5px;
+  margin: 10px;
   color: var(--darkBlue);
   cursor: pointer;
   box-sizing: content-box;
   background-color: var(--ivory);
   border-radius: 10px;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   font-family: var(--roboto);
 }
 
 .review-btn:hover {
   background-color: white;
   color: var(--darkBlue);
+  padding: 10px;
+  margin: 5px;
 }
 
-.review-add {
-  margin: 2px;
-  margin-left: 10px;
-  font-family: var(--roboto);
+.new-review-btn {
+color: var(--darkBlue);
+cursor: pointer;
+box-sizing: content-box;
+background-color: var(--ivory);
+border-radius: 10px;
+transition-duration: 0.2s;
+font-family: var(--roboto);
 }
 
 .new-review-sizing {
   padding: 7px;
+  margin: 10px;
   font-size: 18px;
 }
 
+.new-review-btn:hover {
+  background-color: white;
+  padding:10px;
+  margin:7px;
+}
 
 .modal-styles {
   position: fixed;
@@ -354,8 +369,8 @@ margin: 5px
 }
 
 .average-rating {
-font-family: var(--roboto);
-font-size: 40px;
+  font-family: var(--roboto);
+  font-size: 40px;
 }
 
 .star-rate-count {
@@ -363,15 +378,13 @@ font-size: 40px;
   font-size: 14px;
 }
 
-
-
 .input-reviews {
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: groove;
   background-color: var(--ivory);
-  padding:7px;
+  padding: 7px;
   width: 300px;
   margin: 5px;
   margin-top: 5px;
@@ -391,8 +404,8 @@ font-size: 40px;
   min-height: 15px;
 }
 
-.check-container{
-  display:block;
+.check-container {
+  display: block;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
@@ -403,10 +416,10 @@ font-size: 40px;
 
 .check-container input {
   position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .checkmark {
@@ -438,15 +451,15 @@ font-size: 40px;
 
 .check-container .checkmark:after {
   left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 
 .ratings-title {
   font-family: var(--roboto);
@@ -456,7 +469,6 @@ font-size: 40px;
   font-family: var(--roboto);
   font-size: 10px;
 }
-
 
 /*============ Ratings and Reviews ============= */
 
