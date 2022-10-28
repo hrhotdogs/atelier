@@ -138,11 +138,7 @@ html {
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;
-<<<<<<< HEAD
-  justify-content: space-between;
-=======
   justify-content: space-around;
->>>>>>> main
 }
 
 .ratings-item {
