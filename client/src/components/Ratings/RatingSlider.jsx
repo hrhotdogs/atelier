@@ -10,6 +10,15 @@ const words = {
   fit: ['Too tight', 'Perfect', 'Too Long', 'Fit'],
 };
 
+const cases = {
+  size: 'Size',
+  width: 'Width',
+  comfort: 'Comfort',
+  quality: 'Quality',
+  _length: 'Length',
+  fit: 'Fit',
+};
+
 let title;
 let divOne;
 let divTwo;
@@ -21,42 +30,42 @@ const RatingSlider = ({ metaData }) => {
   if (metaData.characteristics !== undefined) {
     for (let key in metaData.characteristics) {
       switch (key) {
-        case 'Size':
+        case cases.size:
           title = words.size[3];
           divOne = words.size[0];
           divTwo = words.size[1];
           divThree = words.size[2];
           value = Math.round(metaData.characteristics.Size.value * 10) / 10;
           break;
-        case 'Width':
+        case cases.width:
           title = words.width[3];
           divOne = words.width[0];
           divTwo = words.width[1];
           divThree = words.width[2];
           value = Math.round(metaData.characteristics.Width.value * 10) / 10;
           break;
-        case 'Comfort':
+        case cases.comfort:
           title = words.comfort[3];
           divOne = words.comfort[0];
           divTwo = words.comfort[1];
           divThree = words.comfort[2];
           value = Math.round(metaData.characteristics.Comfort.value * 10) / 10;
           break;
-        case 'Quality':
+        case cases.quality:
           title = words.quality[3];
           divOne = words.quality[0];
           divTwo = words.quality[1];
           divThree = words.quality[2];
           value = Math.round(metaData.characteristics.Quality.value * 10) / 10;
           break;
-        case 'Length':
+        case cases._length:
           title = words.length[3];
           divOne = words.length[0];
           divTwo = words.length[1];
           divThree = words.length[2];
           value = Math.round(metaData.characteristics.Length.value * 10) / 10;
           break;
-        case 'Fit':
+        case cases.fit:
           title = words.fit[3];
           divOne = words.fit[0];
           divTwo = words.fit[1];

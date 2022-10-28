@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 
 const RadioStarRating = ({ setSelectedStarRating, selectedStarRating }) => {
-  const [radioStar, setRadioStar] = useState('');
   return (
     <div>
       Overall Rating: &nbsp;
