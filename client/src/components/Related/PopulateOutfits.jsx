@@ -15,17 +15,17 @@ const PopulateOutfits = ({renderOutfit}) => {
   const outfitsCarousel = React.useRef(null);
   // scroll left on left arrow click
   const handleScrollLeft = (e) => {
-    outfitsCarousel.current.scrollLeft = outfitsCarousel.current.scrollLeft - 50;
+    outfitsCarousel.current.scrollLeft = outfitsCarousel.current.scrollLeft - 100;
   }
   // scroll right on right arrow click
   const handleScrollRight = (e) => {
-    outfitsCarousel.current.scrollLeft = outfitsCarousel.current.scrollLeft + 50;
+    outfitsCarousel.current.scrollLeft = outfitsCarousel.current.scrollLeft + 100;
   }
 
   return (
     <>
       <div className="scroller-left" onClick={event => {handleScrollLeft(event)}}>
-        <span className="left-arrow">&#62;</span>
+        <span className="left-arrow">&#x2937;</span>
       </div>
       <ul ref={outfitsCarousel} className="cards">
         {outfitsList !== null ? outfitsList.map((eachOutfit, index) => {
@@ -35,7 +35,7 @@ const PopulateOutfits = ({renderOutfit}) => {
         ) : null}
       </ul>
       <div className="scroller-right" onClick={event => {handleScrollRight(event)}}>
-        <span className="right-arrow">&#62;</span>
+        <span className="right-arrow">&#x2937;</span>
       </div>
     </>
   );
