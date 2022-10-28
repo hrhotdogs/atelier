@@ -73,7 +73,7 @@ const CompareRelatedModal = ({closeModal, product}) => {
             <div className="rltd-modal-cols">
               <div className="rltd-modal-items">{product.info.category}</div>
               <div className="rltd-modal-comparison">category</div>
-              <div className="rltd-modal-items">${globalProduct.info.category}</div>
+              <div className="rltd-modal-items">{globalProduct.info.category}</div>
             </div>
             <div className="rltd-modal-cols">
               <div className="rltd-modal-items">${product.info.default_price}</div>
