@@ -13,6 +13,7 @@ const App = () => {
   // Render components with context (global state)
   return (
     <div className='app'>
+      <div className='navBar'><div className='logo'>Atelier</div></div>
       <ProductIDProvider>
         <StyleIDProvider>
           <Overview />

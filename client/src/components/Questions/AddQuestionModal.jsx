@@ -8,6 +8,7 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
   const questionRef = useRef();
   const usernameRef = useRef();
   const emailRef = useRef();
+  const [showSubmitted, setShowSubmitted] = useState(false)
 
   const modalBackground = {
     top: 0,
@@ -39,7 +40,7 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
   function submitHandler(e) {
     e.preventDefault()
     postQuestions(questionRef.current.value, usernameRef.current.value, emailRef.current.value)
-    closeModal(e)
+    setShowSubmitted(true)
   }
 
   return ReactDOM.createPortal(
@@ -72,7 +73,7 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
             <div className='helpfulMessage'>"For authentication reasons, you will not be emailed"</div>
           </div>
           <div className='submit-container'>
-            <button className='btn submit' type='submit'>Submit Question</button>
+          {showSubmitted ? <span>SUBMITTED!</span> : <button className='btn-submit' type='submit'>Submit Question</button>}
           </div>
         </form>
       </div>

@@ -21,8 +21,6 @@ const ProgressBar = ({ metaData, currentProductID }) => {
 
   return (
     <div className='progress-container'>
-      {/* <div id='progress-bar-title'>*(PERCENTAGE OF RATINGS PER STAR)</div> */}
-      <br></br>
       <div className='star-rate-count'>5 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfFiveStar}%` }} className='child-div'>
