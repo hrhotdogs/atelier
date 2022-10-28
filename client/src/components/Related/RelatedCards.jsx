@@ -50,6 +50,13 @@ const RelatedCards = () => {
     } else {}
   }
 
+  // get rid of duplicate related products/related product id's that === global product id
+  var sortedRelatedProducts = [];
+  if (relatedProducts.length !== 0) {
+    for (let i = 0; i < relatedProducts.length; i++) {
+      sortedRelatedProducts[i] = relatedProducts[i];
+    }
+  }
 
   // create multiple cards from the related prod array, and pass each array value and its index to the child component
   return (
@@ -57,10 +64,21 @@ const RelatedCards = () => {
       <div className="scroller-left" onClick={event => {handleScrollLeft(event)}}><span className="left-arrow" onMouseOver={event => {handleLeftHover(event)}} onMouseOut={event => {handleMouseOut(event)}}>&#x2937;</span></div>
       <ul ref={relatedCarousel} className="cards">
         {relatedProducts.length !== 0 ? relatedProducts.map((eachRelatedID, index) => {
-          return(
-            <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
-          )}
-        ) : null}
+          let dupeCounter = 0;
+          for (let i = 0; i < sortedRelatedProducts.length; i++) {
+            if (eachRelatedID === sortedRelatedProducts[i]) {
+              dupeCounter++;
+            }
+            if (eachRelatedID === currentProductID) {
+              dupeCounter += 2;
+            }
+          }
+          if (dupeCounter < 2) {
+            return(
+              <EachRelatedCard relatedProduct={eachRelatedID} index={index} key={index}/>
+            )
+          } else {return null;}
+        }) : null}
       </ul>
       <div className="scroller-right" onClick={event => {handleScrollRight(event)}}>
         <span className="right-arrow">&#x2937;</span>
