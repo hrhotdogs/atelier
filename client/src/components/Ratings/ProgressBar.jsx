@@ -12,6 +12,7 @@ const ProgressBar = ({ metaData, currentProductID }) => {
       totalStarRatings += Number(metaData.ratings[key]);
     }
   }
+
   const percentOfFiveStar = (totalFiveStars / totalStarRatings) * 100;
   const percentOfFourStar = (totalFourStars / totalStarRatings) * 100;
   const percentOfThreeStar = (totalThreeStars / totalStarRatings) * 100;
@@ -20,45 +21,44 @@ const ProgressBar = ({ metaData, currentProductID }) => {
 
   return (
     <div className='progress-container'>
-      <br></br>
       <div className='star-rate-count'>5 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfFiveStar}%` }} className='child-div'>
           <span className='progress-text'>
-            {`${Math.round(percentOfFiveStar * 10) / 10}%`}
+            {`${Math.round(percentOfFiveStar)}%`}
           </span>
         </div>
       </div>
       <div className='star-rate-count'>4 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfFourStar}%` }} className='child-div'>
-          <span className='progress-text'>{`${
-            Math.round(percentOfFourStar * 10) / 10
-          }%`}</span>
+          <span className='progress-text'>{`${Math.round(
+            percentOfFourStar
+          )}%`}</span>
         </div>
       </div>
       <div className='star-rate-count'>3 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfThreeStar}%` }} className='child-div'>
-          <span className='progress-text'>{`${
-            Math.round(percentOfThreeStar * 10) / 10
-          }%`}</span>
+          <span className='progress-text'>{`${Math.round(
+            percentOfThreeStar
+          )}%`}</span>
         </div>
       </div>
       <div className='star-rate-count'>2 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfTwoStar}%` }} className='child-div'>
-          <span className='progress-text'>{`${
-            Math.round(percentOfTwoStar * 10) / 10
-          }%`}</span>
+          <span className='progress-text'>{`${Math.round(
+            percentOfTwoStar
+          )}%`}</span>
         </div>
       </div>
-      <div className='star-rate-count'>1 star</div>
+      <div className='star-rate-count'>1 stars</div>
       <div className='parent-div'>
         <div style={{ width: `${percentOfOneStar}%` }} className='child-div'>
-          <span className='progress-text'>{`${
-            Math.round(percentOfOneStar * 10) / 10
-          }%`}</span>
+          <span className='progress-text'>{`${Math.round(
+            percentOfOneStar
+          )}%`}</span>
         </div>
       </div>
     </div>

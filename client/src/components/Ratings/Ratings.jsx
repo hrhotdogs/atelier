@@ -95,7 +95,7 @@ const Ratings = () => {
           />
         </div>
         <button
-          className='review-btn review-add new-review-sizing'
+          className='new-review-btn new-review-sizing'
           onClick={() => setShowModal(true)}
         >
           New Review
@@ -105,13 +105,6 @@ const Ratings = () => {
       <SideBar metaData={metaData} listOfReviews={listOfReviews} />
 
       <div className='ratings-item'>
-        {' '}
-        {/* <button
-          className='review-btn add-review'
-          onClick={() => setShowModal(true)}
-        >
-          New Review
-        </button> */}
         <NewReview
           showModal={showModal}
           setShowModal={setShowModal}
