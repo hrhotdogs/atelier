@@ -10,7 +10,7 @@ const RelatedCards = () => {
 
   // rerender on change to the related products array derived from the API
   const [relatedProducts, setRelatedProducts] = React.useState([]);
-  const [isHover, setIsHover] = React.useState(true);
+  // const [isHover, setIsHover] = React.useState(true);
 
   // GET req to API for the related products array on change of the global context
   // Pass this array for rendering by setting the component's state
@@ -36,80 +36,46 @@ const RelatedCards = () => {
   }
 
   // scroll on hover... *************************************
-  const useHover = () => {
-    const [value, setValue] = React.useState(false);
-    const ref = React.useRef(null);
-    const handleMouseOver = () => setValue(true);
-    const handleMouseOut = () => setValue(false);
-    React.useEffect(
-      () => {
-        const node = ref.current;
-        if (node) {
-          node.addEventListener("mouseover", handleMouseOver);
-          node.addEventListener("mouseout", handleMouseOut);
-          return () => {
-            node.removeEventListener("mouseover", handleMouseOver);
-            node.removeEventListener("mouseout", handleMouseOut);
-          };
-        }
-      },
-      [ref.current] // Recall only if ref changes
-    );
-    return [ref, value];
-  }
-
-  const [hoverRef, isHovered] = useHover();
-  React.useEffect(() => {
-    if (isHovered) {
-      console.log('useEffect mounting');
-      asyncCall();
-    }
-    return () => {
-      console.log('useEffect unmounting');
-    }
-  }, [isHovered])
-
-  const timer = (cb) => {
-    setTimeout(function() {
-      relatedCarousel.current.scrollLeft = relatedCarousel.current.scrollLeft - 5;
-      cb("success");
-    }, 30);
-  }
-
-  function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-      timer(resolve);
-    });
-  }
-
-  async function asyncCall() {
-    const result = await resolveAfter2Seconds();
-    asyncCall();
-  }
-
-  // asyncCall();
+  // const useHover = () => {
+  //   const [value, setValue] = React.useState(false);
+  //   const ref = React.useRef(null);
+  //   const handleMouseOver = () => setValue(true);
+  //   const handleMouseOut = () => setValue(false);
+  //   React.useEffect(
+  //     () => {
+  //       const node = ref.current;
+  //       if (node) {
+  //         node.addEventListener("mouseenter", handleMouseOver);
+  //         node.addEventListener("mouseleave", handleMouseOut);
+  //         // return () => {
+  //         //   node.removeEventListener("mouseenter", handleMouseOver);
+  //         //   node.removeEventListener("mouseleave", handleMouseOut);
+  //         // };
+  //       }
+  //     },
+  //     [ref.current] // Recall only if ref changes
+  //   );
+  //   return [ref, value];
+  // }
 
   // const timer = () => {
-  //   setTimeout(function() {
-  //     relatedCarousel.current.scrollLeft = relatedCarousel.current.scrollLeft - 50;
+  //   setInterval(function() {
+  //     relatedCarousel.current.scrollLeft = relatedCarousel.current.scrollLeft - 5;
+  //   }, 30);
+  // }
+
+  // const [hoverRef, isHovered] = useHover();
+  // // const [fxHover, setFxHover] = React.useState();
+  // React.useEffect(() => {
+  //   if (isHovered) {
+  //     console.log('useEffect mounting');
   //     timer();
-  //   }, 5000);
-  // };
-
-  // async function handleLeftHover(e) {
-  //   while (isHover) {
-  //     let x = await resolveAfter2Seconds();
-  //     console.log(x);
-  //     clearTimeout(timer);
-  //     handleLeftHover(e);
   //   }
-  //   return;
-  // }
-  // const handleMouseOut = (e) => {
-  //   console.log("mouse out");
-  //   setIsHover(false);
-  // }
-
+  //   return () => {
+  //     clearInterval(timer());
+  //     console.log('useEffect unmounting');
+  //   }
+  // }, [isHovered])
 
   // scroll on hover... ****^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
 
@@ -125,7 +91,7 @@ const RelatedCards = () => {
   return (
     <>
       <div className="scroller-left" onClick={event => {handleScrollLeft(event)}}>
-        <span ref={hoverRef} className="left-arrow">
+        <span className="left-arrow">
           &#x2937;
         </span>
       </div>

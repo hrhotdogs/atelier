@@ -64,8 +64,8 @@ const CompareRelatedModal = ({closeModal, product}) => {
   if (Object.keys(globalProduct).length !== 0) {
     return ReactDOM.createPortal(
       <>
-        <div className="modalBackground" onClick={event => closeModal(event)} />
-          <div className="modalContainer" >
+        <div className="related-modal-background" onClick={event => closeModal(event)} />
+          <div className="related-modal-container" >
             <div className="rltd-modal-cols">
               <div className="rltd-modal-titles-1">{product.info.name}</div>
               <div className="rltd-modal-titles-2">{globalProduct.info.name}</div>
