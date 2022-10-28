@@ -110,9 +110,7 @@ font-size: 20px;
   width: 54%;
 }
 
-.slider-container {
 
-}
 
 .ratings-container {
   margin: auto;
@@ -144,9 +142,7 @@ font-size: 20px;
    height: max-content;
 }
 
-.side-bar-items {
-  /* position:relative; */
-}
+
 
 .review-list {
   padding: 2rem;
@@ -183,28 +179,32 @@ margin: 5px
 
 .add-photos-btn {
   padding: 5px;
+  margin: 10px;
   color: var(--darkBlue);
   cursor: pointer;
   box-sizing: content-box;
   background-color: var(--ivory);
   border-radius: 10px;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   font-family: var(--roboto);
 }
 
 .add-photos-btn:hover {
   background-color: white;
-  color: var(--darkBlue)
+  color: var(--darkBlue);
+  padding: 10px;
+  margin: 5px;
 }
 
 .send-review-btn {
   padding: 5px;
+  margin: 10px;
   color: var(--darkBlue);
   cursor: pointer;
   box-sizing: content-box;
   background-color: var(--ivory);
   border-radius: 10px;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   font-family: var(--roboto);
   float: right;
 }
@@ -212,6 +212,8 @@ margin: 5px
 .send-review-btn:hover {
   background-color: white;
   color: var(--darkBlue);
+  padding:10px;
+  margin: 5px;
 }
 
 .load-more {
@@ -287,25 +289,24 @@ margin: 5px
 
 .review-btn {
   padding: 5px;
+  margin:10px;
   color: var(--darkBlue);
   cursor: pointer;
   box-sizing: content-box;
   background-color: var(--ivory);
   border-radius: 10px;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   font-family: var(--roboto);
 }
 
 .review-btn:hover {
   background-color: white;
   color: var(--darkBlue);
+  padding: 10px;
+  margin:5px;
 }
 
-.review-add {
-  margin: 2px;
-  margin-left: 10px;
-  font-family: var(--roboto);
-}
+
 
 .new-review-sizing {
   padding: 7px;
@@ -362,8 +363,6 @@ font-size: 40px;
   font-family: var(--roboto);
   font-size: 14px;
 }
-
-
 
 .input-reviews {
   border-top-style: hidden;
