@@ -1041,14 +1041,43 @@ QUESTIONS AND ANSWERS - END
   -webkit-transform: rotate(135deg);
 }
 
-.arrowLeftContainer:hover {
-  background-color: rgb(40, 40, 40, 0.5);
-  cursor: pointer;
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 50px;
+  height: 675px;
 }
 
-.arrowRightContainer:hover {
-  background-color: rgb(40, 40, 40, 0.5);
+.arrowBox {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  background-color: ivory;
+  border-radius: 5px;
+}
+
+.mainBoxArrow {
+  position: absolute;
+  height: 5px;
+  width: 5px;
+}
+
+.arrowBox:hover {
   cursor: pointer;
+  box-shadow: 0 0 4px ivory;
+}
+
+.arrowLeftContainer {
+  padding-left: 20px;
+}
+
+.arrowRightContainer {
+  margin-left: auto;
+  margin-right: 0px;
+  padding-right: 20px;
 }
 
 .right {
@@ -1199,3 +1228,4 @@ QUESTIONS AND ANSWERS - END
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
+
