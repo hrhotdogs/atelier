@@ -5,8 +5,7 @@ import {TOKEN} from '../../../../config.js';
 const EachOutfitCard = (props) => {
   var prodIMGStyle = {
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundImage: `url(${props.outfit.styles.results[0].photos[0].url})`
+    backgroundPosition: 'center'
   };
 
   const handleOutfitClick = () => {
@@ -19,6 +18,12 @@ const EachOutfitCard = (props) => {
     outfits = JSON.stringify(outfits);
     window.localStorage.setItem("outfits", outfits);
     props.setOutfitsList(JSON.parse(window.localStorage.getItem("outfits")));
+  }
+
+  if (props.outfit.styles.results[0].photos[0].thumbnail_url === null) {
+    prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
+  } else {
+      prodIMGStyle.backgroundImage = `url(${props.outfit.styles.results[0].photos[0].thumbnail_url})`;
   }
 
   return (
