@@ -1170,8 +1170,12 @@ QUESTIONS AND ANSWERS - END
 }
 
 .productInfoFooterLeft {
-  max-width: 675px;
+  width: 675px;
   padding: 5px;
+}
+
+.productInfoFooterRight {
+  padding-left: 30px;
 }
 
 .productSlogan {
