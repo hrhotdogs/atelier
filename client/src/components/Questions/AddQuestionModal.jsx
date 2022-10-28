@@ -71,7 +71,7 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
             <input className='input' type='email' name='email' placeholder='jackson11@email.com' ref={emailRef} required/>
             <div className='helpfulMessage'>"For authentication reasons, you will not be emailed"</div>
           </div>
-          <div>
+          <div className='submit-container'>
             <button className='btn submit' type='submit'>Submit Question</button>
           </div>
         </form>

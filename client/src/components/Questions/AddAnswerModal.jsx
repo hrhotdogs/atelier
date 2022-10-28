@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import { ProductIDContext } from '../Context.jsx';
-import { TOKEN } from '../../../../config.js';
+import { TOKEN, CLOUDNAME, UPLOADPRESET } from '../../../../config.js';
 
 const { useRef, useState, useContext, useEffect } = React;
 
@@ -37,12 +37,11 @@ const AddAnswerModal = ({ closeModal, question }) => {
     setShowTooManyPhotos(false)
     let myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'dsafunhlm',
-        uploadPreset: 'hackreacter_joe',
+        cloudName: CLOUDNAME,
+        uploadPreset: UPLOADPRESET,
       },
       (error, result) => {
         if (!error && result && result.event === 'success') {
-          console.log('Done! Here is the image info: ', result.info);
           setPhotos((prev) => [...prev, result.info.url]);
         }
       }
@@ -115,7 +114,7 @@ const AddAnswerModal = ({ closeModal, question }) => {
             <div className='helpfulMessage'>Max 5 images. Photo count: {photos.length}</div> {showTooManyPhotos ? <div>Too many images</div> : null}
           </div>
           <div className='submit-container'>
-            {showSubmitted ? <span>SUBMITTED!</span> : <button className='btn submit' type='submit'>Submit Answer</button>}
+            {showSubmitted ? <span>SUBMITTED!</span> : <button className='btn-submit' type='submit'>Submit Answer</button>}
           </div>
         </form>
       </div>
