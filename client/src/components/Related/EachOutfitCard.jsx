@@ -1,8 +1,11 @@
 import React from 'react';
 import { ProductIDContext } from '../Context.jsx';
+import { StyleIDContext } from '../StyleContext.jsx';
 import {TOKEN} from '../../../../config.js';
 
 const EachOutfitCard = (props) => {
+  const { currentStyleID, setCurrentStyleID } = React.useContext(StyleIDContext);
+
   var prodIMGStyle = {
     backgroundSize: 'cover',
     backgroundPosition: 'center'
@@ -23,7 +26,16 @@ const EachOutfitCard = (props) => {
   if (props.outfit.styles.results[0].photos[0].thumbnail_url === null) {
     prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
   } else {
+    let isFound = false;
+    for (let i = 0; i < props.outfit.styles.results.length; i++) {
+      if (currentStyleID === props.outfit.styles.results[i].style_id) {
+        prodIMGStyle.backgroundImage = `url(${props.outfit.styles.results[i].photos[0].thumbnail_url})`;
+        isFound = true;
+      }
+    }
+    if (!isFound) {
       prodIMGStyle.backgroundImage = `url(${props.outfit.styles.results[0].photos[0].thumbnail_url})`;
+    }
   }
 
   return (
