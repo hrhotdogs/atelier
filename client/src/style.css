@@ -484,16 +484,8 @@ font-size: 40px;
 .container {
   display: flex;
   flex: 1;
-  /* max-width: 900px; */
-  /* min-width: 500px;
-  min-height: 275px; */
-  /* max-height: 600px; */
   background: var(--ivory);
-  /*V V V Makes box centered on the browser V V V */
-  /* margin: 0 auto; */
   border-radius: 18px;
-  /* border-left: 2px solid #2F6D80;
-  border-right: 2px solid #2F6D80; */
   border-radius: 10px;
 }
 
@@ -501,7 +493,6 @@ font-size: 40px;
   display: flex;
   flex: .6;
   justify-content: center;
-  /* min-width: 250px; */
   border-right: 5px solid #2F6D80;
   border-left: 5px solid #2F6D80;
   border-radius: 10px;
@@ -511,7 +502,7 @@ font-size: 40px;
 .container .scroller-right {
   padding: 20px;
   max-width: 5px;
-  border-right: 3px solid #2F6D80;
+  border-right: 2px solid #2F6D80;
   opacity: .6;
   flex: 1;
   margin: 0 0 0 -47px;
@@ -565,8 +556,6 @@ font-size: 40px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 0 35px 0 35px;
-  border-right: 2px solid #2F6D80;
-  border-left: 2px solid #2F6D80;
   border-radius: 10px;
   margin: 0;
 }
@@ -595,7 +584,7 @@ font-size: 40px;
   animation: fadeIn 4s;
   display: flex;
   flex-direction: column;
-  min-height: 220px;
+  min-height: 250px;
   min-width: 160px;
   max-height: 900px;
   max-width: 160px;
@@ -603,7 +592,7 @@ font-size: 40px;
   /* max-width: 15vw; */
   border-radius: 18px;
   box-shadow: 5px 5px 5px var(--darkBlue);
-  margin: 18px 23px;
+  margin: 30px 23px;
 }
 
 .card:hover {
