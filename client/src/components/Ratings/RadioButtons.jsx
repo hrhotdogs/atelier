@@ -6,7 +6,44 @@ import RadioQualityButtons from './RadioQualityButtons.jsx';
 import RadioSizeButtons from './RadioSizeButtons.jsx';
 import RadioWidthButtons from './RadioWidthButtons.jsx';
 import { v4 as uuidv4 } from 'uuid';
-const words = { size: '', width: '', length: '', quality: '', comfort: '' };
+const words = {
+  size: [
+    'A size too small',
+    '½ a size too small',
+    'Perfect',
+    '½ a size too big',
+    'A size too wide',
+  ],
+  width: [
+    'Too narrow',
+    'Slightly narrow',
+    'Perfect',
+    'Slightly Wide',
+    'Too wide',
+  ],
+  length: [
+    'Runs Short',
+    'Runs slightly short',
+    'Perfect',
+    'Runs slightly long',
+    'Runs long',
+  ],
+  quality: [
+    'Poor',
+    'Below average',
+    'What I expected',
+    'Pretty great',
+    'Perfect',
+  ],
+  comfort: [
+    'Uncomfortable',
+    'Slightly uncomfortable',
+    'Ok',
+    'Comfortable',
+    'Perfect',
+  ],
+  fit: ['', '', '', '', ''],
+};
 
 const RadioButtons = ({
   setSelectedSizeRating,
