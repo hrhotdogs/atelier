@@ -65,11 +65,11 @@ const AddToCart = ({currentStyle}) => {
     if (inStock) {
       if (added) {
         return (
-          <button className='btn addToCartButton'>Added!</button>
+          <button className='addToCartbtn'>Added!</button>
         )
       } else {
         return (
-          <button className='btn addToCartButton' onClick={handleAddToCart}>Add to cart</button>
+          <button className='addToCartbtn' onClick={handleAddToCart}>Add to cart</button>
         )
       }
     }

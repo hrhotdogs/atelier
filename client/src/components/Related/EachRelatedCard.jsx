@@ -91,7 +91,7 @@ const EachRelatedCard = (props) => {
     if (product.styles.results[0].photos[0].thumbnail_url === null) {
       prodIMGStyle.backgroundImage = "url(https://mbfn.org/wp-content/uploads/2020/09/image-coming-soon-placeholder.png)";
     } else {
-        prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].url})`;
+        prodIMGStyle.backgroundImage = `url(${product.styles.results[0].photos[0].thumbnail_url})`;
     }
   }
 
