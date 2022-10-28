@@ -1163,14 +1163,6 @@ QUESTIONS AND ANSWERS - END
   font-size: '20pt'
 }
 
-.addToCartButton {
-  color: #2B4560;
-  padding: 15px;
-  margin-top: 20px;
-  background-color: white;
-  box-shadow: 0 0 2px grey;
-}
-
 .productInfoFooter {
   margin-left: 146px;
   display: flex;
@@ -1178,10 +1170,28 @@ QUESTIONS AND ANSWERS - END
 }
 
 .productInfoFooterLeft {
-  width: 675px;
+  max-width: 675px;
+  padding: 5px;
 }
 
 .productSlogan {
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.addToCartbtn {
+  padding: 15px;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 0 2px grey;
+  color: var(--darkBlue);
+  border: 1px solid var(--darkBlue);
+  transition-duration: 0.4s;
+  border-radius: 2px;
+}
+
+.addToCartbtn:hover {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
 }
