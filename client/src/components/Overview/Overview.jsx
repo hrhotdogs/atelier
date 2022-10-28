@@ -17,11 +17,9 @@ const Overview = () => {
   // Get global state
   const { currentProductID, setCurrentProductID } = useContext(ProductIDContext);
   const { currentStyleID, setCurrentStyleID } = useContext(StyleIDContext);
-  //let [currentProductID, setCurrentProductID] = currentState.currentProductID;
-  //let [currentStyleID, setCurrentStyleID] = currentState.currentStyleID;
 
   // Create local state and global vars
-  const [productInfo, setProductInfo] = useState({});
+  const [productInfo, setProductInfo] = useState({features: []});
   const [styles, setStyles] = useState([]);
   const [metaData, setMetaData] = useState({});
   const [listOfReviews, setListOfReviews] = useState([]);
@@ -73,10 +71,7 @@ const Overview = () => {
       </div>
       <ProductInfoFooter productInfo={productInfo} />
     </div>
-
   )
 }
 
 export default Overview;
-
-

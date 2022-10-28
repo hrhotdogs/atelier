@@ -7,6 +7,13 @@ const ProductInfoFooter = ({productInfo}) => {
         <div className='productSlogan'>{productInfo.slogan}</div>
         <div className='productDescription'>{productInfo.description}</div>
       </div>
+      <div className='productInfoFooterRight'>
+        <ul>
+          {productInfo.features.map((featureObj, index) => (
+            <li key={index}>{`${featureObj.value} ${featureObj.feature}`}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

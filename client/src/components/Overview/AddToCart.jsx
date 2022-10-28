@@ -8,6 +8,7 @@ const AddToCart = ({currentStyle}) => {
   const [selectedQty, setSelectedQty] = useState(1);
   const [inStock, setInStock] = useState(true);
   const [added, setAdded] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
 
   const handleOptionChange = (e, comp) => {
     if (comp === 'size') {
@@ -20,13 +21,17 @@ const AddToCart = ({currentStyle}) => {
   }
 
   const handleAddToCart = () => {
-    const sku = Object.keys(currentStyle.skus).find(key => currentStyle.skus[key].size === selectedSize);
-    for (let i = 0; i < selectedQty; i++) {
-      Axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart`, {sku_id: sku}, {headers: {Authorization: TOKEN}})
-      .then(() => {
-        setAdded(true);
-      })
-      .catch(err => console.log(err));
+    if (selectedSize === 'Select size') {
+      setShowWarning(true);
+    } else {
+      const sku = Object.keys(currentStyle.skus).find(key => currentStyle.skus[key].size === selectedSize);
+      for (let i = 0; i < selectedQty; i++) {
+        Axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart`, {sku_id: sku}, {headers: {Authorization: TOKEN}})
+        .then(() => {
+          setAdded(true);
+        })
+        .catch(err => console.log(err));
+      }
     }
   }
 
@@ -65,13 +70,19 @@ const AddToCart = ({currentStyle}) => {
     if (inStock) {
       if (added) {
         return (
-          <button className='btn addToCartButton'>Added!</button>
+          <button className='addToCartbtn'>Added!</button>
         )
       } else {
         return (
-          <button className='btn addToCartButton' onClick={handleAddToCart}>Add to cart</button>
+          <button className='addToCartbtn' onClick={handleAddToCart}>Add to cart</button>
         )
       }
+    }
+  }
+
+  const showSelectSizeWarning = () => {
+    if (showWarning) {
+      return 'Please select a size!'
     }
   }
 
@@ -81,8 +92,13 @@ const AddToCart = ({currentStyle}) => {
     setSelectedQty(1);
   }, [currentStyle])
 
+  useEffect(() => {
+    setShowWarning(false);
+  }, [selectedSize])
+
   return (
     <div className='addToCartContainer'>
+      <div style={{height: '15px', color: 'red', marginBottom: '10px'}}>{showSelectSizeWarning()}</div>
       <div className='cartRow'>
         <div className='sort-menu' style={{marginLeft: '0', marginTop: '0'}}>
           <select className='sort-options' id='sizeSort' value={selectedSize} onChange={(e) => handleOptionChange(e, 'size')}>
