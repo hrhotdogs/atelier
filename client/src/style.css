@@ -22,13 +22,17 @@ html {
 }
 
 .navBar {
+  display: flex;
+  flex-direction: row;
   margin-top: 0;
   height: 55px;
-  background-color: var(--tiffanyBlue);
-  color: white;
+  /* background-color: black; */
+  background-color: black;
+  color: red;
   font-family: Comic Sans MS;
   font-size: 30pt;
   font-weight: bold;
+  justify-content: center;
   text-align: center;
 }
 
