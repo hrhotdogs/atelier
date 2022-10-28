@@ -9,7 +9,7 @@ const StarRating = ({ metaData, listOfReviews, show }) => {
 
   const showTextAverage = () => {
     if (show) {
-      return <div>{Math.round(averageRating * 10) / 10} </div>;
+      return Math.round(averageRating * 10) / 10;
     }
   };
 

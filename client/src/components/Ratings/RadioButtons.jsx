@@ -5,6 +5,8 @@ import RadioLengthButtons from './RadioLengthButtons.jsx';
 import RadioQualityButtons from './RadioQualityButtons.jsx';
 import RadioSizeButtons from './RadioSizeButtons.jsx';
 import RadioWidthButtons from './RadioWidthButtons.jsx';
+import { v4 as uuidv4 } from 'uuid';
+const words = { size: '', width: '', length: '', quality: '', comfort: '' };
 
 const RadioButtons = ({
   setSelectedSizeRating,
@@ -13,26 +15,25 @@ const RadioButtons = ({
   setSelectedLengthRating,
   setSelectedWidthRating,
   setSelectedQualityRating,
+  metaData,
 }) => {
-  return (
-    <div className='radio-selectors'>
-      <RadioSizeButtons setSelectedSizeRating={setSelectedSizeRating} />
-      <br></br>
-      <RadioLengthButtons setSelectedLengthRating={setSelectedLengthRating} />
-      <br></br>
-      <RadioWidthButtons setSelectedWidthRating={setSelectedWidthRating} />
-      <br></br>
-      <RadioFitButtons setSelectedFitRating={setSelectedFitRating} />
-      <br></br>
-      <RadioComfortButtons
-        setSelectedComfortRating={setSelectedComfortRating}
-      />
-      <br></br>
-      <RadioQualityButtons
-        setSelectedQualityRating={setSelectedQualityRating}
-      />
-    </div>
-  );
+  const results = [];
+  if (metaData !== undefined) {
+    for (let key in metaData.characteristics) {
+      console.log(key);
+      results.push(
+        <div key={uuidv4()}>
+          {key}
+          <input type='radio' name='characteristic'></input>
+          <input type='radio' name='characteristic'></input>
+          <input type='radio' name='characteristic'></input>
+          <input type='radio' name='characteristic'></input>
+          <input type='radio' name='characteristic'></input>
+        </div>
+      );
+    }
+  }
+  return results;
 };
 
 export default RadioButtons;
