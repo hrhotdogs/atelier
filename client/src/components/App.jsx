@@ -13,7 +13,7 @@ const App = () => {
   // Render components with context (global state)
   return (
     <div className='app'>
-      <div className='navBar'><div className='logo'>Atelier</div></div>
+      <div className='navBar'><img style={{maxHeight: '60px', marginRight: '20px'}} src='https://media1.giphy.com/media/l1K9Dcy7ww0CW3JHq/giphy.gif?cid=790b76116c485da82fbcdd8af79d303e35627c77d68e823f&rid=giphy.gif&ct=g'></img><div className='logo'><span style={{color: 'green'}}>The </span>Condiment <span style={{color: 'yellow'}}>Table</span></div><img style={{maxHeight: '60px', marginLeft: '20px'}} src='https://media1.giphy.com/media/l1K9Dcy7ww0CW3JHq/giphy.gif?cid=790b76116c485da82fbcdd8af79d303e35627c77d68e823f&rid=giphy.gif&ct=g'></img></div>
       <ProductIDProvider>
         <StyleIDProvider>
           <Overview />
