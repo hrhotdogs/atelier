@@ -68,7 +68,7 @@ const Questions = () => {
 
   return (
     <div className='questionsAndAnswers' data-testid="Questions-parent">
-      <div>Questions & Answers</div><br />
+      <div className='title'>Questions & Answers</div>
       <SearchBar questions={questions} searchQuestions={searchQuestions} getQuestions={getQuestions}/>
       <QuestionsList questions={questions}/>
       <button className='btn add' onClick={(e) => onClickHandler(e)}>Add Question</button>
