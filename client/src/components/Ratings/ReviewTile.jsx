@@ -34,7 +34,7 @@ const ReviewTile = ({ review, listOfReviews }) => {
       {review.recommend ? (
         <div className='review-recommend'>
           Product recommended!
-          <img src={`${recommendLogo.slice(22)}`} />{' '}
+          <img alt='thumbs up icon' src={`${recommendLogo.slice(22)}`} />{' '}
         </div>
       ) : null}
       <div>

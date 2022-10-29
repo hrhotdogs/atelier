@@ -89,7 +89,7 @@ html {
 
 .progress-text {
   padding: 1px;
-  color: var(--midnightBlue);
+  color: var(--darkBlue);
   font-family: var(--roboto);
   font-weight: 100;
   font-size: 13px;
@@ -123,8 +123,6 @@ html {
   font-size: 10.5px;
   width: 54%;
 }
-
-
 
 .ratings-container {
   margin: auto;

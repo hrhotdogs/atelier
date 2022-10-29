@@ -13,6 +13,7 @@ const words = {
     'Perfect',
     '½ a size too big',
     'A size too wide',
+    'Size',
   ],
   width: [
     'Too narrow',
@@ -20,13 +21,15 @@ const words = {
     'Perfect',
     'Slightly Wide',
     'Too wide',
+    'Width',
   ],
-  length: [
+  _length: [
     'Runs Short',
     'Runs slightly short',
     'Perfect',
     'Runs slightly long',
     'Runs long',
+    'Length',
   ],
   quality: [
     'Poor',
@@ -34,6 +37,7 @@ const words = {
     'What I expected',
     'Pretty great',
     'Perfect',
+    'Quality',
   ],
   comfort: [
     'Uncomfortable',
@@ -41,9 +45,22 @@ const words = {
     'Ok',
     'Comfortable',
     'Perfect',
+    'Comfort',
   ],
-  fit: ['', '', '', '', ''],
+  fit: [
+    'Runs tight',
+    'Runs slightly tight',
+    'Perfect',
+    'Runs slightly long',
+    'Runs long',
+    'Fit',
+  ],
 };
+let inputZero;
+let inputOne;
+let inputTwo;
+let inputThree;
+let inputFour;
 
 const RadioButtons = ({
   setSelectedSizeRating,
@@ -54,23 +71,18 @@ const RadioButtons = ({
   setSelectedQualityRating,
   metaData,
 }) => {
+  const [description, setDescription] = useState('');
   const results = [];
   if (metaData !== undefined) {
     for (let key in metaData.characteristics) {
-      console.log(key);
-      results.push(
-        <div key={uuidv4()}>
-          {key}
-          <input type='radio' name='characteristic'></input>
-          <input type='radio' name='characteristic'></input>
-          <input type='radio' name='characteristic'></input>
-          <input type='radio' name='characteristic'></input>
-          <input type='radio' name='characteristic'></input>
-        </div>
-      );
+      switch (key) {
+        case words.size[5]:
+          inputZero = words.size[0];
+          break;
+      }
     }
   }
-  return results;
+  return <div></div>;
 };
 
 export default RadioButtons;
