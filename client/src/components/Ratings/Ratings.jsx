@@ -95,7 +95,7 @@ const Ratings = () => {
           />
         </div>
         <button
-          className='review-btn new-review-sizing'
+          className='new-review-btn new-review-sizing'
           onClick={() => setShowModal(true)}
         >
           New Review

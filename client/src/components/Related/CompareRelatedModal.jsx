@@ -7,19 +7,27 @@ import { TOKEN } from '../../../../config.js';
 
 const { useRef, useState, useContext, useEffect } = React;
 
-const CompareRelatedModal = ({ closeModal }) => {
+const CompareRelatedModal = ({closeModal, product}) => {
   const { currentProductID, setCurrentProductID } = useContext(ProductIDContext);
-  const [productInfo, setProductInfo] = useState({});
-
+  const [globalProduct, setGlobalProduct] = useState({});
 
   useEffect(() => {
-    Axios
-      .get(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}`,
+    let prodObj = {};
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}`,
         { headers: { Authorization: TOKEN } }
       )
       .then((response) => {
-        setProductInfo(response.data);
+        prodObj.info = response.data;
+        Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${currentProductID}/styles`,
+          { headers: { Authorization: TOKEN } }
+        )
+        .then((response) => {
+          prodObj.styles = response.data;
+          setGlobalProduct(prodObj);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
       })
       .catch((err) => {
         console.log(err);
@@ -53,38 +61,40 @@ const CompareRelatedModal = ({ closeModal }) => {
     zIndex: 1000,
   };
 
-  return ReactDOM.createPortal(
-    <>
-      <div className="modalBackground" onClick={event => closeModal(event)} />
-        <div className="modalContainer" >
-          <div className="rltd-modal-cols">
-            <div className="rltd-modal-titles-1">name1</div>
-            <div className="rltd-modal-titles-2">name2</div>
+  if (Object.keys(globalProduct).length !== 0) {
+    return ReactDOM.createPortal(
+      <>
+        <div className="related-modal-background" onClick={event => closeModal(event)} />
+          <div className="related-modal-container" >
+            <div className="rltd-modal-cols">
+              <div className="rltd-modal-titles-1">{product.info.name}</div>
+              <div className="rltd-modal-titles-2">{globalProduct.info.name}</div>
+            </div>
+            <div className="rltd-modal-cols">
+              <div className="rltd-modal-items">{product.info.category}</div>
+              <div className="rltd-modal-comparison">category</div>
+              <div className="rltd-modal-items">{globalProduct.info.category}</div>
+            </div>
+            <div className="rltd-modal-cols">
+              <div className="rltd-modal-items">${product.info.default_price}</div>
+              <div className="rltd-modal-comparison">price</div>
+              <div className="rltd-modal-items">${globalProduct.info.default_price}</div>
+            </div>
+            <div className="rltd-modal-cols">
+              <div className="rltd-modal-items">{product.info.description}</div>
+              <div className="rltd-modal-comparison">description</div>
+              <div className="rltd-modal-items">{globalProduct.info.description}</div>
+            </div>
+            {/* <div className="rltd-modal-cols">
+              <div className="rltd-modal-items">{product.info.features[1].value}</div>
+              <div className="rltd-modal-comparison">compare</div>
+              <div className="rltd-modal-items">{productInfo.features[1].value}</div>
+            </div> */}
           </div>
-          <div className="rltd-modal-cols">
-            <div className="rltd-modal-items">1a</div>
-            <div className="rltd-modal-comparison">compare</div>
-            <div className="rltd-modal-items">1b</div>
-          </div>
-          <div className="rltd-modal-cols">
-            <div className="rltd-modal-items">2a</div>
-            <div className="rltd-modal-comparison">compare</div>
-            <div className="rltd-modal-items">2b</div>
-          </div>
-          <div className="rltd-modal-cols">
-            <div className="rltd-modal-items">3a</div>
-            <div className="rltd-modal-comparison">compare</div>
-            <div className="rltd-modal-items">3b</div>
-          </div>
-          <div className="rltd-modal-cols">
-            <div className="rltd-modal-items">4a</div>
-            <div className="rltd-modal-comparison">compare</div>
-            <div className="rltd-modal-items">4b</div>
-          </div>
-        </div>
-    </>,
-    document.getElementById('portal')
-  );
+      </>,
+      document.getElementById('portal')
+    );
+  } else {return null;}
 };
 
 export default CompareRelatedModal;

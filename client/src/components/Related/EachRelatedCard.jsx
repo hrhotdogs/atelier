@@ -107,7 +107,7 @@ const EachRelatedCard = (props) => {
             <div className="card-content-slogan">{product.info.slogan}</div>
             <div className="card-content-price">${product.info.default_price}</div>
         </div>
-        { showModal ? <CompareRelatedModal closeModal={closeModal} /> : null}
+        { showModal ? <CompareRelatedModal closeModal={closeModal} product={product} /> : null }
       </li>
     )
   } else { return null; }
