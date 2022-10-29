@@ -511,6 +511,7 @@ font-family: var(--roboto);
 .container {
   display: flex;
   flex: 1;
+  min-width: 950px;
   background: var(--ivory);
   border-radius: 18px;
   border-radius: 10px;
