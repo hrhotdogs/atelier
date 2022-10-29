@@ -4,15 +4,16 @@ import EachOutfitCard from './EachOutfitCard.jsx';
 const PopulateOutfits = ({renderOutfit}) => {
   const [outfitsList, setOutfitsList] = React.useState([]);
 
+  // reference the carousal (.cards) to get its scroll properties
+  const outfitsCarousel = React.useRef(null);
+
   React.useEffect(() => {
-    var parse = JSON.parse(window.localStorage.getItem("outfits"))
+    var parse = JSON.parse(window.localStorage.getItem("outfits"));
     setOutfitsList(parse);
     return () => {
     }
   }, [renderOutfit]);
 
-  // reference the carousal (.cards) to get its scroll properties
-  const outfitsCarousel = React.useRef(null);
   // scroll left on left arrow click
   const handleScrollLeft = (e) => {
     outfitsCarousel.current.scrollLeft = outfitsCarousel.current.scrollLeft - 100;
@@ -30,7 +31,7 @@ const PopulateOutfits = ({renderOutfit}) => {
       <ul ref={outfitsCarousel} className="cards">
         {outfitsList !== null ? outfitsList.map((eachOutfit, index) => {
           return(
-            <EachOutfitCard outfit={eachOutfit} key={index} setOutfitsList={setOutfitsList}/>
+            <EachOutfitCard outfit={eachOutfit} key={index} setOutfitsList={setOutfitsList} outfitsCarousel={outfitsCarousel}/>
           )}
         ) : null}
       </ul>

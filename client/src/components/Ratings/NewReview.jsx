@@ -158,6 +158,7 @@ const NewReview = ({ showModal, setShowModal, currentProductID, metaData }) => {
                 setSelectedLengthRating={setSelectedLengthRating}
                 setSelectedWidthRating={setSelectedWidthRating}
                 setSelectedQualityRating={setSelectedQualityRating}
+                metaData={metaData}
               />
             </div>
             <div>
