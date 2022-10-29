@@ -78,13 +78,16 @@ const RatingSlider = ({ metaData }) => {
         <div className='slider-container' key={key}>
           <div className='ratings-title'>{title}:</div>
           <div>
-            <input
-              className='slider'
-              max={5}
-              type='range'
-              value={value}
-              disabled
-            ></input>
+            <label htmlFor='sliders'>
+              <input
+                name='sliders'
+                className='slider'
+                max={5}
+                type='range'
+                value={value}
+                disabled
+              ></input>
+            </label>
           </div>
           <div className='slider-fit'>
             <div>{divOne}</div>

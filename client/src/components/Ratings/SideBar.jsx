@@ -13,11 +13,9 @@ const SideBar = ({ metaData, listOfReviews }) => {
           show={true}
         />
       </div>
-      {/* <br></br> */}
       <div className='side-bar-items'>
         <ProgressBar metaData={metaData} />
       </div>
-      {/* <br></br> */}
       <div className='side-bar-items'>
         <RatingSlider metaData={metaData} />
       </div>
