@@ -10,33 +10,6 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
   const emailRef = useRef();
   const [showSubmitted, setShowSubmitted] = useState(false)
 
-  const modalBackground = {
-    top: 0,
-    left: 0,
-    height: '100%',
-    width: '100%',
-    position: 'fixed',
-    display: 'flex',
-    backgroundColor: 'rgba(200, 200, 200, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 999
-  }
-
-  const modalContainer = {
-    position: 'absolute',
-    width: '500px',
-    height: '500px',
-    borderRadius: '12px',
-    backgroundColor: '#fff',
-    boxShadow: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '25px',
-    textAlign: 'center',
-    zIndex: 1000
-  }
-
   function submitHandler(e) {
     e.preventDefault()
     postQuestions(questionRef.current.value, usernameRef.current.value, emailRef.current.value)
@@ -61,6 +34,7 @@ const AddQuestionModal = ({ closeModal, productName, postQuestions }) => {
             type='text'
             placeholder='your question'
             ref={questionRef}
+            autoFocus
             required/><br/>
           </div>
           <div className='input-container'>

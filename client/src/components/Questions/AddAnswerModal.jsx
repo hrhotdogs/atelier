@@ -97,6 +97,7 @@ const AddAnswerModal = ({ closeModal, question }) => {
             placeholder='your answer...'
             className='input textarea'
             required
+            autoFocus
             ref={AnswerRef}/>
           </div>
           <div className='input-container'>
