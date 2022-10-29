@@ -99,7 +99,7 @@ const EachRelatedCard = (props) => {
     return (
       <li className="card">
         <div className="card-image" style={prodIMGStyle} onClick={(event) => { handleRelatedClick(event) }}>
-          <img className="star-image" src="https://image.shutterstock.com/image-vector/simply-weight-icon-compare-logo-260nw-567050233.jpg" onClick={event => { handleModalClick(event) }}></img>
+          <img className="star-image" src="https://image.shutterstock.com/image-vector/simply-weight-icon-compare-logo-260nw-567050233.jpg" alt='weight scale balance icon' onClick={event => { handleModalClick(event) }}></img>
         </div>
         <div className="card-footer">
             <div className="card-content-category">{product.info.category}</div>

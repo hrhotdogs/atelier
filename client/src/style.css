@@ -370,7 +370,7 @@ font-family: var(--roboto);
 }
 
 .close {
-  color: #aaa;
+  color: var(--darkBlue);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -842,6 +842,11 @@ QUESTIONS AND ANSWERS
   min-width: 550px;
 }
 
+.title {
+  margin: 10px 0;
+  font-size: large;
+}
+
 .questionsList {
   max-height: 700px;
   overflow: auto;
@@ -849,11 +854,6 @@ QUESTIONS AND ANSWERS
 
 .noMatch {
   font-size: 20pt;
-}
-
-.helpfulContainer {
-  float: right;
-  color: var(--tiffanyBlue);
 }
 
 .input {
@@ -897,6 +897,7 @@ QUESTIONS AND ANSWERS
 
 .answerImage {
   height: 90px;
+  width: 90px;
   margin: 10px;
 }
 
@@ -916,10 +917,9 @@ QUESTIONS AND ANSWERS
 .searchBar {
   width: 500px;
   padding: 10px;
+  margin: 10px;
   box-sizing: border-box;
   font-size: large;
-  /* background-color: var(--ivory); */
-  /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
 }
 
 .btn {
@@ -941,7 +941,7 @@ QUESTIONS AND ANSWERS
 
 .yes-btn {
   text-decoration: underline;
-  color: var(--tiffanyBlue);
+  /* color: var(--tiffanyBlue); */
 }
 
 .yes-btn:hover {
@@ -982,12 +982,16 @@ QUESTIONS AND ANSWERS
   text-align: center;
   z-index: 1000;
   overflow: auto;
-  /* background-image: linear-gradient(white 50%, var(--ivory)); */
 }
 
 .helpfulContainer {
   font-size: 14px;
   float: right;
+  /* color: var(--tiffanyBlue); */
+}
+
+.answerInfo, .helpfulContainer {
+  color: var(--darkBlue);
 }
 
 .btn-submit {
@@ -1015,6 +1019,12 @@ QUESTIONS AND ANSWERS
     width: auto;
   }
 
+  .answerImage {
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+  }
+
   /* .modalBackground {
     top: 0;
     left: 0;
@@ -1025,9 +1035,9 @@ QUESTIONS AND ANSWERS
     background-color: rgba(200, 200, 200, 0.5);
     z-index: 999;
     backdrop-filter: blur(5px);
-  } */
+  }
 
-  /* .modalContainer {
+  .modalContainer {
     position: fixed;
     top: 50%;
     left: 15%;

@@ -39,7 +39,7 @@ const IndividualAnswers = ({ answer }) => {
     <div className='answer-container'>
       <span style={{fontWeight: 'bold'}}> A: </span><span className='answer-body'>{answer.body}</span><br/>
         {answer.photos.map((photo, index) => {
-          return <img className="answerImage" src={photo} key={index}/>
+          return <img className="answerImage" src={photo} alt='' key={index}/>
         })}
         <br/>
         <div className='answerInfo'>
