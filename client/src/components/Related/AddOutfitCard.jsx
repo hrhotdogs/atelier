@@ -85,19 +85,17 @@ const AddOutfitCard = ({currentProductID, setRenderOutfit, renderOutfit}) => {
       }
     }
     return (
-
-          <li className="card">
-            <div className="card-image" style={prodIMGStyle}>
-              <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg" onClick={(event) => handleOutfitClick()}></img>
-            </div>
-            <div className="card-footer">
-                <div className="card-content-category">{product.info.category}</div>
-                <div className="card-content-name">{product.info.name}</div>
-                <div className="card-content-slogan">{product.info.slogan}</div>
-                <div className="card-content-price">${product.info.default_price}</div>
-            </div>
-          </li>
-
+      <div className="card">
+        <div className="card-image" style={prodIMGStyle}>
+          <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg" onClick={(event) => handleOutfitClick()}></img>
+        </div>
+        <div className="card-footer">
+            <div className="card-content-category">{product.info.category}</div>
+            <div className="card-content-name">{product.info.name}</div>
+            <div className="card-content-slogan">{product.info.description}</div>
+            <div className="card-content-price">${product.info.default_price}</div>
+        </div>
+      </div>
     );
   } else { return null; }
 };
