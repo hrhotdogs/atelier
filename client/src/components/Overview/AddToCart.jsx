@@ -101,7 +101,7 @@ const AddToCart = ({currentStyle}) => {
       <div style={{height: '15px', color: 'red', marginBottom: '10px'}}>{showSelectSizeWarning()}</div>
       <div className='cartRow'>
         <div className='sort-menu' style={{marginLeft: '0', marginTop: '0'}}>
-          <select className='sort-options' id='sizeSort' value={selectedSize} onChange={(e) => handleOptionChange(e, 'size')}>
+          <select className='sort-options' id='sizeSort' value={selectedSize} onChange={(e) => handleOptionChange(e, 'size')} tabIndex='4'>
             <option disabled hidden>Select size</option>
             {sizes.map((size, index) => (
               <option value={size} key={index}>{size}</option>
