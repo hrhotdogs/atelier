@@ -41,7 +41,7 @@ const EachOutfitCard = (props) => {
   return (
     <li className="card" data-testid="outfitCard-1">
       <div className="card-image" style={prodIMGStyle}>
-        <img className="add-image" src="https://as2.ftcdn.net/v2/jpg/01/18/56/07/1000_F_118560777_NB7KWVB2THqgGcFhOsQB0NytC6uLnhz0.jpg" onClick={event => {handleOutfitClick()}}></img>
+        <img className="add-image" alt='minus icon' src="https://as2.ftcdn.net/v2/jpg/01/18/56/07/1000_F_118560777_NB7KWVB2THqgGcFhOsQB0NytC6uLnhz0.jpg" onClick={event => {handleOutfitClick()}}></img>
       </div>
       <div className="card-footer">
           <div className="card-content-category">{props.outfit.info.category}</div>
