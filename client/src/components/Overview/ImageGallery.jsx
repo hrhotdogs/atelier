@@ -60,7 +60,7 @@ const ImageGallery = ({currentStyle}) => {
     if (selectedThumbnailIndex > 0) {
       return (
         <div className='arrowContainer arrowLeftContainer'>
-          <div className='arrowBox' onClick={handleArrowBackClick} tabIndex='1' onKeyDown={handleArrowBackClick}>
+          <div className='arrowBox' onClick={handleArrowBackClick} onKeyDown={handleArrowBackClick}>
             <i className='arrow left mainBoxArrow'></i>
           </div>
         </div>
@@ -72,7 +72,7 @@ const ImageGallery = ({currentStyle}) => {
     if (selectedThumbnailIndex !== currentStyle.photos.length - 1) {
       return (
         <div className='arrowContainer arrowRightContainer'>
-          <div onClick={handleArrowForwardClick} className='arrowBox' tabIndex='0' onKeyDown={handleArrowForwardClick}>
+          <div onClick={handleArrowForwardClick} className='arrowBox' onKeyDown={handleArrowForwardClick}>
             <i className='arrow right mainBoxArrow'></i>
           </div>
         </div>
