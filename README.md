@@ -6,7 +6,7 @@ E-commerce product details webpage including product overview, related products,
 <a href="https://github.com/ryan-leigh">Ryan Leigh</a>,
 <a href="https://github.com/roshanupatel">Roshan Patel</a>,
 <a href="https://github.com/jredboyz">Joseph Redmond</a>,
-<a href="https://github.com/sean-mcodes">Sean McEntagart</a>,
+<a href="https://github.com/sean-mcodes">Sean McEntagart</a>
 
 Built using:<br>
 <a href="https://reactjs.org/">![-react](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)</a>
